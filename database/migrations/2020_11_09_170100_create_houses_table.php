@@ -31,7 +31,7 @@ class CreateHousesTable extends Migration
             $table->float('long', 6, 3);
             $table->float('lat', 5, 3);
             $table->string('img');
-            $table->boolean('visible');
+            $table->boolean('visible')->default('1');
             $table->timestamps();
         });
     }

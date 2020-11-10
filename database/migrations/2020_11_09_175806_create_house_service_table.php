@@ -23,7 +23,6 @@ class CreateHouseServiceTable extends Migration
             ->constrained('services')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
         });
     }
 

@@ -15,5 +15,4 @@ class Service extends Model
     public function houses(){
         return $this->belongsToMany('App\House');
     }
-
 }
