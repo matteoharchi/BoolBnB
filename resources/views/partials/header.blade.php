@@ -1,41 +1,59 @@
 <div class="container">
-    <div class="container-logo">
+    <div class="container-logo d-flex justify-content-around align-items-center">
         {{-- primo container --}}
-        <div class="logo1">
-            <div class="logo">
+        <div class="logo">
+            <div>
                 <h1>BoolBnB</h1>
             </div>
         </div>
 
         {{-- secondo container --}}
-        <div class="logo2">
-            <nav>
-                <ul>
-                    <li><a href="#">navbar</a></li>
-                    <li><a href="#">navbar</a></li>
-                    <li><a href="#">navbar</a></li>
+        <div>
+            <nav class="navbar navbar-expand-lg">
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Alloggi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Esperienze</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Esperienze online</a>
+                  </li>
                 </ul>
+              </div>
             </nav>
         </div>
 
         {{-- terzo container --}}
-        <div class="logo3">
-            <nav>
-                <ul>
-                    <li><a href="#">login</a></li>
-                    <li><a href="#">login</a></li>
-                    <li><a href="#">login</a></li>
+        <div>
+            <nav class="navbar navbar-expand-lg">
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Diventa un host</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-globe"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user-circle"></i></a>
+                  </li>
                 </ul>
+              </div>
             </nav>
         </div>
 
 
     </div>
 
-    <div class="container-ricerca">
-        <div class="ricerca">
-            <input type="text" placeholder="Dove vuoi andare?">
-        </div>
+    <div class="container-search d-flex justify-content-center align-items-center">
+        <nav class="navbar">
+          <form class="form-inline">
+            <input class="form-control form-control-lg" type="search" placeholder="Dove vuoi andare?">
+          </form>
+        </nav>
     </div>
 
 </div>

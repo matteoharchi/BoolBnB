@@ -2,24 +2,24 @@
 @section('content')
     <div class="container">
         {{-- checkboxes --}}
-        <div class="filtro d-flex justify-content-around">
+        <div class="filter d-flex justify-content-around mb-5">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+              <label class="custom-control-label" for="customCheck1">Wi-Fi</label>
             </div>
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+              <input type="checkbox" class="custom-control-input" id="customCheck2">
+              <label class="custom-control-label" for="customCheck2">Piscina</label>
             </div>
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+              <input type="checkbox" class="custom-control-input" id="customCheck3">
+              <label class="custom-control-label" for="customCheck3">Parcheggio</label>
             </div>
         </div>
 
         {{-- cards --}}
         <div class="card-group d-flex flex-column">
-              <div class="card mb-2">
+              <div class="card mb-5">
                 <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -29,7 +29,7 @@
                   <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
               </div>
-              <div class="card mb-2">
+              <div class="card mb-5">
                 <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -39,7 +39,7 @@
                   <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
               </div>
-              <div class="card mb-2">
+              <div class="card mb-5">
                 <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -52,7 +52,7 @@
         </div>
 
         <div class="card-group d-flex flex-column">
-          <div class="card mb-2">
+          <div class="card mb-5">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
@@ -62,7 +62,7 @@
               <small class="text-muted">Last updated 3 mins ago</small>
             </div>
           </div>
-          <div class="card mb-2">
+          <div class="card mb-5">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
@@ -72,7 +72,7 @@
               <small class="text-muted">Last updated 3 mins ago</small>
             </div>
           </div>
-          <div class="card mb-2">
+          <div class="card mb-5">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>

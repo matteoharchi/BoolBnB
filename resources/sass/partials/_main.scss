@@ -1,9 +1,20 @@
 main{
-    background-color: lightgray;
+    background-color: #00234f;
 
     .container{
         padding: 50px 0;
 
+        .title h2{
+            color: #0cd977;
+        }
+
+        label{
+            color: #0cd977;
+        }
+
+        .card-group .card{
+            border-radius: 0.25rem;
+        }
     }
 
 }

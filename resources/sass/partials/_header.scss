@@ -1,38 +1,15 @@
 header{
-    background-color: red;
-    height: 100px;
+    background-color: #0cd977;
     .container-logo{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-        .logo1{
-
+        .logo div h1{
+            font-weight: bolder;
+            color: #00234f;
         }
 
-        .logo2 nav ul{
-            display: flex;
-            justify-content: space-between;
-
-            li{
-                list-style: none;
-            }
+        .navbar-nav .nav-item a{
+            color: #00234f;
+            text-decoration: none;
         }
 
-        .logo3 nav ul{
-            display: flex;
-            justify-content: space-between;
-
-            li{
-                list-style: none;
-            }
-        }
-
-
-    }
-    .container-ricerca{
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 }

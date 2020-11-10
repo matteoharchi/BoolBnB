@@ -10910,50 +10910,41 @@ a.text-dark:focus {
 }
 
 header {
-  background-color: red;
-  height: 100px;
+  background-color: #0cd977;
 }
 
-header .container-logo {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+header .container-logo .logo div h1 {
+  font-weight: bolder;
+  color: #00234f;
 }
 
-header .container-logo .logo2 nav ul {
-  display: flex;
-  justify-content: space-between;
-}
-
-header .container-logo .logo2 nav ul li {
-  list-style: none;
-}
-
-header .container-logo .logo3 nav ul {
-  display: flex;
-  justify-content: space-between;
-}
-
-header .container-logo .logo3 nav ul li {
-  list-style: none;
-}
-
-header .container-ricerca {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+header .container-logo .navbar-nav .nav-item a {
+  color: #00234f;
+  text-decoration: none;
 }
 
 main {
-  background-color: lightgray;
+  background-color: #00234f;
 }
 
 main .container {
   padding: 50px 0;
 }
 
+main .container .title h2 {
+  color: #0cd977;
+}
+
+main .container label {
+  color: #0cd977;
+}
+
+main .container .card-group .card {
+  border-radius: 0.25rem;
+}
+
 footer {
-  background-color: lightgreen;
+  background-color: #0cd977;
   height: 100px;
 }
 

@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/ricerca', function () {
-    return view('ricerca');
+Route::get('/search', function () {
+    return view('search');
 });
 
 Auth::routes();

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="titolo d-flex justify-content-center align-items-center">
+        <div class="title d-flex justify-content-center align-items-center">
             <h2>Gli appartamenti in evidenza</h2>
         </div>
         <div class="card-group">
-              <div class="card">
+              <div class="card m-4">
                 <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -15,7 +15,7 @@
                   <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
               </div>
-              <div class="card">
+              <div class="card m-4">
                 <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -25,7 +25,7 @@
                   <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
               </div>
-              <div class="card">
+              <div class="card m-4">
                 <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="card-group">
-          <div class="card">
+          <div class="card m-4">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
@@ -48,7 +48,7 @@
               <small class="text-muted">Last updated 3 mins ago</small>
             </div>
           </div>
-          <div class="card">
+          <div class="card m-4">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
@@ -58,7 +58,7 @@
               <small class="text-muted">Last updated 3 mins ago</small>
             </div>
           </div>
-          <div class="card">
+          <div class="card m-4">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
