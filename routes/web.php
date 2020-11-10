@@ -30,3 +30,6 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
 Route::get('/', 'HouseController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('houses/show/{slug}', 'HouseController@show')->name('houses.show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

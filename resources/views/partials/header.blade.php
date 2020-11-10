@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="container-logo d-flex justify-content-around align-items-center">
+    <div class="container-logo d-flex justify-content-between align-items-center">
         {{-- primo container --}}
         <div class="logo">
             <div>
@@ -25,10 +25,10 @@
               </div>
             </nav>
         </div>
-        <ul class="navbar-nav d-flex">
+        <ul class="navbar-nav flex-row">
           <!-- Authentication Links -->
           @guest
-              <li class="nav-item">
+              <li class="nav-item mr-3">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
               </li>
               @if (Route::has('register'))
