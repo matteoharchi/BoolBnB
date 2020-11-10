@@ -1,0 +1,38 @@
+header{
+    background-color: red;
+    height: 100px;
+    .container-logo{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .logo1{
+
+        }
+
+        .logo2 nav ul{
+            display: flex;
+            justify-content: space-between;
+
+            li{
+                list-style: none;
+            }
+        }
+
+        .logo3 nav ul{
+            display: flex;
+            justify-content: space-between;
+
+            li{
+                list-style: none;
+            }
+        }
+
+
+    }
+    .container-ricerca{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
