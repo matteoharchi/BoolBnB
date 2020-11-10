@@ -14,5 +14,11 @@ class HouseController extends Controller
           return view('home', compact('houses'));
 
         }
+
+        public function show($slug){
+          $house = House::where('slug', $slug)->first();
+
+          return view('show', compact('house'));
+        }
     
 }

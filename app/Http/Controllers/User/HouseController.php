@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\User;
+use App\Http\Controllers\Controller;
+use App\House;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +15,7 @@ class HouseController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.index');
     }
 
     /**

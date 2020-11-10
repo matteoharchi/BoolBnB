@@ -15,13 +15,13 @@
               </p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated at {{$house->updated_at}}</small>
+             
+            <a href="{{route('houses.show', $house->slug)}}" class="btn btn-success">Dettagli</a>
+              <small class="text-muted">Ultima modifica alle {{$house->updated_at}}</small>
+
             </div>
           </div>
           @endforeach
-         
-
-          
         </div>
         {{ $houses->links() }}
     </div>

@@ -23,5 +23,10 @@ Route::get('/search', function () {
 
 Auth::routes();
 
+Route::prefix('user')->namespace('User')->middleware('auth')->group(function () {
+    Route::resource('houses', 'HouseController');
+    });
+
 Route::get('/', 'HouseController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('houses/show/{slug}', 'HouseController@show')->name('houses.show');
