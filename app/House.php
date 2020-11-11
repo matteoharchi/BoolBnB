@@ -19,7 +19,8 @@ class House extends Model
         'img',
         'long',
         'lat',
-        'visible'
+        'visible',
+        'price'
     ];
 
     public function user(){

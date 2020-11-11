@@ -14,6 +14,11 @@
         </div>
       </div>
     </div>
-    
+    <form action="{{route('houses.destroy', $house->id)}}" method="post">
+    @csrf
+    @method('DELETE')
+      <button type="submit" class="btn btn-danger">Cancella</button>
+    </form>
+
 </div>
 @endsection
