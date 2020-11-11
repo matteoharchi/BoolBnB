@@ -26,6 +26,8 @@ Auth::routes();
 Route::prefix('user')->namespace('User')->middleware('auth')->group(function () {
     Route::resource('settings/houses', 'HouseController');
     Route::get('/settings', 'HouseController@index');
+    Route::post('/settings/updateinfo', 'UserController@update')->name('user.update');
+
     });
 
 Route::get('/', 'HouseController@index');

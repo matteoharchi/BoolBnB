@@ -67,6 +67,13 @@
             <label for="description">Descrizione</label>
             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
         </div>
+        <p>Servizi:</p>
+        <div class="form-group">
+        @foreach ($services as $service)
+            <label for="{{$service->name}}">{{$service->name}}</label>
+            <input  type="checkbox" class="form-control" id="{{$service->name}}" name='services[]' value="{{$service->id}}">
+        @endforeach
+        </div>
         {{-- INSERIMENTO IMMAGINI --}}
         <button type="submit" class="btn btn-primary float-right">Crea annuncio</button>
     </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\House;
+use App\Service;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -18,6 +19,7 @@ class HouseController extends Controller
      */
     public function index()
     {
+        
         return view('user.index');
     }
 
@@ -28,7 +30,8 @@ class HouseController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $services = Service::all();
+        return view('user.create', compact('services'));
     }
 
     /**
@@ -57,6 +60,9 @@ class HouseController extends Controller
         $newHouse= new House;
         $newHouse->fill($data);
         $saved=$newHouse->save();
+        if (!empty($data['services'])) {
+            $newHouse->services()->attach($data['services']);
+        }
         if ($saved) {
             return redirect()->route('houses.index');
         }

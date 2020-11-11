@@ -12,7 +12,7 @@
         </div>
         <div class="col-10">
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"></div>
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><edit-user></edit-user></div>
                 <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><houses></houses></div>
                 <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
                 <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
