@@ -20,8 +20,9 @@ class HouseController extends Controller
      */
     public function index()
     {
-        
-        return view('user.index');
+        $yourHouses = House::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
+        dd(gettype($yourHouses));
+        return view('user.index', compact('yourHouses'));
     }
 
     /**

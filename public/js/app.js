@@ -2006,22 +2006,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -37781,60 +37765,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "list-group" }, [
-        _c(
-          "a",
-          {
-            staticClass:
-              "list-group-item list-group-item-action flex-column align-items-start active",
-            attrs: { href: "#" }
-          },
-          [
-            _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
-              _c("h5", { staticClass: "mb-1" }, [
-                _vm._v("List group item heading")
-              ]),
-              _vm._v(" "),
-              _c("small", [_vm._v("3 days ago")])
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "mb-1" }, [
-              _vm._v(
-                "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit."
-              )
-            ]),
-            _vm._v(" "),
-            _c("small", [_vm._v("Donec id elit non mi porta.")])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "list-group-item list-group-item-action flex-column align-items-start",
-            attrs: { href: "#" }
-          },
-          [
-            _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
-              _c("h5", { staticClass: "mb-1" }, [
-                _vm._v("List group item heading")
-              ]),
-              _vm._v(" "),
-              _c("small", { staticClass: "text-muted" }, [_vm._v("3 days ago")])
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "mb-1" }, [
-              _vm._v(
-                "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit."
-              )
-            ]),
-            _vm._v(" "),
-            _c("small", { staticClass: "text-muted" }, [
-              _vm._v("Donec id elit non mi porta.")
-            ])
-          ]
-        ),
-        _vm._v(" "),
         _c(
           "a",
           {
