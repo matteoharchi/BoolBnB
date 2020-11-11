@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\House;
 use App\Service;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -57,6 +58,7 @@ class HouseController extends Controller
         $data['user_id']=Auth::id();
         $data['created_at'] = Carbon::now('Europe/Rome');
         $data['updated_at'] = $data['created_at'];
+        $data['img']= Storage::disk('public')->put('images', $data['img']);
         $newHouse= new House;
         $newHouse->fill($data);
         $saved=$newHouse->save();
@@ -87,7 +89,8 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
-        return view('user.edit', compact('house'));
+        $services = Service::all();
+        return view('user.edit', compact('house', 'services'));
     }
 
     /**
@@ -113,11 +116,24 @@ class HouseController extends Controller
         ]);
         $data['slug']=Str::slug($data['title'], '-');
         $data['updated_at'] = Carbon::now('Europe/Rome');
-        $data['user_id']=Auth::id();
+        // $data['user_id']=Auth::id();
+        if (!empty($data['img'])) {
+            if (!empty($house->img)) {
+                Storage::disk('public')->delete($house->img);
+            }
+            $data['img'] = Storage::disk('public')->put('images', $data['img']);
+        }
+        if (!empty($data['services'])) {
+            $house->services()->sync($data['services']);
+        }else {
+            $house->services()->detach();
+        }
         $updated=$house->update($data);
+
         if ($updated) {
             return redirect()->route('houses.index')->with('status', 'Hai modificato l\'annuncio correttamente');
         }
+
     }
 
     /**

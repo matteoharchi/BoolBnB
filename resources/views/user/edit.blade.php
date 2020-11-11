@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <form action="{{route('houses.update', $house->id)}}" method="POST">
+    <form action="{{route('houses.update', $house->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="form-group">
@@ -66,6 +66,18 @@
         <div class="form-group">
             <label for="description">Descrizione</label>
             <textarea class="form-control" id="description" name="description" rows="3" >{{$house->description}}</textarea>
+        </div>
+        <p>Servizi:</p>
+        <div class="form-group">
+        @foreach ($services as $service)
+            <label for="{{$service->name}}">{{$service->name}}</label>
+            <input  type="checkbox" class="form-control" id="{{$service->name}}" name='services[]' value="{{$service->id}}"{{$house->services->contains($service->id)?'checked':''}}>
+        @endforeach
+        </div>
+        <img src="{{Storage::url($house->img)}}" alt="{{$house->slug}}" width="300px">
+        <div class="form-group">
+            <label for="img">Cambia la foto della tua casa di merda</label>
+            <input type="file" accept="image/*" class="form-control" id="img" name="img">
         </div>
         {{-- INSERIMENTO IMMAGINI --}}
         <button type="submit" class="btn btn-primary float-right">Modifica annuncio</button>

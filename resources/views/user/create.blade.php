@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <form action="{{route('houses.store')}}" method="POST">
+    <form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')
         <div class="form-group">
@@ -73,6 +73,11 @@
             <label for="{{$service->name}}">{{$service->name}}</label>
             <input  type="checkbox" class="form-control" id="{{$service->name}}" name='services[]' value="{{$service->id}}">
         @endforeach
+        </div>
+
+        <div class="form-group">
+            <label for="img">Metti la foto della tua casa di merda</label>
+            <input type="file" accept="image/*" class="form-control" id="img" name="img">
         </div>
         {{-- INSERIMENTO IMMAGINI --}}
         <button type="submit" class="btn btn-primary float-right">Crea annuncio</button>
