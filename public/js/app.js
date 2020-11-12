@@ -2006,7 +2006,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['your_houses', 'route_home']
+});
 
 /***/ }),
 
@@ -37756,18 +37762,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "list-group" }, [
-        _c(
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "list-group" },
+      _vm._l(_vm.your_houses, function(your_house) {
+        return _c(
           "a",
           {
+            key: your_house.id,
             staticClass:
               "list-group-item list-group-item-action flex-column align-items-start",
             attrs: { href: "#" }
@@ -37775,16 +37778,24 @@ var staticRenderFns = [
           [
             _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
               _c("h5", { staticClass: "mb-1" }, [
-                _vm._v("List group item heading")
+                _vm._v(_vm._s(your_house.title))
               ]),
               _vm._v(" "),
-              _c("small", { staticClass: "text-muted" }, [_vm._v("3 days ago")])
+              _c("div", { staticClass: "icons" }, [
+                _c("span", { staticClass: "text-muted mr-2" }, [
+                  _c("a", { attrs: { href: _vm.route_home } }, [
+                    _c("i", { staticClass: "fas fa-eye" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true),
+                _vm._v(" "),
+                _vm._m(1, true)
+              ])
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "mb-1" }, [
-              _vm._v(
-                "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit."
-              )
+              _vm._v(_vm._s(your_house.description))
             ]),
             _vm._v(" "),
             _c("small", { staticClass: "text-muted" }, [
@@ -37792,7 +37803,26 @@ var staticRenderFns = [
             ])
           ]
         )
-      ])
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-muted mr-2" }, [
+      _c("a", [_c("i", { staticClass: "fas fa-edit" })])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-muted mr-2" }, [
+      _c("a", [_c("i", { staticClass: "fas fa-trash-alt" })])
     ])
   }
 ]

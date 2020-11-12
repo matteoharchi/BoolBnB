@@ -3,7 +3,7 @@
 <div class="container">
     <div class="card-group">
       <div class="card m-4">
-        <img class="card-img-top" src="{{$house->img}}" alt="{{$house->title}}">
+        <img class="card-img-top" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}" alt="{{$house->title}}">
         <div class="card-body">
           <h5 class="card-title">{{$house->title}}</h5>
           <p class="card-text">{{Str::substr($house->description, 0, 200). "..."}}
