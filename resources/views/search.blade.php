@@ -1,87 +1,102 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-        {{-- checkboxes --}}
-        <div class="filter d-flex justify-content-around mb-5">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Wi-Fi</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck2">
-              <label class="custom-control-label" for="customCheck2">Piscina</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck3">
-              <label class="custom-control-label" for="customCheck3">Parcheggio</label>
-            </div>
-        </div>
+<div class="ml-auto" id="map-example-container"></div>
 
-        {{-- cards --}}
-        <div class="card-group d-flex flex-column">
-              <div class="card mb-5">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-              </div>
-              <div class="card mb-5">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-              </div>
-              <div class="card mb-5">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-              </div>
-        </div>
 
-        <div class="card-group d-flex flex-column">
-          <div class="card mb-5">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
-    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+<script>
+(function() {
+  var placesAutocomplete = places({
+    appId: 'pl0HV962CP1I',
+    apiKey: '6d8ad5a03272f61b882a985b5180435d',
+    container: document.querySelector('#input-map')
+  });
+
+  var map = L.map('map-example-container', {
+    scrollWheelZoom: false,
+    zoomControl: false
+  });
+
+  var osmLayer = new L.TileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      minZoom: 5,
+      maxZoom: 13,
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+    }
+  );
+
+  var markers = [];
+
+  map.setView(new L.LatLng(0, 0), 1);
+  map.addLayer(osmLayer);
+
+  placesAutocomplete.on('suggestions', handleOnSuggestions);
+  placesAutocomplete.on('cursorchanged', handleOnCursorchanged);
+  placesAutocomplete.on('change', handleOnChange);
+  placesAutocomplete.on('clear', handleOnClear);
+
+  function handleOnSuggestions(e) {
+    markers.forEach(removeMarker);
+    markers = [];
+
+    if (e.suggestions.length === 0) {
+      map.setView(new L.LatLng(0, 0), 1);
+      return;
+    }
+
+    e.suggestions.forEach(addMarker);
+    findBestZoom();
+  }
+
+  function handleOnChange(e) {
+    markers
+      .forEach(function(marker, markerIndex) {
+        if (markerIndex === e.suggestionIndex) {
+          markers = [marker];
+          marker.setOpacity(1);
+          findBestZoom();
+        } else {
+          removeMarker(marker);
+        }
+      });
+  }
+
+  function handleOnClear() {
+    map.setView(new L.LatLng(0, 0), 1);
+    markers.forEach(removeMarker);
+  }
+
+  function handleOnCursorchanged(e) {
+    markers
+      .forEach(function(marker, markerIndex) {
+        if (markerIndex === e.suggestionIndex) {
+          marker.setOpacity(1);
+          marker.setZIndexOffset(1000);
+        } else {
+          marker.setZIndexOffset(0);
+          marker.setOpacity(0.5);
+        }
+      });
+  }
+
+  function addMarker(suggestion) {
+    var marker = L.marker(suggestion.latlng, {opacity: .4});
+    marker.addTo(map);
+    markers.push(marker);
+  }
+
+  function removeMarker(marker) {
+    map.removeLayer(marker);
+  }
+
+  function findBestZoom() {
+    var featureGroup = L.featureGroup(markers);
+    map.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
+  }
+})();
+</script>
+
 @endsection
+

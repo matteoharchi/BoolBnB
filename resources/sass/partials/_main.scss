@@ -17,5 +17,8 @@ main{
             border-radius: 0.25rem;
         }
     }
-
+    #map-example-container {
+        width: 50%;
+        min-height: calc(100vh - 216px);
+    }
 }

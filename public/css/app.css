@@ -10944,6 +10944,11 @@ main .container .card-group .card {
   border-radius: 0.25rem;
 }
 
+main #map-example-container {
+  width: 50%;
+  min-height: calc(100vh - 216px);
+}
+
 footer {
   background-color: #0cd977;
   height: 100px;

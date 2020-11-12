@@ -86,7 +86,16 @@
     <div class="container-search d-flex justify-content-center align-items-center">
         <nav class="navbar">
           <form class="form-inline">
-            <input class="form-control form-control-lg" type="search" placeholder="Dove vuoi andare?">
+            <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
+
+            <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+            <script>
+              var placesAutocomplete = places({
+                appId: 'pl0HV962CP1I',
+                apiKey: '6d8ad5a03272f61b882a985b5180435d',
+                container: document.querySelector('#address-input')
+              });
+            </script>
           </form>
         </nav>
     </div>
