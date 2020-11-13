@@ -68,10 +68,10 @@
             <textarea class="form-control" id="description" name="description" rows="3" >{{$house->description}}</textarea>
         </div>
         <p>Servizi:</p>
-        <div class="form-group">
-        @foreach ($services as $service)
-            <label for="{{$service->name}}">{{$service->name}}</label>
-            <input  type="checkbox" class="form-control" id="{{$service->name}}" name='services[]' value="{{$service->id}}"{{$house->services->contains($service->id)?'checked':''}}>
+         <div class="form-group d-flex align-items-center">
+        @foreach ($services as $service)          
+            <label class="mr-2  mb-0" for="{{$service->name}}">{{$service->name}}</label>
+            <input  type="checkbox" class="mr-4" id="{{$service->name}}" name='services[]' value="{{$service->id}}">
         @endforeach
         </div>
         <img src="{{Storage::url($house->img)}}" alt="{{$house->slug}}" width="300px">
@@ -81,6 +81,12 @@
         </div>
         {{-- INSERIMENTO IMMAGINI --}}
         <button type="submit" class="btn btn-primary float-right">Modifica annuncio</button>
+        
+    </form>
+    <form action="{{route('houses.destroy', $house->id)}}" method="post">
+    @csrf
+    @method('DELETE')
+        <button type="submit" class="btn btn-danger">Cancella</button>
     </form>
 </div>    
 @endsection

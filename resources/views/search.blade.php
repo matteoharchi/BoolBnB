@@ -22,7 +22,7 @@
   var osmLayer = new L.TileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       minZoom: 5,
-      maxZoom: 13,
+      maxZoom: 15,
       attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
     }
   );
