@@ -28,8 +28,8 @@ class CreateHousesTable extends Migration
             $table->smallInteger('price');
             $table->integer('size');
             $table->string('address');
-            $table->float('long', 6, 3)->nullable();
-            $table->float('lat', 5, 3)->nullable();
+            $table->float('long', 9, 6)->nullable();
+            $table->float('lat', 8, 6)->nullable();
             $table->string('img')->nullable();
             $table->boolean('visible')->default('1');
             $table->timestamps();

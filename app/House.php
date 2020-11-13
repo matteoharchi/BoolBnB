@@ -32,10 +32,12 @@ class House extends Model
     }
 
     public function messages(){
-        return $this->hasMany('App\Messsage');
+        return $this->hasMany('App\Message');
     }
 
-    
-    
+    public function sponsors() {
+        return $this->belongsToMany('App\Sponsor')->withPivot('house_id', 'sponsor_id', 'start_date', 'end_date');
+    }
+
 }
 
