@@ -18,8 +18,4 @@ class Message extends Model
         return $this->belongsTo('App\House');
     }
 
-    public function user(){
-        return $this->belongsTo('App\User');
-    }
-
 }
