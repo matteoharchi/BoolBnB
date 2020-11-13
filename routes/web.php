@@ -22,17 +22,18 @@ Route::get('/search', function () {
 });
 
 Auth::routes();
-
+//rotte case di user
 Route::prefix('user')->namespace('User')->middleware('auth')->group(function () {
     Route::resource('settings/houses', 'HouseController');
     Route::get('/settings', 'HouseController@index');
     // Route::post('/settings/updateinfo', 'UserController@update')->name('user.update');
     Route::get('/settings/houses/show/{slug}', 'HouseController@show');
     });
-
+//rotte case guest
 Route::get('/', 'HouseController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('houses/show/{slug}', 'HouseController@show')->name('houses.show');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+//rotte messaggi
+Route::resource('/messages', 'MessageController');

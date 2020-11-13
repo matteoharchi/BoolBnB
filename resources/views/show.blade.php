@@ -16,19 +16,21 @@
         </div>
       </div>
       <div class="col-6">
-        <form>
+        <form action="{{route('messages.store')}}" method="POST">
+        @csrf
+        @method('POST')
           <div class="form-group">
             <label for="email">Il tuo indirizzo mail</label>
-            <input type="email" class="form-control" id="email" placeholder="porco@dio.com">
+          <input type="email" class="form-control" id="sender_email" placeholder="porco@dio.com" value="{{Auth::check() ? Auth::user()->email : ''}}" name="sender_email">
           </div>
           <div class="form-group">
             <label for="object">Oggetto</label>
-            <input type="text" class="form-control" id="object" placeholder="Inserisci il tuo cazzo di titolo">
+            <input type="text" class="form-control" id="object" placeholder="Inserisci il tuo cazzo di titolo" name="object">
           </div>
 
           <div class="form-group">
             <label for="body">Domanda</label>
-            <textarea class="form-control" id="body" rows="6"></textarea>
+            <textarea class="form-control" id="body" rows="6" name="body"></textarea>
           </div>
           <button type="submit" class="btn btn-primary float-right mt-3">Invia la tua domanda del cazzo</button>
 

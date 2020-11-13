@@ -10925,7 +10925,7 @@ header .container-logo .navbar-nav .nav-item a {
 
 main {
   background-color: #00234f;
-  min-height: calc(100vh - 216px);
+  min-height: calc(100vh - 200px);
 }
 
 main .container {
