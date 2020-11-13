@@ -91,7 +91,13 @@ class HouseController extends Controller
     public function edit(House $house)
     {
         $services = Service::all();
-        return view('user.edit', compact('house', 'services'));
+
+        // Controllo se l'id dell'utente corrisponde all'id proprietario della casa
+        if ($house->user_id == Auth::id()) {
+            return view('user.edit', compact('house', 'services'));
+        }  else {
+           abort(404);
+        }
     }
 
     /**
