@@ -3,7 +3,7 @@
         {{-- primo container --}}
         <div class="logo">
             <div>
-                <h1>BoolBnB</h1>
+            <a href="{{route('home')}}"><h1>BoolBnB</h1></a> 
             </div>
         </div>
 

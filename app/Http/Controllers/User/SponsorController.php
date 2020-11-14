@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-use Carbon\Carbon;
-use App\Message;
+namespace App\Http\Controllers\User;
+use App\Http\Controllers\Controller;
+use App\Sponsor;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class SponsorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+    
     }
 
     /**
@@ -24,7 +24,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.sponsor.create');
     }
 
     /**
@@ -35,21 +35,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->all();
-        $request->validate([
-            'sender_mail' => 'required|email:rfc|',
-            'object' => 'required|max:200',
-            'body' => 'required|max:3000',
-        ]);
-        $data['created_at']=Carbon::now('Europe/Rome');
-        $data['updated_at']=Carbon::now('Europe/Rome');
-        $newMessage = new Message;
-        $newMessage->fill($data);
-        $saved= $newMessage->save();
-        if ($saved) {
-            return redirect(Request::url());
-        }
-        
+        //
     }
 
     /**

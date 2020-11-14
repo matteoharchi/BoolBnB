@@ -18,7 +18,11 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    {{-- Pagamento --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
+    {{-- app.js --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
     <title>@yield('titolo')</title>
 </head>
 <body>

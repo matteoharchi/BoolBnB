@@ -28,6 +28,10 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
     Route::get('/settings', 'HouseController@index');
     // Route::post('/settings/updateinfo', 'UserController@update')->name('user.update');
     Route::get('/settings/houses/show/{slug}', 'HouseController@show');
+    //rotte sponsor
+    Route::resource('settings/houses/sponsor', 'SponsorController');
+    //rotte messaggi
+    Route::resource('settings/houses/messages', 'MessageController');
     });
 //rotte case guest
 Route::get('/', 'HouseController@index');
@@ -35,5 +39,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('houses/show/{slug}', 'HouseController@show')->name('houses.show');
 
 
-//rotte messaggi
-Route::resource('/messages', 'MessageController');
