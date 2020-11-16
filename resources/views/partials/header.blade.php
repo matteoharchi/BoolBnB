@@ -1,13 +1,19 @@
-<div class="container">
-    <div class="container-logo d-flex justify-content-between align-items-center">
-        {{-- primo container --}}
+<div class="container-header d-flex flex-column">
+
+    {{-- container-logo --}}
+
+    <div class="container-logo d-flex justify-content-around align-items-center">
+
+        {{-- logo --}}
+
         <div class="logo">
             <div>
-            <a href="{{route('home')}}"><h1>BoolBnB</h1></a> 
+            <a href="{{route('home')}}"><h1><i class="fab fa-airbnb"></i> airbnb</h1></a> 
             </div>
         </div>
 
-        {{-- secondo container --}}
+        {{-- navbar centrale --}}
+
         <div>
             <nav class="navbar navbar-expand-lg">
               <div class="collapse navbar-collapse">
@@ -25,8 +31,10 @@
               </div>
             </nav>
         </div>
+
+        {{-- Authentication Links --}}
+
         <ul class="navbar-nav flex-row">
-          <!-- Authentication Links -->
           @guest
               <li class="nav-item mr-3">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -60,34 +68,15 @@
           @endguest
       </ul>
 
-        {{-- terzo container --}}
-        {{-- <div>
-            <nav class="navbar navbar-expand-lg">
-              <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Diventa un host</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-globe"></i></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user-circle"></i></a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-        </div> --}}
-
-
-
     </div>
 
-    <div class="container-search d-flex justify-content-center align-items-center">
-        <nav class="navbar">
-          <form class="form-inline">
-            <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
+    {{-- container-search --}}
 
+    <div class="container-search d-flex justify-content-center align-items-center">
+
+        <nav class="navbar">
+          <form class="form-inline d-flex justify-content-center">
+            <input type="search" id="input-map" class="form-control" placeholder="Dove vuoi andare?"/>
             <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
             <script>
               var placesAutocomplete = places({
@@ -96,8 +85,10 @@
                 container: document.querySelector('#address-input')
               });
             </script>
+            <button type="submit" class="btnred"><i class="fas fa-search"></i></button>
           </form>
         </nav>
+
     </div>
 
 </div>

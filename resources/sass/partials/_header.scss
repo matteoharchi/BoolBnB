@@ -1,15 +1,44 @@
-header{
-    background-color: #0cd977;
-    .container-logo{
+.container-header {
+    background-image: url("img/img1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    
+    .container-logo {
+        height: 20%;
         .logo div h1{
             font-weight: bolder;
-            color: #00234f;
+            color: white;
+            margin: 0 20px;
         }
 
         .navbar-nav .nav-item a{
-            color: #00234f;
+            color: white;
             text-decoration: none;
+            margin: 0 20px;
         }
-
     }
+
+    .container-search {
+        height: 20%;
+        .navbar {
+            width: 100%;
+        }
+        .form-inline {
+            width: 100%;
+        }
+        input {
+            width: 40%;
+            border-radius: 30px;
+            height: 60px;
+            border: none;
+        }
+        button {
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+            border: none;
+        }
+    }
+
 }
