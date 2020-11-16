@@ -3,11 +3,10 @@
 
 // Variables
 @import 'variables';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
 @import 'partials/common';
 @import 'partials/header';
 @import 'partials/main';
 @import 'partials/footer';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

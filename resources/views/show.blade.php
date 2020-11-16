@@ -41,5 +41,29 @@
       </div>
     </div>
 
+    {{-- Div contenente la mappa --}}
+    <div id="map" style="width: 500px; height: 500px; margin: auto"></div>
+    {{-- Script per la mappa (da mettere poi in app.js) --}}
+    <script>
+      var markerCoord = [{{$house->long}}, {{$house->lat}}];
+
+      var map = tt.map({
+          key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq",
+          container: "map",
+          style: "tomtom://vector/1/basic-main",
+          center: markerCoord,
+          zoom: 12
+      });
+
+      var nav = new tt.NavigationControl({});
+      map.addControl(nav, 'top-right');
+
+      var marker = new tt.Marker()
+      .setLngLat(markerCoord)
+      .addTo(map);
+      
+   </script>
+
+
 </div>
 @endsection
