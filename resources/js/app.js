@@ -23,7 +23,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('houses', require('./components/Houses.vue').default);
 Vue.component('edit-user', require('./components/EditUser.vue').default);
 
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32,4 +31,36 @@ Vue.component('edit-user', require('./components/EditUser.vue').default);
 
 const app = new Vue({
     el: '#app',
+});
+
+// Autocomplete address input Tom Tom
+$(document).ready(function () {
+    // Al focus out del campo dell'indirizzo ne salvo il valore e invoco la funzione che lancia la chiamata ajax
+    $('#address').focusout(function () {
+        var address = $('#address').val();
+        searchHouse(address);
+    });
+
+    function searchHouse(query) {
+        $.ajax({
+            url: `https://api.tomtom.com/search/2/geocode/${query}.json?typeahead=true&countrySet=IT`,
+            method: "GET",
+            data: {
+                key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq"
+            },
+            success: function (obj) {
+                getLatLng(obj);
+            },
+            error: function (response) {
+                alert('Errore');
+            }
+        });
+    }
+
+    function getLatLng(data) {
+        // Prendo lat, long e indirizzo completo dal json di risposta e li salvo nei campi input hidden e in quello dell'indirizzo visualizzato a schermo
+        $('#lat').val(data.results[0].position.lat);
+        $('#long').val(data.results[0].position.lon);
+        $('#address').val(data.results[0].address.freeformAddress);
+    }
 });

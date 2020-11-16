@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $error)
+          <p>{{$error}}</p>
+        @endforeach
+    </div>
+    @endif
+    
     <form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -11,6 +19,9 @@
         <div class="form-group">
             <label for="address">Indirizzo</label>
             <input type="text" class="form-control" id="address" name="address" placeholder="Indirizzo">
+
+            <input type="hidden" id="lat" name="lat" value="">
+            <input type="hidden" id="long" name="long" value="">
         </div>
         <div class="sub d-flex width-100">
             <div class="form-group col-2 pl-0">
@@ -81,7 +92,7 @@
             <input type="file" accept="image/*" class="form-control" id="img" name="img">
         </div>
         {{-- INSERIMENTO IMMAGINI --}}
-        <button type="submit" class="btn btn-primary float-right">Crea annuncio</button>
+        <button type="submit" id="create-house" class="btn btn-primary float-right">Crea annuncio</button>
     </form>
 </div>    
     @endsection

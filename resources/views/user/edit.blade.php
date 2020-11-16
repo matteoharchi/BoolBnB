@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $error)
+          <p>{{$error}}</p>
+        @endforeach
+    </div>
+    @endif
+    
     <form action="{{route('houses.update', $house->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
