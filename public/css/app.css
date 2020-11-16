@@ -1,5 +1,56 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #0cd977;
+}
+
+header .container-logo .logo div h1 {
+  font-weight: bolder;
+  color: #00234f;
+}
+
+header .container-logo .navbar-nav .nav-item a {
+  color: #00234f;
+  text-decoration: none;
+}
+
+main {
+  background-color: #00234f;
+  min-height: calc(100vh - 200px);
+}
+
+main .container {
+  padding: 50px 0;
+}
+
+main .container .title h2 {
+  color: #0cd977;
+}
+
+main .container label {
+  color: #0cd977;
+}
+
+main .container .card-group .card {
+  border-radius: 0.25rem;
+}
+
+main #map-example-container {
+  width: 50%;
+  min-height: calc(100vh - 216px);
+}
+
+footer {
+  background-color: #0cd977;
+  height: 100px;
+}
+
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
