@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 
     {{-- container main --}}
@@ -11,14 +12,12 @@
           <h2>Appartamenti in evidenza</h2>
         </div>
 
-        {{-- container-card --}}
+        {{-- card-group--}}
 
-      <div class="container-card d-flex align-items-center pt-0 pb-0">
-
-        <div class="card-group">
+        <div class="card-group scrollMenu">
 
           @foreach ($houses as $house)
-              
+
           <div class="card">
             <img class="card-img-top rounded" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}">
             <div class="card-body">
@@ -27,10 +26,8 @@
               </p>
             </div>
             <div class="card-footer">
-             
             <a href="{{route('houses.show', $house->slug)}}" class="btn btnred">Dettagli</a>
               <small class="text-muted">Ultima modifica alle {{$house->updated_at}}</small>
-
             </div>
           </div>
 
@@ -38,11 +35,11 @@
 
         </div>
 
-      </div>
-
-        <div class="container-pagination d-flex">
+        {{-- <div class="container-pagination d-flex">
           {{ $houses->links() }}
-        </div>
+        </div> --}}
 
     </div>
 @endsection
+
+

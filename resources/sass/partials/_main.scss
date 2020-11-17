@@ -1,6 +1,6 @@
 .container-main {
     background-color: white;
-    height: 1200px;
+    height: 800px;
 
     .container-title {
         height: 20% ;
@@ -14,30 +14,39 @@
         }
     }
 
-    .container-card {
-        height: 70%;
-    .card {
-        border-radius: 10px;
-        border: 5px solid  #f7f7f7;
-    }
+    .scrollMenu {
+        height: 80%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        .card {
+            border-radius: 10px;
+            border: 5px solid  #F7F7F7;
+            flex: 0 0 auto;
+            height: 100%;
+            width: 20%;
+        }
+        .card a {
+            background-color: #ff385c;
+            color: white;
+        }
     }
 
-    .container-pagination {
-         height: 10%;
-         .pagination {
-             display: flex;
-             justify-content: space-around;
-         }
+    // .container-pagination {
+    //      height: 10%;
+    //      .pagination {
+    //          display: flex;
+    //          justify-content: space-around;
+    //      }
 
     li a {
         color:  #ff385c;
     }
 
-    }
+}
 
      #map-example-container {
          width: 50%;
          min-height: calc(100vh - 216px);
         }
 
-}
+

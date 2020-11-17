@@ -9,7 +9,8 @@ class HouseController extends Controller
 {
     
         public function index(){
-          $houses = House::simplePaginate(3);
+          // $houses = House::simplePaginate(3);
+          $houses = House::all();
 
           return view('home', compact('houses'));
 
