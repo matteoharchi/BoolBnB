@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.authlayout')
 @section('content')
 <div class="container">
     @if ($errors->any())
