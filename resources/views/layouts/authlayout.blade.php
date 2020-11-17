@@ -29,6 +29,10 @@
     <title>@yield('titolo')</title>
 </head>
 <body>
+
+        <header>
+            @include('partials/authheader')
+        </header>
     
         <main>
             @yield('content')
