@@ -6,49 +6,118 @@
   box-sizing: border-box;
 }
 
-header {
-  background-color: #0cd977;
+.btnred {
+  background-color: #ff385c;
+  color: white;
 }
 
-header .container-logo .logo div h1 {
+.container-header {
+  background-image: url(/images/img1.jpg?160a04d725f2d1c709c84c42e2185163);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+}
+
+.container-header .container-logo {
+  height: 20%;
+}
+
+.container-header .container-logo .logo div h1 {
   font-weight: bolder;
-  color: #00234f;
+  color: white;
+  margin: 0 20px;
 }
 
-header .container-logo .navbar-nav .nav-item a {
-  color: #00234f;
+.container-header .container-logo .navbar-nav .nav-item .nav-link {
+  color: white;
   text-decoration: none;
+  margin: 0 20px;
 }
 
-main {
-  background-color: #00234f;
-  min-height: calc(100vh - 200px);
+.container-header .container-logo .dropdown-item {
+  color: #777f87;
 }
 
-main .container {
-  padding: 50px 0;
+.container-header .container-search {
+  height: 20%;
 }
 
-main .container .title h2 {
-  color: #0cd977;
+.container-header .container-search .navbar {
+  width: 100%;
 }
 
-main .container label {
-  color: #0cd977;
+.container-header .container-search .form-inline {
+  width: 100%;
 }
 
-main .container .card-group .card {
-  border-radius: 0.25rem;
+.container-header .container-search input {
+  width: 40%;
+  border-radius: 30px;
+  height: 60px;
+  border: none;
 }
 
-main #map-example-container {
+.container-header .container-search button {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  border: none;
+}
+
+.container-main {
+  background-color: white;
+  height: 800px;
+}
+
+.container-main .container-title {
+  height: 20%;
+}
+
+.container-main .container-title h2 {
+  color: #ff385c;
+  font-weight: bolder;
+}
+
+.container-main .container-title label {
+  color: #ff385c;
+}
+
+.container-main .scrollMenu {
+  height: 80%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.container-main .scrollMenu .card {
+  border-radius: 10px;
+  border: 5px solid #F7F7F7;
+  flex: 0 0 auto;
+  height: 100%;
+  width: 20%;
+}
+
+.container-main .scrollMenu .card a {
+  background-color: #ff385c;
+  color: white;
+}
+
+.container-main li a {
+  color: #ff385c;
+}
+
+#map-example-container {
   width: 50%;
   min-height: calc(100vh - 216px);
 }
 
-footer {
-  background-color: #0cd977;
+.container-footer {
+  background-color: #f7f7f7;
   height: 100px;
+}
+
+.container-footer span a {
+  color: #ff385c;
+  margin: 0 20px;
 }
 
 /*!
@@ -10952,115 +11021,5 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.btnred {
-  background-color: #ff385c;
-  color: white;
-}
-
-.container-header {
-  background-image: url(/images/img1.jpg?160a04d725f2d1c709c84c42e2185163);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 800px;
-}
-
-.container-header .container-logo {
-  height: 20%;
-}
-
-.container-header .container-logo .logo div h1 {
-  font-weight: bolder;
-  color: white;
-  margin: 0 20px;
-}
-
-.container-header .container-logo .navbar-nav .nav-item a {
-  color: white;
-  text-decoration: none;
-  margin: 0 20px;
-}
-
-.container-header .container-search {
-  height: 20%;
-}
-
-.container-header .container-search .navbar {
-  width: 100%;
-}
-
-.container-header .container-search .form-inline {
-  width: 100%;
-}
-
-.container-header .container-search input {
-  width: 40%;
-  border-radius: 30px;
-  height: 60px;
-  border: none;
-}
-
-.container-header .container-search button {
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  border: none;
-}
-
-.container-main {
-  background-color: white;
-  height: 1200px;
-}
-
-.container-main .container-title {
-  height: 20%;
-}
-
-.container-main .container-title h2 {
-  color: #ff385c;
-  font-weight: bolder;
-}
-
-.container-main .container-title label {
-  color: #ff385c;
-}
-
-.container-main .container-card {
-  height: 70%;
-}
-
-.container-main .container-card .card {
-  border-radius: 10px;
-  border: 5px solid #f7f7f7;
-}
-
-.container-main .container-pagination {
-  height: 10%;
-}
-
-.container-main .container-pagination .pagination {
-  display: flex;
-  justify-content: space-around;
-}
-
-.container-main .container-pagination li a {
-  color: #ff385c;
-}
-
-.container-main #map-example-container {
-  width: 50%;
-  min-height: calc(100vh - 216px);
-}
-
-footer {
-  background-color: #ff385c;
-  height: 200px;
 }
 
