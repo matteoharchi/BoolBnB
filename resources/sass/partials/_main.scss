@@ -1,24 +1,43 @@
-main{
-    background-color: #00234f;
-    min-height: calc(100vh - 200px);
+.container-main {
+    background-color: white;
+    height: 1200px;
 
-    .container{
-        padding: 50px 0;
-
-        .title h2{
-            color: #0cd977;
+    .container-title {
+        height: 20% ;
+        h2{
+            color: #ff385c;
+            font-weight: bolder;
         }
 
         label{
-            color: #0cd977;
+            color: #ff385c;
+        }
+    }
+
+    .container-card {
+        height: 70%;
+    .card {
+        border-radius: 10px;
+        border: 5px solid  #f7f7f7;
+    }
+    }
+
+    .container-pagination {
+         height: 10%;
+         .pagination {
+             display: flex;
+             justify-content: space-around;
+         }
+
+    li a {
+        color:  #ff385c;
+    }
+
+    }
+
+     #map-example-container {
+         width: 50%;
+         min-height: calc(100vh - 216px);
         }
 
-        .card-group .card{
-            border-radius: 0.25rem;
-        }
-    }
-    #map-example-container {
-        width: 50%;
-        min-height: calc(100vh - 216px);
-    }
 }
