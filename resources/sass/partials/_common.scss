@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+body {
+    min-height: 100vh;
+    position: relative;
+    background-color: green;
+}
+
 .btnred {
     background-color: #ff385c !important;
     color: white !important;
@@ -13,8 +19,6 @@ a {
     text-decoration: none !important;
 }
 
-body {
-    min-height: 100vh;
-    position: relative;
-    background-color: green;
+h2{
+    color: #ff385c;
 }

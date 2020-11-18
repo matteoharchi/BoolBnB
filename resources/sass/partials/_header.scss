@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 800px;
-    
+
     .container-logo {
         height: 20%;
         .logo div h1{
@@ -16,8 +16,13 @@
 
         .navbar-nav .nav-item .nav-link{
             color: #f7f7f7;
-            margin: 0 20px;
+            // margin: 0 20px;
         }
+
+        .navbar-nav .nav-item:first-child{
+            font-weight: bolder;
+        }
+
 
         .dropdown-item {
             color: #777f87;

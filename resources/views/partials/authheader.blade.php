@@ -4,7 +4,7 @@
 
         <div class="logo">
             <div>
-            <a href="{{route('home')}}"><h1><i class="fab fa-airbnb"></i> airbnb</h1></a> 
+            <a href="{{route('home')}}"><h1><i class="fab fa-airbnb"></i> airbnb</h1></a>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      
+
                       <a class="dropdown-item" href="{{route('houses.index')}}">Il tuo Account</a>
                       <a class="dropdown-item" href="{{route('houses.create')}}">Crea un nuovo annuncio</a>
                       <a class="dropdown-item" href="{{ route('logout') }}"

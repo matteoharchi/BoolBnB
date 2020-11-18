@@ -5,7 +5,7 @@
     <h2>Sponsorizza il tuo appartamento</h2>
     {{-- andrà messo il collegamento al titolo della casa --}}
     <p>Scegli la modalità di sponsorizzazione:</p>
-    
+
     <div class="form-check">
         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
         <label class="form-check-label" for="exampleRadios1">
@@ -81,5 +81,5 @@
 
 
 
-    
+
     @endsection

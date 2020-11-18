@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+body {
+  min-height: 100vh;
+  position: relative;
+  background-color: green;
+}
+
 .btnred {
   background-color: #ff385c !important;
   color: white !important;
@@ -15,10 +21,8 @@ a {
   text-decoration: none !important;
 }
 
-body {
-  min-height: 100vh;
-  position: relative;
-  background-color: green;
+h2 {
+  color: #ff385c;
 }
 
 .container-header {
@@ -40,7 +44,10 @@ body {
 
 .container-header .container-logo .navbar-nav .nav-item .nav-link {
   color: #f7f7f7;
-  margin: 0 20px;
+}
+
+.container-header .container-logo .navbar-nav .nav-item:first-child {
+  font-weight: bolder;
 }
 
 .container-header .container-logo .dropdown-item {
@@ -76,6 +83,7 @@ body {
 .container-authheader {
   background-color: #ff385c;
   height: 100px;
+  margin-bottom: 50px;
 }
 
 .container-authheader .logo div h1 {
@@ -93,7 +101,7 @@ body {
 }
 
 main {
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   background-color: #f7f7f7;
   min-height: 800px;
 }
@@ -121,7 +129,6 @@ main .container-main .scrollMenu .card {
   border-radius: 10px;
   border: 5px solid #F7F7F7;
   flex: 0 0 auto;
-  height: 100%;
   width: 20%;
 }
 
@@ -131,6 +138,10 @@ main .container-main .scrollMenu .card a {
 }
 
 main .container-main li a {
+  color: #ff385c;
+}
+
+main .container p {
   color: #ff385c;
 }
 

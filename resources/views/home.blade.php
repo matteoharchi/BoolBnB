@@ -8,7 +8,7 @@
 
       {{-- container-title --}}
 
-        <div class="container-title d-flex justify-content-center align-items-center">
+        <div class="container-title d-flex justify-content-center align-items-center mt-5 mb-5">
           <h2>Appartamenti in evidenza</h2>
         </div>
 
@@ -41,5 +41,3 @@
 
     </div>
 @endsection
-
-
