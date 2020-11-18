@@ -8,13 +8,13 @@
 
         <div class="logo">
             <div>
-            <a href="{{route('home')}}"><h1><i class="fab fa-airbnb"></i> airbnb</h1></a> 
+            <a href="{{route('home')}}"><h1><i class="fab fa-airbnb"></i> airbnb</h1></a>
             </div>
         </div>
 
         {{-- navbar centrale --}}
-
-        <div>
+        {{-- commentati perché inutili (?) --}}
+        {{-- <div>
             <nav class="navbar navbar-expand-lg">
               <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
@@ -30,11 +30,14 @@
                 </ul>
               </div>
             </nav>
-        </div>
+        </div> --}}
 
         {{-- Authentication Links --}}
 
         <ul class="navbar-nav flex-row">
+            <li class="nav-item mr-3">
+                <a class="nav-link" href="#">Diventa un Host</a>
+            </li>
           @guest
               <li class="nav-item mr-3">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -51,7 +54,7 @@
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      
+
                       <a class="dropdown-item" href="{{route('houses.index')}}">Il tuo Account</a>
                       <a class="dropdown-item" href="{{route('houses.create')}}">Crea un nuovo annuncio</a>
                       <a class="dropdown-item" href="{{ route('logout') }}"

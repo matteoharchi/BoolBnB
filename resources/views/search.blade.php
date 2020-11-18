@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container">
+    {{-- vecchia mappa Algolia --}}
+  {{-- <div class="container">
       <input type="search" id="search" class="form-control" autocomplete="off" placeholder="Dove vuoi andare?">
-  </div>
+  </div> --}}
 
   <div class="search-container">
 

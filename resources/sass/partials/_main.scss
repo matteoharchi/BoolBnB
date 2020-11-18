@@ -1,11 +1,11 @@
 main {
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     background-color: #f7f7f7;
     min-height: 800px;
 
     .container-main {
         height: 100%;
-    
+
         .container-title {
             height: 20% ;
             h2{
@@ -13,7 +13,7 @@ main {
                 font-weight: bolder;
             }
         }
-    
+
         .scrollMenu {
             height: 80%;
             overflow-x: auto;
@@ -22,7 +22,6 @@ main {
                 border-radius: 10px;
                 border: 5px solid  #F7F7F7;
                 flex: 0 0 auto;
-                height: 100%;
                 width: 20%;
             }
             .card a {
@@ -30,30 +29,35 @@ main {
                 color: white;
             }
         }
-    
+
         // .container-pagination {
         //      height: 10%;
         //      .pagination {
         //          display: flex;
         //          justify-content: space-around;
         //      }
-    
+
         li a {
             color:  #ff385c;
         }
-    
+
     }
-    
+
+    // create sponsor
+    .container{
+        p{
+            color: #ff385c;
+        }
+    }
+
     label{
         color: #ff385c;
     }
-    
-    
-    
+
+
+
          #map-example-container {
              width: 50%;
              min-height: calc(100vh - 216px);
             }
 }
-
-
