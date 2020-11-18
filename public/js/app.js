@@ -50088,19 +50088,58 @@ $(document).ready(function () {
     });
   }
 
-  function getHouses(lat, _long) {
+  function getHouses(searchLat, searchLong) {
     $.ajax({
       url: "http://localhost:8000/api/houses",
       method: "GET",
       success: function success(data) {
-        var latDb = data[0].lat;
-        var longDb = data[0]["long"];
-        console.log(data, lat, _long, getDist(latDb, longDb, lat, _long));
+        var result = [];
+        var position = [searchLong, searchLat];
+        data.forEach(function (element) {
+          if (getDist(element.lat, element["long"], searchLat, searchLong) <= 20 && element.visible) {
+            result.push(element);
+          }
+        });
+        printHouses(result);
+        housesOnMap(result, position);
       },
       error: function error(response) {
         alert('Errore');
       }
     });
+  }
+
+  function printHouses(data) {
+    $('.search-container').empty();
+    var source = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+
+    for (var i = 0; i < data.length; i++) {
+      var context = {
+        title: data[i].title,
+        description: data[i].description
+      };
+      var html = template(context);
+      $('.search-container').append(html);
+    }
+  }
+
+  function housesOnMap(data, position) {
+    //mappa+controlli
+    var map = tt.map({
+      key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq",
+      container: "map",
+      style: "tomtom://vector/1/basic-main",
+      center: position,
+      zoom: 12
+    });
+    var nav = new tt.NavigationControl({});
+    map.addControl(nav, 'top-right'); //ciclo for per posizionare markers
+
+    for (var i = 0; i < data.length; i++) {
+      var markerCoord = [data[i]["long"], data[i].lat];
+      var marker = new tt.Marker().setLngLat(markerCoord).addTo(map);
+    }
   }
 
   function getDist(lat1, lon1, lat2, lon2) {
