@@ -9,6 +9,19 @@
 .btnred {
   background-color: #ff385c !important;
   color: white !important;
+<<<<<<< refs/remotes/origin/main
+}
+
+a {
+  text-decoration: none !important;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  background-color: green;
+=======
+>>>>>>> Rettifica
 }
 
 .container-header {
@@ -30,7 +43,6 @@
 
 .container-header .container-logo .navbar-nav .nav-item .nav-link {
   color: #f7f7f7;
-  text-decoration: none;
   margin: 0 20px;
 }
 
@@ -65,24 +77,41 @@
 }
 
 .container-authheader {
-  background-color: #f7f7f7;
+  background-color: #ff385c;
   height: 100px;
 }
 
 .container-authheader .logo div h1 {
   font-weight: bolder;
-  color: #ff385c;
+  color: #f7f7f7;
   margin: 0 20px;
 }
 
 .container-authheader ul li .nav-link {
-  color: #ff385c;
+  color: #f7f7f7;
 }
 
 .container-authheader .dropdown-item {
   color: #777f87;
 }
 
+<<<<<<< refs/remotes/origin/main
+main {
+  padding-bottom: 100px;
+  background-color: #f7f7f7;
+  min-height: 800px;
+}
+
+main .container-main {
+  height: 100%;
+}
+
+main .container-main .container-title {
+  height: 20%;
+}
+
+main .container-main .container-title h2 {
+=======
 .container-main {
   background-color: white;
   height: 800px;
@@ -93,21 +122,26 @@
 }
 
 .container-main .container-title h2 {
+>>>>>>> Rettifica
   color: #ff385c;
   font-weight: bolder;
 }
 
+<<<<<<< refs/remotes/origin/main
+main .container-main .scrollMenu {
+=======
 .container-main .container-title label {
   color: #ff385c;
 }
 
 .container-main .scrollMenu {
+>>>>>>> Rettifica
   height: 80%;
   overflow-x: auto;
   flex-wrap: nowrap;
 }
 
-.container-main .scrollMenu .card {
+main .container-main .scrollMenu .card {
   border-radius: 10px;
   border: 5px solid #F7F7F7;
   flex: 0 0 auto;
@@ -115,27 +149,48 @@
   width: 20%;
 }
 
-.container-main .scrollMenu .card a {
+main .container-main .scrollMenu .card a {
   background-color: #ff385c;
   color: white;
 }
 
-.container-main li a {
+main .container-main li a {
   color: #ff385c;
 }
 
+main label {
+  color: #ff385c;
+}
+
+<<<<<<< refs/remotes/origin/main
+main #map-example-container {
+=======
 #map-example-container {
+>>>>>>> Rettifica
   width: 50%;
   min-height: calc(100vh - 216px);
 }
 
+<<<<<<< refs/remotes/origin/main
+footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+=======
 .container-footer {
   background-color: #f7f7f7;
+>>>>>>> Rettifica
   height: 100px;
 }
 
-.container-footer span a {
-  color: #ff385c;
+footer .container-footer {
+  background-color: #ff385c;
+  height: 100%;
+}
+
+footer .container-footer span a {
+  color: #f7f7f7;
   margin: 0 20px;
 }
 

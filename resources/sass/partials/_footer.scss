@@ -1,12 +1,22 @@
-.container-footer {
-    background-color: #f7f7f7;
+footer {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
     height: 100px;
 
+.container-footer {
+    background-color: #ff385c;
+    height: 100%;
+
     span a {
-        color: #ff385c;
+        color: #f7f7f7;
         margin: 0 20px;
     }
 }
+
+}
+
 
 
 
