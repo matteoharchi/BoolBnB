@@ -62,7 +62,7 @@
       .setLngLat(markerCoord)
       .addTo(map);
       
-   </script>
+    </script>
 
 
 </div>
