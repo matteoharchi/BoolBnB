@@ -50030,16 +50030,16 @@ Vue.component('edit-user', __webpack_require__(/*! ./components/EditUser.vue */ 
 
 var app = new Vue({
   el: '#app'
-}); // Autocomplete address input Tom Tom
-
+});
 $(document).ready(function () {
+  // Store lat, long e indirizzo esatto
   // Al focus out del campo dell'indirizzo ne salvo il valore e invoco la funzione che lancia la chiamata ajax
   $('#address').focusout(function () {
     var address = $('#address').val();
-    searchHouse(address);
+    createAddress(address);
   });
 
-  function searchHouse(query) {
+  function createAddress(query) {
     $.ajax({
       url: "https://api.tomtom.com/search/2/geocode/".concat(query, ".json?typeahead=true&countrySet=IT"),
       method: "GET",
@@ -50060,6 +50060,64 @@ $(document).ready(function () {
     $('#lat').val(data.results[0].position.lat);
     $('#long').val(data.results[0].position.lon);
     $('#address').val(data.results[0].address.freeformAddress);
+  } // Ricerca case e stampa a video
+
+
+  $('#search').keydown(function (e) {
+    if (e.which == 13 || e.keyCode == 13) {
+      var inputUser = $('#search').val();
+      searchHouses(inputUser);
+    }
+  });
+
+  function searchHouses(query) {
+    $.ajax({
+      url: "https://api.tomtom.com/search/2/geocode/".concat(query, ".json?typeahead=true&countrySet=IT"),
+      method: "GET",
+      data: {
+        key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq"
+      },
+      success: function success(obj) {
+        var latInput = obj.results[0].position.lat;
+        var longInput = obj.results[0].position.lon;
+        getHouses(latInput, longInput);
+      },
+      error: function error(response) {
+        alert('Errore');
+      }
+    });
+  }
+
+  function getHouses(lat, _long) {
+    $.ajax({
+      url: "http://localhost:8000/api/houses",
+      method: "GET",
+      success: function success(data) {
+        var latDb = data[0].lat;
+        var longDb = data[0]["long"];
+        console.log(data, lat, _long, getDist(latDb, longDb, lat, _long));
+      },
+      error: function error(response) {
+        alert('Errore');
+      }
+    });
+  }
+
+  function getDist(lat1, lon1, lat2, lon2) {
+    var R = 6371; // Radius of the earth in km
+
+    var dLat = deg2rad(lat2 - lat1); // deg2rad below
+
+    var dLon = deg2rad(lon2 - lon1);
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = R * c; // Distance in km
+
+    return d;
+  }
+
+  function deg2rad(deg) {
+    return deg * (Math.PI / 180);
   }
 });
 

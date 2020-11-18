@@ -7,8 +7,8 @@
 }
 
 .btnred {
-  background-color: #ff385c;
-  color: white;
+  background-color: #ff385c !important;
+  color: white !important;
 }
 
 .container-header {
@@ -24,12 +24,12 @@
 
 .container-header .container-logo .logo div h1 {
   font-weight: bolder;
-  color: white;
+  color: #f7f7f7;
   margin: 0 20px;
 }
 
 .container-header .container-logo .navbar-nav .nav-item .nav-link {
-  color: white;
+  color: #f7f7f7;
   text-decoration: none;
   margin: 0 20px;
 }
@@ -62,6 +62,25 @@
   height: 60px;
   width: 60px;
   border: none;
+}
+
+.container-authheader {
+  background-color: #f7f7f7;
+  height: 100px;
+}
+
+.container-authheader .logo div h1 {
+  font-weight: bolder;
+  color: #ff385c;
+  margin: 0 20px;
+}
+
+.container-authheader ul li .nav-link {
+  color: #ff385c;
+}
+
+.container-authheader .dropdown-item {
+  color: #777f87;
 }
 
 .container-main {
