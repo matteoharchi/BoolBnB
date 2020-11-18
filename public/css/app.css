@@ -9,6 +9,7 @@
 .btnred {
   background-color: #ff385c !important;
   color: white !important;
+<<<<<<< refs/remotes/origin/main
 }
 
 a {
@@ -19,6 +20,8 @@ body {
   min-height: 100vh;
   position: relative;
   background-color: green;
+=======
+>>>>>>> Rettifica
 }
 
 .container-header {
@@ -92,6 +95,7 @@ body {
   color: #777f87;
 }
 
+<<<<<<< refs/remotes/origin/main
 main {
   padding-bottom: 100px;
   background-color: #f7f7f7;
@@ -107,11 +111,31 @@ main .container-main .container-title {
 }
 
 main .container-main .container-title h2 {
+=======
+.container-main {
+  background-color: white;
+  height: 800px;
+}
+
+.container-main .container-title {
+  height: 20%;
+}
+
+.container-main .container-title h2 {
+>>>>>>> Rettifica
   color: #ff385c;
   font-weight: bolder;
 }
 
+<<<<<<< refs/remotes/origin/main
 main .container-main .scrollMenu {
+=======
+.container-main .container-title label {
+  color: #ff385c;
+}
+
+.container-main .scrollMenu {
+>>>>>>> Rettifica
   height: 80%;
   overflow-x: auto;
   flex-wrap: nowrap;
@@ -138,16 +162,25 @@ main label {
   color: #ff385c;
 }
 
+<<<<<<< refs/remotes/origin/main
 main #map-example-container {
+=======
+#map-example-container {
+>>>>>>> Rettifica
   width: 50%;
   min-height: calc(100vh - 216px);
 }
 
+<<<<<<< refs/remotes/origin/main
 footer {
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
+=======
+.container-footer {
+  background-color: #f7f7f7;
+>>>>>>> Rettifica
   height: 100px;
 }
 
