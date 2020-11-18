@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.authlayout')
 @section('content')
 <div class="container">
     @if ($errors->any())
@@ -84,7 +84,7 @@
         </div>
         <img src="{{Storage::url($house->img)}}" alt="{{$house->slug}}" width="300px">
         <div class="form-group">
-            <label for="img">Cambia la foto della tua casa di merda</label>
+            <label for="img">Cambia le foto della tua casa</label>
             <input type="file" accept="image/*" class="form-control" id="img" name="img">
         </div>
         {{-- INSERIMENTO IMMAGINI --}}

@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $houses = House::simplePaginate(6);
+        // $houses = House::simplePaginate(6);
+        $houses = House::all();
         return view('home', compact('houses'));
     }
 }

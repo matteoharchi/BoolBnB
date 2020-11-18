@@ -7,8 +7,13 @@
 }
 
 .btnred {
+<<<<<<< HEAD
   background-color: #ff385c;
   color: white;
+=======
+  background-color: #ff385c !important;
+  color: white !important;
+>>>>>>> main
 }
 
 .container-header {
@@ -24,6 +29,7 @@
 
 .container-header .container-logo .logo div h1 {
   font-weight: bolder;
+<<<<<<< HEAD
   color: white;
   margin: 0 20px;
 }
@@ -69,6 +75,76 @@
   height: 20%;
 }
 
+=======
+  color: #f7f7f7;
+  margin: 0 20px;
+}
+
+.container-header .container-logo .navbar-nav .nav-item .nav-link {
+  color: #f7f7f7;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.container-header .container-logo .dropdown-item {
+  color: #777f87;
+}
+
+.container-header .container-search {
+  height: 20%;
+}
+
+.container-header .container-search .navbar {
+  width: 100%;
+}
+
+.container-header .container-search .form-inline {
+  width: 100%;
+}
+
+.container-header .container-search input {
+  width: 40%;
+  border-radius: 30px;
+  height: 60px;
+  border: none;
+}
+
+.container-header .container-search button {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  border: none;
+}
+
+.container-authheader {
+  background-color: #f7f7f7;
+  height: 100px;
+}
+
+.container-authheader .logo div h1 {
+  font-weight: bolder;
+  color: #ff385c;
+  margin: 0 20px;
+}
+
+.container-authheader ul li .nav-link {
+  color: #ff385c;
+}
+
+.container-authheader .dropdown-item {
+  color: #777f87;
+}
+
+.container-main {
+  background-color: white;
+  height: 800px;
+}
+
+.container-main .container-title {
+  height: 20%;
+}
+
+>>>>>>> main
 .container-main .container-title h2 {
   color: #ff385c;
   font-weight: bolder;
@@ -78,6 +154,7 @@
   color: #ff385c;
 }
 
+<<<<<<< HEAD
 .container-main .container-card {
   height: 70%;
 }
@@ -101,13 +178,50 @@
 }
 
 .container-main #map-example-container {
+=======
+.container-main .scrollMenu {
+  height: 80%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.container-main .scrollMenu .card {
+  border-radius: 10px;
+  border: 5px solid #F7F7F7;
+  flex: 0 0 auto;
+  height: 100%;
+  width: 20%;
+}
+
+.container-main .scrollMenu .card a {
+  background-color: #ff385c;
+  color: white;
+}
+
+.container-main li a {
+  color: #ff385c;
+}
+
+#map-example-container {
+>>>>>>> main
   width: 50%;
   min-height: calc(100vh - 216px);
 }
 
+<<<<<<< HEAD
 footer {
   background-color: #ff385c;
   height: 200px;
+=======
+.container-footer {
+  background-color: #f7f7f7;
+  height: 100px;
+>>>>>>> main
+}
+
+.container-footer span a {
+  color: #ff385c;
+  margin: 0 20px;
 }
 
 /*!

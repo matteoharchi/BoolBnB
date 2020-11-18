@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.authlayout')
 @section('content')
 <div class="container">
     @if ($errors->any())
@@ -88,7 +88,7 @@
         </div>
 
         <div class="form-group">
-            <label for="img">Metti la foto della tua casa di merda</label>
+            <label for="img">Metti le foto della tua casa</label>
             <input type="file" accept="image/*" class="form-control" id="img" name="img">
         </div>
         {{-- INSERIMENTO IMMAGINI --}}
