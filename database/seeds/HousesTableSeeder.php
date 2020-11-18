@@ -97,6 +97,21 @@ class HousesTableSeeder extends Seeder
                 'lat' => 45.780956,
                 'img' => "https://a0.muscache.com/im/pictures/5683e785-15c4-422a-8cf1-e418a6355131.jpg?im_w=1200",
                 'user_id' => 1
+            ],
+
+            [
+                'title' => "Bellissimo bilocale rinnovato, stazione centrale",
+                'description' => "Bellissimo bilocale totalmente ristrutturato e rinnovato negli arredi nel 2018, con una incantevole vista sulla stazione di Milano Centrale e sul verde della zona pedonale adiacente il perimetro della stazione.",
+                'rooms' => 2,
+                'beds' => 4,
+                'bathrooms' => 1,
+                'price' => 60,
+                'size' => 70,
+                'address' => "Via Gustavo Fara, 28, Milano MI",
+                'long' => 9.198977,
+                'lat' => 45.485214,
+                'img' => "https://a0.muscache.com/im/pictures/3c3f1d89-47f4-4ede-97db-8d3b0fb8dc31.jpg?im_w=1200",
+                'user_id' => 3
             ]
 
         ];
