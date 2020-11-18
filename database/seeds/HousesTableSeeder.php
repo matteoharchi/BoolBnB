@@ -33,7 +33,7 @@ class HousesTableSeeder extends Seeder
                 'address' => "Via Milano 13, Saronno, VA",
                 'long' => 9.033431,
                 'lat' => 45.617325,
-                'img' => "https://lh3.googleusercontent.com/proxy/T2VuW7b629BsRqGDM46i-YlHMH4B8wk3GWGgeX7FWodxanNbbtYeCEY6wg4n1CFs8YyMGisjqp2EGVHddry1O0dEntflFUZEB_FaUbZA5PUnMJT9tfvOQOZ6gZ1z_Mgl1PxFVdjQikr1OxcO20Y",
+                'img' => "https://a0.muscache.com/im/pictures/miso/Hosting-43468629/original/71129021-ed34-4613-b24d-c2894faf3977.jpeg?im_w=1200",
                 'user_id' => 1
             ],
 

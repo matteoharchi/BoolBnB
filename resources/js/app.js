@@ -84,6 +84,7 @@ $(document).ready(function () {
                 var latInput = obj.results[0].position.lat;
                 var longInput = obj.results[0].position.lon;
                 getHouses(latInput, longInput);
+                
             },
             error: function (response) {
                 alert('Errore');
@@ -97,6 +98,7 @@ $(document).ready(function () {
             url: "http://localhost:8000/api/houses",
             method: "GET",
             success: function (data) {
+                console.log(data);
                 var result=[];
                 var position = [searchLong, searchLat];
                 data.forEach(element => {

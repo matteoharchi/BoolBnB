@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\House;
+use App\Service;
 use Illuminate\Http\Request;
 
 class HouseController extends Controller
@@ -21,5 +22,13 @@ class HouseController extends Controller
 
           return view('show', compact('house'));
         }
+
+        public function search(){
+          $services = Service::all();
+          return view('search', compact('services'));
+
+        }
+
+
     
 }

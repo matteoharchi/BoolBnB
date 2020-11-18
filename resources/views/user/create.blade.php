@@ -65,8 +65,7 @@
             </div>
             <div class="form-group col-2">
                 <label for="size">Dimensioni (m²)</label>
-                <input type="number" class="form-control" id="size" name="size" placeholder="m²"></input>
-                
+                <input type="number" class="form-control" id="size" name="size" placeholder="m²">
 
             </div>
             <div class="form-group col-2">
@@ -81,9 +80,8 @@
         <label>Servizi</label>
         <div class="form-group d-flex align-items-center">
         @foreach ($services as $service)
-            
             <label class="mr-2  mb-0" for="{{$service->name}}">{{$service->name}}</label>
-            <input  type="checkbox" class="mr-4" id="{{$service->name}}" name='services[]' value="{{$service->id}}">
+            <input type="checkbox" class="mr-4" id="{{$service->name}}" name='services[]' value="{{$service->id}}">
         @endforeach
         </div>
 

@@ -2,6 +2,13 @@
 @section('content')
   <div class="container">
       <input type="search" id="search" class="form-control" autocomplete="off" placeholder="Dove vuoi andare?">
+      <div class="d-flex align-items-center">
+        @foreach ($services as $service)
+            <label class="mr-2  mb-0" for="{{$service->name}}">{{$service->name}}</label>
+            <input type="checkbox" class="mr-4" id="{{$service->name}}" value="{{$service->id}}">
+        @endforeach
+        </div>
+
   </div>
 
   <div class="search-container">

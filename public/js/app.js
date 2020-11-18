@@ -50093,6 +50093,7 @@ $(document).ready(function () {
       url: "http://localhost:8000/api/houses",
       method: "GET",
       success: function success(data) {
+        console.log(data);
         var result = [];
         var position = [searchLong, searchLat];
         data.forEach(function (element) {

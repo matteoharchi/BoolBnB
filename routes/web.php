@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 
-Route::get('/search', function () {
-    return view('search');
-});
+Route::get('/search', 'HouseController@search');
 
 Auth::routes();
 //rotte case di user
