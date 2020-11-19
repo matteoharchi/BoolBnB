@@ -14,8 +14,8 @@
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><edit-user></edit-user></div>
                 <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><houses :your_houses="{{$yourHouses->toJson()}}"></houses></div>
-                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list"><messages :your_messages="{{$yourMessages->toJson()}}"></messages></div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list"><transactions :your_transactions="{{$yourTransactions->toJson()}}"></transactions></div>
             </div>
         </div>
     </div>

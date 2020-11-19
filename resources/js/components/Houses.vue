@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    props:['your_houses','route_home']
+    props:['your_houses']
     
 }
 </script>

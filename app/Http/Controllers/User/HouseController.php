@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User;
 use App\House;
+use App\Message;
+use App\Transaction;
 use App\Http\Controllers\Controller;
 use App\Service;
 use Carbon\Carbon;
@@ -18,8 +20,15 @@ class HouseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
+
         $yourHouses = House::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
-        return view('user.index', compact('yourHouses'));
+        $yourMessages=[];
+        $yourTransactions=[];
+        foreach ($yourHouses as $yourHouse) {
+            $yourMessages=Message::where('house_id', $yourHouse->id)->get();
+            $yourTransactions=Transaction::where('house_id', $yourHouse->id)->get();
+        }       
+        return view('user.index', compact('yourHouses', 'yourMessages', 'yourTransactions'));
     }
 
     /**

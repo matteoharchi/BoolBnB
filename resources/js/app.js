@@ -22,6 +22,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('houses', require('./components/Houses.vue').default);
 Vue.component('edit-user', require('./components/EditUser.vue').default);
+Vue.component('messages', require('./components/Messages.vue').default);
+Vue.component('transactions', require('./components/Transactions.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
