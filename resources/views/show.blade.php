@@ -36,10 +36,13 @@
             <textarea class="form-control" id="body" rows="6" name="body"></textarea>
           </div>
           <button type="submit" class="btn btn-primary float-right mt-3">Invia la tua domanda</button>
-
         </form>
       </div>
     </div>
+    @auth
+  <a href="{{route('sponsor.create', $house->id)}}" class="btn btn-success">Sponsorizza la tua casa</a>
+        
+    @endauth
 
     {{-- Div contenente la mappa --}}
     <div id="map" style="width: 500px; height: 500px; margin: auto"></div>

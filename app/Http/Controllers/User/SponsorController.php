@@ -1,21 +1,23 @@
 <?php
 
 namespace App\Http\Controllers\User;
+use App\House;
 use App\Http\Controllers\Controller;
 use App\Sponsor;
+use App\Transaction;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class SponsorController extends Controller
-{
+class SponsorController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $sponsors = Sponsor::all();
-        return view('search', compact('sponsors'));
+    public function index() {
+
     }
 
     /**
@@ -23,61 +25,65 @@ class SponsorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('user.sponsor.create');
+    public function create() {
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // Genera sponsor e token e li manda al front-end
+    public function getPay($id) {
 
-    public function getPay(){
         $gateway = new \Braintree\Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-        ]);
-        $token = $gateway->ClientToken()->generate();
-
-        return view('user.sponsor.create', ['token'=>$token]);
-    }
-
-
-
-
-    public function postPay(Request $request){
-            $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
             'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
+            'privateKey' => config('services.braintree.privateKey'),
         ]);
+
+        $token = $gateway->ClientToken()->generate();
+        $sponsors = Sponsor::all();
+        $id = House::where('id', $id)->first();
+        return view('user.sponsor.create', ['token' => $token, 'sponsors' => $sponsors, 'id' => $id]);
+
+    }
+
+    public function postPay(Request $request) {
+        $gateway = new \Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey'),
+        ]);
+
+        $house = House::where('id', $request->house_id)->first();
+        $data = $request->all();
 
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
-
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
             'customer' => [
-                'firstName' => 'Gino',
-                'lastName' => 'Bagino',
-                'email' => 'gino@avengers.com',
+                'firstName' => Auth::user()->name,
+                'lastName' => Auth::user()->surname,
+                'email' => Auth::user()->email,
             ],
             'options' => [
-                'submitForSettlement' => true
-            ]
+                'submitForSettlement' => true,
+            ],
         ]);
+
         if ($result->success) {
             $transaction = $result->transaction;
             // header("Location: transaction.php?id=" . $transaction->id);
 
-            return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+            $data['start_date'] = Carbon::now('Europe/Rome');
+            $data['end_date'] = Carbon::now('Europe/Rome')->addHours($data['duration']);
+            $newTransaction = new Transaction;
+            $newTransaction->fill($data);
+            $saved = $newTransaction->save();
+            if ($saved) {
+                return back()->with('success_message', 'Transaction successful. The ID is:' . $transaction->id);
+            }
         } else {
             $errorString = "";
 
@@ -87,12 +93,18 @@ class SponsorController extends Controller
 
             // $_SESSION["errors"] = $errorString;
             // header("Location: index.php");
-            return back()->withErrors('An error occurred with the message: '.$result->message);
+            return back()->withErrors('An error occurred with the message: ' . $result->message);
         }
     }
 
-    public function store(Request $request)
-    {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function store(Request $request) {
         //
     }
 
@@ -102,8 +114,7 @@ class SponsorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -113,8 +124,7 @@ class SponsorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -125,8 +135,7 @@ class SponsorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -136,8 +145,7 @@ class SponsorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }

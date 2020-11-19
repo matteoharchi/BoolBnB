@@ -33,9 +33,40 @@ const app = new Vue({
     el: '#app',
 });
 
-$(document).ready(function () {
-    // Store lat, long e indirizzo esatto
 
+
+
+$(document).ready(function () {
+
+
+// Funzioni pagamenti
+
+    //funzione selezione sponsor 
+
+    $('#sponsor-box').on('change', function(){
+        var selected = $('input[name="sponsor"]:checked').val();
+        $('#amount').val(selected);
+        if ($('#amount').val() == 2.99){
+            var sponsorId = 1;
+            var duration = 24;
+        } else if ($('#amount').val() == 5.99){
+            sponsorId = 2;
+            duration = 72;
+        } else if ($('#amount').val() == 9.99){
+            sponsorId = 3;
+            duration = 144;
+        }
+        $('#sponsor_id').val(sponsorId);
+        $('#duration').val(duration);
+    });
+
+
+
+
+
+// Funzioni mappe 
+
+    // Store lat, long e indirizzo esatto
     // Al focus out del campo dell'indirizzo ne salvo il valore e invoco la funzione che lancia la chiamata ajax
     $('#address').focusout(function () {
         var address = $('#address').val();
@@ -151,12 +182,7 @@ $(document).ready(function () {
             .setLngLat(markerCoord)
             .addTo(map);           
         }
-
-
-
     }
-
-
 
     function getDist(lat1, lon1, lat2, lon2) {
         var R = 6371; // Radius of the earth in km

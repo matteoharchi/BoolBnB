@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 // Route::get('/', function () {
 //     return view('home');
@@ -29,8 +29,8 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
     //rotte sponsor
     Route::resource('settings/houses/sponsor', 'SponsorController');
     //rotte pagamenti
-    Route::get('settings/houses/sponsor/create', 'SponsorController@getPay');
-    Route::post('checkout', 'SponsorController@postPay');
+    Route::get('settings/houses/sponsor/create/{id}', 'SponsorController@getPay')->name('sponsor.create');
+    Route::post('checkout', 'SponsorController@postPay')->name('checkout');
     //rotte messaggi
     Route::resource('settings/houses/messages', 'MessageController');
 
@@ -40,5 +40,3 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
 Route::get('/', 'HouseController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('houses/show/{slug}', 'HouseController@show')->name('houses.show');
-
-
