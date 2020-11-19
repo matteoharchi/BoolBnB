@@ -23,8 +23,8 @@ class CreateTransactionsTable extends Migration {
             $table->foreign('sponsor_id')
                 ->references('id')
                 ->on('sponsors');
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
+            $table->datetime('start_date')->nullable();
+            $table->datetime('end_date')->nullable();
         });
     }
 
