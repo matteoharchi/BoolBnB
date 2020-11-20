@@ -1,18 +1,23 @@
-<div class="container-authheader d-flex justify-content-around align-items-center">
+<div class="container">
+
+    {{-- row-logo --}}
+
+    <div class="row align-items-center" >
 
         {{-- logo --}}
 
-        <div class="logo">
-            <div>
-            <a href="{{route('home')}}"><h1><i class="fab fa-airbnb"></i> airbnb</h1></a>
+        <div class="logo col-6">
+            <div class="row align-items-center justify-content-start">
+                <a href="{{route('home')}}"><h1><i class="fab fa-bootstrap"></i> boolbnb</h1></a>
             </div>
         </div>
 
         {{-- Authentication Links --}}
 
-        <ul class="navbar-nav flex-row">
-          @guest
-              <li class="nav-item mr-3">
+        <ul class="navbar-nav col-6">
+            <div class="row align-items-center justify-content-end">
+                @guest
+              <li class="nav-item mr-5">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
               </li>
               @if (Route::has('register'))
@@ -42,6 +47,9 @@
                   </div>
               </li>
           @endguest
-      </ul>
+            </div>
+        </ul>
+
+    </div>
 
 </div>

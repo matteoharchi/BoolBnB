@@ -1,45 +1,23 @@
-<div class="container-header d-flex flex-column">
+<div class="container">
 
-    {{-- container-logo --}}
+    {{-- row-logo --}}
 
-    <div class="container-logo d-flex justify-content-around align-items-center">
+    <div class="row align-items-center" >
 
         {{-- logo --}}
 
-        <div class="logo">
-            <div>
-            <a href="{{route('home')}}"><h1><i class="fab fa-airbnb"></i> airbnb</h1></a>
+        <div class="logo col-6">
+            <div class="row align-items-center justify-content-start">
+                <a href="{{route('home')}}"><h1><i class="fab fa-bootstrap"></i> boolbnb</h1></a>
             </div>
         </div>
 
-        {{-- navbar centrale --}}
-        {{-- commentati perché inutili (?) --}}
-        {{-- <div>
-            <nav class="navbar navbar-expand-lg">
-              <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Alloggi</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Esperienze</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Esperienze online</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-        </div> --}}
-
         {{-- Authentication Links --}}
 
-        <ul class="navbar-nav flex-row">
-            <li class="nav-item mr-3">
-                <a class="nav-link" href="#">Diventa un Host</a>
-            </li>
-          @guest
-              <li class="nav-item mr-3">
+        <ul class="navbar-nav col-6">
+            <div class="row align-items-center justify-content-end">
+                @guest
+              <li class="nav-item mr-5">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
               </li>
               @if (Route::has('register'))
@@ -69,12 +47,31 @@
                   </div>
               </li>
           @endguest
-      </ul>
+            </div>
+        </ul>
 
     </div>
 
+    {{-- row-search --}}
 
+    <div class="row align-items-center justify-content-center">
 
+        <form class="form-inline col-8 align-items-center">
+
+            <input type="search" id="input-map" class="form-control col-10" placeholder="Dove vuoi andare?"/>
+
+            <button class="btnblu col-2"><i class="fas fa-search"></i></button>
+
+            <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+            <script>
+              var placesAutocomplete = places({
+                appId: 'pl0HV962CP1I',
+                apiKey: '6d8ad5a03272f61b882a985b5180435d',
+                container: document.querySelector('#address-input')
+              });
+            </script>
+           
+        </form>
 
 
 </div>

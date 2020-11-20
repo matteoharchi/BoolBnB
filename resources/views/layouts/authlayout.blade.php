@@ -20,8 +20,10 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script> --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script> --}}
-    {{-- Pagamento --}}
-    
+    {{-- Braintree --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
+    {{-- Handlebars --}}
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     {{-- app.js --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -30,10 +32,10 @@
 </head>
 <body>
 
-        <header>
+        <section>
             @include('partials/authheader')
-        </header>
-    
+        </section>
+
         <main>
             @yield('content')
         </main>

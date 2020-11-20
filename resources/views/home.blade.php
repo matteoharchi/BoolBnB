@@ -2,31 +2,33 @@
 
 @section('content')
 
-    {{-- container main --}}
+    <div class="container">
 
-    <div class="container-main d-flex flex-column">
+      {{-- row-title --}}
 
-      {{-- container-title --}}
+      <div class="row title">
 
-        <div class="container-title d-flex justify-content-center align-items-center mt-5 mb-5">
-          <h2>Appartamenti in evidenza</h2>
-        </div>
+            <h2 class="col-12">Appartamenti in evidenza</h2>
 
-        {{-- card-group--}}
+      </div>
 
-        <div class="card-group scrollMenu">
+      {{-- row-view --}}
+
+      <div class="row view">
+
+        <div class="card-group scrollMenu col-12">
 
           @foreach ($houses as $house)
 
-          <div class="card">
-            <img class="card-img-top rounded" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}">
+          <div class="card mr-3 ml-3">
+            <img class="card-img-top" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}">
             <div class="card-body">
               <h5 class="card-title">{{$house->title}}</h5>
-              <p class="card-text">{{Str::substr($house->description, 0, 200). "..."}}
+              <p class="card-text">{{ $house->description }}
               </p>
             </div>
             <div class="card-footer">
-            <a href="{{route('houses.show', $house->slug)}}" class="btn btnred">Dettagli</a>
+            <a href="{{route('houses.show', $house->slug)}}" class="btn btnblu">Dettagli</a>
               <small class="text-muted">Ultima modifica alle {{$house->updated_at}}</small>
             </div>
           </div>
@@ -35,9 +37,48 @@
 
         </div>
 
-        {{-- <div class="container-pagination d-flex">
-          {{ $houses->links() }}
-        </div> --}}
+      </div>
+
+      {{-- row-title --}}
+
+      <div class="row title">
+
+        <h2 class="col-12">Unisciti a milioni di host su Boolbnb</h2>
+
+      </div>
+
+      {{-- row-host --}}
+
+      <div class="row host">
+
+        <div class="col-4">
+          <div class="row">
+            <img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+          </div>
+          <div class="row">
+            <h4 class="col-12">Diventa un host</h4>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="row">
+            <img src="https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+          </div>
+          <div class="row">
+            <h4 class="col-12">Offri un' esperienza online</h4>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="row">
+            <img src="https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+          </div>
+          <div class="row">
+            <h4 class="col-12">Offri un' esperienza</h4>
+          </div>
+        </div>
+
+      </div>
 
     </div>
 @endsection

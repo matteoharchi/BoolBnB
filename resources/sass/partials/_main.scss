@@ -1,57 +1,120 @@
 main {
-    padding-bottom: 150px;
-    background-color: #f7f7f7;
-    min-height: 800px;
 
-    .container-main {
-        height: 100%;
+    width: 100%;
+    background-color: #001632;
 
-        .container-title {
-            height: 20% ;
-            h2{
-                color: #ff385c;
-                font-weight: bolder;
-            }
+    .container {
+        
+        .title {
+
+            text-align: center;
+                
+                h2 {
+
+                    color: #ffffff;
+                    font-weight: bolder;
+                    margin: 100px 0px;
+    
+                }
+
         }
 
-        .scrollMenu {
-            height: 80%;
-            overflow-x: auto;
-            flex-wrap: nowrap;
-            .card {
+        .view {
+
+            .scrollMenu {
+                
+                overflow-x: scroll;
+                flex-wrap: nowrap;
+    
+                .card {
+
+                    border-radius: 10px;
+                    flex: 0 0 auto;
+                    width: 33.333%;
+    
+                    h5 {
+                        color: #001632;
+                        font-weight: bolder;
+                    }
+
+                    p {
+                        color: #001632;
+                    }
+
+                    .card-img-top {
+
+                        border-radius: 10px 10px 0px 0px;
+                        height: 40%;
+
+                    }
+
+                    .card-body {
+
+                        height: 50%;
+
+                        .card.title {
+
+                            height: 20%;
+                        }
+
+                        .card-text {
+
+                            height: 80%;
+
+                        }
+
+                    }
+
+                    .card-footer {
+
+                        height: 10%;
+                        background-color: #ffffff;
+                        border-top: 2px solid #c2c2c2;
+                        border-radius: 0px 0px 10px 10px;
+
+                        small {
+
+                            color: #c2c2c2;
+
+                        }
+
+                    }
+                    
+                }
+    
+            }
+
+        }
+
+        .host {
+
+            img {
                 border-radius: 10px;
-                border: 5px solid  #F7F7F7;
-                flex: 0 0 auto;
-                width: 20%;
             }
-            .card a {
-                background-color: #ff385c;
-                color: white;
+
+            h4 {
+                color: #ffffff;
+                font-weight: bolder;
+                margin-bottom: 100px;
+
             }
+
+            .col-4 .row {
+                text-align: center;
+            }
+
         }
 
-        // .container-pagination {
-        //      height: 10%;
-        //      .pagination {
-        //          display: flex;
-        //          justify-content: space-around;
-        //      }
+    }
 
-        li a {
-            color:  #ff385c;
-        }
-
+    li a {
+        color:  #ff385c;
     }
 
     // create sponsor
-    .container{
-        p{
-            color: #ff385c;
-        }
-    }
 
-    label{
-        color: #ff385c;
+    label {
+        color: #001632;
     }
 
 
@@ -60,4 +123,9 @@ main {
              width: 50%;
              min-height: calc(100vh - 216px);
             }
+
+
+    .form-message {
+        margin-top: 40px !important;
+    }        
 }

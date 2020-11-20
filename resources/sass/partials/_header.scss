@@ -1,54 +1,76 @@
-.container-header {
+header {
 
+    height: 800px;
+    width: 100%;
     background-image: url("img/img1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 800px;
 
-    .container-logo {
-        height: 20%;
-        .logo div h1{
-            font-weight: bolder;
-            color: #f7f7f7;
-            margin: 0 20px;
-        }
+    .container {
 
+            .row {
 
-        .navbar-nav .nav-item .nav-link{
-            color: #f7f7f7;
-            // margin: 0 20px;
-        }
+                height: 22%;
 
-        .navbar-nav .nav-item:first-child{
-            font-weight: bolder;
-        }
+                .logo {
+    
+                    h1 {
+                        font-weight: bolder;
+                        color: #ffffff;
+                    }
+            
+                }
+                
+                .navbar-nav {
+            
+                    .nav-item .nav-link {
+    
+                        color: #ffffff;
 
+    
+                    }
+                
+                    .dropdown-menu {
 
-        .dropdown-item {
-            color: #777f87;
-        }
+                        background-color: #001632;
+                        border-radius: 10px;
+
+                        .dropdown-item {
+                            color: #ffffff;
+                        }
+
+                        .dropdown-item:hover {
+                            
+                            background-color: #001632;
+                        }
+
+                    }
+    
+                }
+                
+            }
+    
+            .form-inline {
+                 
+                background: none;
+                border-radius: 10px;
+                height: 40%;
+                background: none;
+
+                input {
+                    height: 100%;
+                    border-radius: 10px 0px 0px 10px;
+                    border: none;
+                }
+
+                button {
+                    height: 100%;
+                    border-radius: 0px 10px 10px 0px;
+                    border: none;
+                }
+            }
+            
     }
-
-    .container-search {
-        height: 20%;
-        .navbar {
-            width: 100%;
-        }
-        .form-inline {
-            width: 100%;
-        }
-        input {
-            width: 40%;
-            border-radius: 30px;
-            height: 60px;
-            border: none;
-        }
-        button {
-            border-radius: 50%;
-            height: 60px;
-            width: 60px;
-            border: none;
-        }
-    }
-
+    
 }
+

@@ -1,19 +1,53 @@
-.container-authheader {
-    background-color: #ff385c;
+section {
+
     height: 100px;
-    margin-bottom: 50px;
+    width: 100%;
+    background-color: #ffffff;
 
-        .logo div h1{
-            font-weight: bolder;
-            color: #f7f7f7;
-            margin: 0 20px;
-        }
+    .container {
 
-        ul li .nav-link {
-            color: #f7f7f7;
-        }
+            .row {
 
-        .dropdown-item {
-            color: #777f87;
-        }
+                height: 100%;
+
+                .logo {
+    
+                    h1 {
+                        font-weight: bolder;
+                        color: #001632;
+                    }
+            
+                }
+                
+                .navbar-nav {
+            
+                    .nav-item .nav-link {
+    
+                        color: #001632;
+
+    
+                    }
+                
+                    .dropdown-menu {
+
+                        background-color: #001632;
+                        border-radius: 10px;
+
+                        .dropdown-item {
+                            color: #ffffff;
+                        }
+
+                        .dropdown-item:hover {
+                            
+                            background-color: #001632;
+                        }
+
+                    }
+    
+                }
+                
+            }
+            
+    }
+    
 }

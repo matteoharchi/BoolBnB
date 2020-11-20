@@ -1,18 +1,23 @@
 footer {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    
     height: 100px;
+    width: 100%;
+    background-color: #ffffff;
 
-.container-footer {
-    background-color: #ff385c;
-    height: 100%;
+    .container {
 
-    span a {
-        color: #f7f7f7;
-        margin: 0 20px;
+        .row {
+
+            height: 100%;
+
+            span a {
+
+                color: #001632;
+                padding-right: 30px;
+
+            }
+
+        }
     }
-}
 
 }
