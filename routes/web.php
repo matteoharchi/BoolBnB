@@ -31,6 +31,8 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
     //rotte pagamenti
     Route::get('settings/houses/sponsor/create/{id}', 'SponsorController@getPay')->name('sponsor.create');
     Route::post('checkout', 'SponsorController@postPay')->name('checkout');
+    //rotte statistiche
+    Route::post('stats', 'HouseController@postView')->name('view.store');
 });
 
 //rotte messaggi
