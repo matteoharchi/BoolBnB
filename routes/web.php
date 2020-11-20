@@ -31,10 +31,10 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
     //rotte pagamenti
     Route::get('settings/houses/sponsor/create/{id}', 'SponsorController@getPay')->name('sponsor.create');
     Route::post('checkout', 'SponsorController@postPay')->name('checkout');
-    //rotte messaggi
-    Route::resource('settings/houses/messages', 'MessageController');
-
 });
+
+//rotte messaggi
+Route::resource('houses/messages', 'MessageController');
 
 //rotte case guest
 Route::get('/', 'HouseController@index');

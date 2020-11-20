@@ -4,21 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHousesTable extends Migration
-{
+class CreateHousesTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')
-            ->constrained()
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->string('title')->unique();
             $table->longText('description');
             $table->string('slug');
@@ -30,7 +28,7 @@ class CreateHousesTable extends Migration
             $table->string('address');
             $table->float('long', 9, 6)->nullable();
             $table->float('lat', 8, 6)->nullable();
-            $table->string('img')->nullable();
+            $table->string('img');
             $table->boolean('visible')->default('1');
             $table->timestamps();
         });
@@ -41,8 +39,7 @@ class CreateHousesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('houses');
     }
 }

@@ -50227,7 +50227,7 @@ $(document).ready(function () {
   $('#address').focusout(function () {
     var address = $('#address').val();
     createAddress(address);
-  });
+  }); //Autocompletamento indirizzo nella creazione di una casa
 
   function createAddress(query) {
     $.ajax({
@@ -50250,15 +50250,14 @@ $(document).ready(function () {
     $('#lat').val(data.results[0].position.lat);
     $('#long').val(data.results[0].position.lon);
     $('#address').val(data.results[0].address.freeformAddress);
-  } // Ricerca case e stampa a video
-
+  }
 
   $('#search').keydown(function (e) {
     if (e.which == 13 || e.keyCode == 13) {
       var inputUser = $('#search').val();
       searchHouses(inputUser);
     }
-  });
+  }); // Ricerca case e stampa a video
 
   function searchHouses(query) {
     $.ajax({
@@ -50761,8 +50760,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -10,6 +10,7 @@ class CreateTransactionsTable extends Migration {
      *
      * @return void
      */
+
     public function up() {
         Schema::create('transactions', function (Blueprint $table) {
 
@@ -23,8 +24,8 @@ class CreateTransactionsTable extends Migration {
             $table->foreign('sponsor_id')
                 ->references('id')
                 ->on('sponsors');
-            $table->datetime('start_date')->nullable();
-            $table->datetime('end_date')->nullable();
+            $table->datetime('start_date');
+            $table->datetime('end_date');
         });
     }
 

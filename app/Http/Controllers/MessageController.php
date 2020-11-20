@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use App\Message;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
-{
+class MessageController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -23,8 +21,7 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -34,23 +31,22 @@ class MessageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $data=$request->all();
+    public function store(Request $request) {
+        $data = $request->all();
         $request->validate([
             'sender_mail' => 'required|email:rfc|',
             'object' => 'required|max:200',
             'body' => 'required|max:3000',
         ]);
-        $data['created_at']=Carbon::now('Europe/Rome');
-        $data['updated_at']=Carbon::now('Europe/Rome');
-        $newMessage = new Message;  
+        $data['created_at'] = Carbon::now('Europe/Rome');
+        $data['updated_at'] = Carbon::now('Europe/Rome');
+        $newMessage = new Message;
         $newMessage->fill($data);
-        $saved= $newMessage->save();
+        $saved = $newMessage->save();
         if ($saved) {
             return back()->with('status', 'messaggio inviato correttamente');
         }
-        
+
     }
 
     /**
@@ -59,8 +55,7 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -70,8 +65,7 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -82,8 +76,7 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -93,8 +86,7 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }

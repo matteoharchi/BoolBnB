@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\User;
 use App\House;
-use App\Message;
-use App\Transaction;
 use App\Http\Controllers\Controller;
+use App\Message;
 use App\Service;
+use App\Transaction;
 use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -22,13 +23,29 @@ class HouseController extends Controller {
     public function index() {
 
         $yourHouses = House::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
-        $yourMessages=[];
-        $yourTransactions=[];
-        foreach ($yourHouses as $yourHouse) {
-            $yourMessages=Message::where('house_id', $yourHouse->id)->get();
-            $yourTransactions=Transaction::where('house_id', $yourHouse->id)->get();
-        }       
+
+        // SELECT *
+        // FROM `messages`
+        // INNER JOIN `houses`
+        // ON messages.house_id = houses.id
+        // INNER JOIN `users`
+        // ON houses.user_id = users.id
+
+        $yourMessages = \DB::table('messages')
+            ->join('houses', 'messages.house_id', '=', 'houses.id')
+            ->join('users', 'houses.user_id', '=', 'users.id')
+            ->where('user_id', Auth::id())
+            ->get();
+
+        $yourTransactions = \DB::table('transactions')
+            ->select('transactions.id', 'houses.title', 'transactions.start_date', 'transactions.end_date')
+            ->join('houses', 'transactions.house_id', '=', 'houses.id')
+            ->join('users', 'houses.user_id', '=', 'users.id')
+            ->where('user_id', Auth::id())
+            ->get();
+
         return view('user.index', compact('yourHouses', 'yourMessages', 'yourTransactions'));
+
     }
 
     /**
@@ -58,12 +75,15 @@ class HouseController extends Controller {
             'beds' => 'required|numeric',
             'rooms' => 'required|numeric',
             'bathrooms' => 'required|numeric',
+            'img' => 'required|image',
         ]);
         $data['slug'] = Str::slug($data['title'], '-');
         $data['user_id'] = Auth::id();
         $data['created_at'] = Carbon::now('Europe/Rome');
         $data['updated_at'] = $data['created_at'];
-        $data['img'] = Storage::disk('public')->put('images', $data['img']);
+        if (!empty($data['img'])) {
+            $data['img'] = Storage::disk('public')->put('images', $data['img']);
+        }
         $newHouse = new House;
         $newHouse->fill($data);
         $saved = $newHouse->save();

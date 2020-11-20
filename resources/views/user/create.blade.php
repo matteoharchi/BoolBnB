@@ -26,51 +26,23 @@
         <div class="sub d-flex width-100">
             <div class="form-group col-2 pl-0">
                 <label for="rooms">Numero Stanze</label>
-                <select class="form-control" id="rooms" name="rooms">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                </select>
+                <input type="number" min="1" class="form-control" id="rooms" name="rooms" value="rooms">
             </div>
             <div class="form-group col-2">
                 <label for="beds">Numero Posti Letto</label>
-                <select class="form-control" id="beds" name="beds" >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                </select>
+                <input type="number" min="1" class="form-control" id="beds" name="beds" value="beds">
             </div>
             <div class="form-group col-2">
                 <label for="bathrooms">Numero Bagni</label>
-                <select class="form-control" id="bathrooms" name="bathrooms">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                </select>
+                <input type="number" min="1" class="form-control" id="bathrooms" name="bathrooms" value="bathrooms">
             </div>
             <div class="form-group col-2">
                 <label for="size">Dimensioni (m²)</label>
-                <input type="number" class="form-control" id="size" name="size" placeholder="m²">
-
+                <input type="number" min="1"class="form-control" id="size" name="size" placeholder="m²">
             </div>
             <div class="form-group col-2">
                 <label for="price">Prezzo</label>
-                <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Euro">
+                <input type="number" min="1" class="form-control" id="price" name="price" placeholder="Euro">
             </div>
         </div>
         <div class="form-group">
@@ -84,7 +56,6 @@
             <input type="checkbox" class="mr-4" id="{{$service->name}}" name='services[]' value="{{$service->id}}">
         @endforeach
         </div>
-
         <div class="form-group">
             <label for="img">Metti le foto della tua casa</label>
             <input type="file" accept="image/*" class="form-control" id="img" name="img">

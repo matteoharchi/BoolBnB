@@ -20,15 +20,15 @@
         @csrf
         @method('POST')
           <div class="form-group">
-            <label for="email">Il tuo indirizzo mail</label>
-          <input type="email" class="form-control" id="sender_mail" placeholder="email" value="{{Auth::check() ? Auth::user()->email : ''}}" name="sender_mail">
+            <label for="email">E-Mail</label>
+          <input type="email" class="form-control" id="sender_mail" placeholder="Inserisci il tuo indirizzo mail" value="{{Auth::check() ? Auth::user()->email : ''}}" name="sender_mail">
           </div>
           <div class="form-group">
           <input type="hidden" class="form-control" id="house_id"  value="{{$house->id}}" name="house_id">
           </div>
           <div class="form-group">
             <label for="object">Oggetto</label>
-            <input type="text" class="form-control" id="object" placeholder="Inserisci il titolo" name="object">
+            <input type="text" class="form-control" id="object" placeholder="Inserisci il titolo dell'oggetto" name="object">
           </div>
 
           <div class="form-group">
@@ -39,10 +39,15 @@
         </form>
       </div>
     </div>
+
+    {{-- Button sponsor se l'utente autenticato è proprietario della casa --}}
     @auth
-  <a href="{{route('sponsor.create', $house->id)}}" class="btn btn-success">Sponsorizza la tua casa</a>
-        
+      @if (Auth::user()->id == $house->user_id)
+      <a href="{{route('sponsor.create', $house->id)}}" class="btn btn-success">Sponsorizza la tua casa</a>
+      @endif
     @endauth
+        
+    
 
     {{-- Div contenente la mappa --}}
     <div id="map" style="width: 500px; height: 500px; margin: auto"></div>

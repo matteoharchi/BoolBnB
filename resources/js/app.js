@@ -48,6 +48,7 @@ $(document).ready(function () {
     $('#sponsor-box').on('change', function(){
         var selected = $('input[name="sponsor"]:checked').val();
         $('#amount').val(selected);
+
         if ($('#amount').val() == 2.99){
             var sponsorId = 1;
             var duration = 24;
@@ -75,6 +76,7 @@ $(document).ready(function () {
         createAddress(address);
     });
 
+    //Autocompletamento indirizzo nella creazione di una casa
     function createAddress(query) {
         $.ajax({
             url: `https://api.tomtom.com/search/2/geocode/${query}.json?typeahead=true&countrySet=IT`,
@@ -98,7 +100,7 @@ $(document).ready(function () {
         $('#address').val(data.results[0].address.freeformAddress);
     }
 
-    // Ricerca case e stampa a video
+
     $('#search').keydown(function (e) {
         if (e.which == 13 || e.keyCode == 13) {
             var inputUser = $('#search').val();
@@ -106,6 +108,7 @@ $(document).ready(function () {
         }
     });
 
+    // Ricerca case e stampa a video
     function searchHouses(query) {
         $.ajax({
             url: `https://api.tomtom.com/search/2/geocode/${query}.json?typeahead=true&countrySet=IT`,
