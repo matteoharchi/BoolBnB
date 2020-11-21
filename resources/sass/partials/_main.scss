@@ -152,3 +152,30 @@ main {
         margin-top: 40px !important;
     }        
 }
+
+
+@media screen and (max-width: 1198px) and (min-width: 992px) {
+
+    .card{
+        width: 40% !important;
+    }
+
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+
+    .card{
+        width: 50% !important;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+
+    .card{
+        width: 100% !important;
+    }
+
+}
+
+// sistemare responsive sotto i 577px 

@@ -20,7 +20,7 @@
 
           @foreach ($houses as $house)
 
-          <div class="card mr-3 ml-3">
+          <div class="card">
             <img class="card-img-top" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}">
             <div class="card-body">
               <h5 class="card-title">{{$house->title}}</h5>
