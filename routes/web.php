@@ -32,7 +32,8 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
     Route::get('settings/houses/sponsor/create/{id}', 'SponsorController@getPay')->name('sponsor.create');
     Route::post('checkout', 'SponsorController@postPay')->name('checkout');
     //rotte statistiche
-    Route::post('stats', 'HouseController@postView')->name('view.store');
+    Route::post('counter', 'HouseController@postView')->name('view.store');
+    Route::get('settings/houses/{id}/stats', 'HouseController@viewsStats')->name('stats.views');
 });
 
 //rotte messaggi
@@ -42,3 +43,4 @@ Route::resource('houses/messages', 'MessageController');
 Route::get('/', 'HouseController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('houses/show/{slug}', 'HouseController@show')->name('houses.show');
+Route::post('counter', 'HouseController@postView')->name('view.store');

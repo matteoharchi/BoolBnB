@@ -28,7 +28,18 @@
               </p>
             </div>
             <div class="card-footer">
-            <a href="{{route('houses.show', $house->slug)}}" class="btn btnblu">Dettagli</a>
+              @if (Auth::id() == $house->user_id)
+                <a href="{{route('houses.show', $house->slug)}}" class="btn btnred">Dettagli</a>
+                  
+              @else
+                <form action="{{route('view.store')}}" method="POST">
+                  @csrf
+                  @method('POST')
+                  <input type="hidden" name="house_id" value="{{$house->id}}">
+                  <input type="hidden" name="slug" value="{{$house->slug}}">
+                  <button type="submit" class="btn btnred">Dettagli</button>
+                </form>                
+              @endif
               <small class="text-muted">Ultima modifica alle {{$house->updated_at}}</small>
             </div>
           </div>

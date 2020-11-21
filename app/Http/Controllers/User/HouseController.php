@@ -180,8 +180,21 @@ class HouseController extends Controller {
     }
 
 
-    public function postView(){
-        //fai la view
-        // return route(show)
+    public function postView(Request $request){
+        $newView= new View;
+        $newView->house_id = $request->house_id;
+        $newView->view_date = Carbon::now('Europe/Rome');
+        $newView->save();
+        return redirect(route('houses.show', $request->slug));
+    }
+
+    public function viewsStats($house_id){
+        $monthlyViews=[];
+        for ($i=1; $i <= 12; $i++) { 
+            $monthlyView= View::whereMonth('view_date', $i)->where('house_id', $house_id)->get();
+            $monthlyViews[]=$monthlyView;
+        }
+        
+        return view('user.stats.stats', compact('monthlyViews'));
     }
 }

@@ -37859,16 +37859,18 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(0, true)
+                _c("span", { staticClass: "text-muted mr-2" }, [
+                  _c(
+                    "a",
+                    { attrs: { href: "houses/" + your_house.id + "/stats" } },
+                    [_c("i", { staticClass: "fas fa-chart-bar" })]
+                  )
+                ])
               ])
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "mb-1" }, [
               _vm._v(_vm._s(your_house.description))
-            ]),
-            _vm._v(" "),
-            _c("small", { staticClass: "text-muted" }, [
-              _vm._v("Donec id elit non mi porta.")
             ])
           ]
         )
@@ -37877,16 +37879,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "text-muted mr-2" }, [
-      _c("a", [_c("i", { staticClass: "fas fa-chart-bar" })])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
