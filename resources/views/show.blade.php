@@ -72,28 +72,6 @@
       
     </script>
 
-        <form action="{{route('messages.store')}}" class="form-message" method="POST">
-        @csrf
-        @method('POST')
-          <div class="form-group">
-            <label for="email">Il tuo indirizzo mail</label>
-          <input type="email" class="form-control" id="sender_mail" placeholder="email" value="{{Auth::check() ? Auth::user()->email : ''}}" name="sender_mail">
-          </div>
-          <div class="form-group">
-          <input type="hidden" class="form-control" id="house_id"  value="{{$house->id}}" name="house_id">
-          </div>
-          <div class="form-group">
-            <label for="object">Oggetto</label>
-            <input type="text" class="form-control" id="object" placeholder="Inserisci il titolo" name="object">
-          </div>
-
-          <div class="form-group">
-            <label for="body">Domanda</label>
-            <textarea class="form-control" id="body" rows="6" name="body"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary float-right mt-3">Invia la tua domanda</button>
-
-        </form>
       </div>
     </div>
 
