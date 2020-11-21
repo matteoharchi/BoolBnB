@@ -181,12 +181,13 @@ main .container .host .col-4 .row {
   text-align: center;
 }
 
-main li a {
-  color: #ff385c;
+main .container form .row label {
+  color: #ffffff;
+  text-align: center;
 }
 
-main label {
-  color: #001632;
+main li a {
+  color: #ffffff;
 }
 
 main #map-example-container {

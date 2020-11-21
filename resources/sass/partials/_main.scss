@@ -3,6 +3,8 @@ main {
     width: 100%;
     background-color: #001632;
 
+    // home
+
     .container {
         
         .title {
@@ -107,17 +109,38 @@ main {
 
     }
 
+    // Login
+
+    .container {
+
+        
+    }
+
+    // Create
+
+    .container {
+
+        form {
+
+            .row {
+
+                label {
+                    color: #ffffff;
+                    text-align: center;
+                }
+
+
+            }
+        
+        }
+
+    }
+
     li a {
-        color:  #ff385c;
+        color:  #ffffff;
     }
 
     // create sponsor
-
-    label {
-        color: #001632;
-    }
-
-
 
          #map-example-container {
              width: 50%;
