@@ -37,5 +37,7 @@ class House extends Model {
     public function transactions() {
         return $this->hasMany('App\Transaction');
     }
-
+    public function views(){
+        return $this->hasMany('App\View');
+    }
 }

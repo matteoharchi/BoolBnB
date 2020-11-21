@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Message;
 use App\Service;
 use App\Transaction;
+use App\View;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
@@ -47,7 +48,6 @@ class HouseController extends Controller {
         return view('user.index', compact('yourHouses', 'yourMessages', 'yourTransactions'));
 
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -103,6 +103,7 @@ class HouseController extends Controller {
      */
     public function show($slug) {
         $house = House::where('slug', $slug)->first();
+
         return view('show', compact('house'));
     }
 
@@ -176,5 +177,11 @@ class HouseController extends Controller {
         if ($deleted) {
             return redirect()->route('houses.index')->with('status', 'Hai cancellato l\'annuncio correttamente');
         }
+    }
+
+
+    public function postView(){
+        //fai la view
+        // return route(show)
     }
 }
