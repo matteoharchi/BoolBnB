@@ -15,7 +15,7 @@ class ViewsTableSeeder extends Seeder
     {
         $houses= House::all();
 
-        for ($i=0; $i < 50; $i++) { 
+        for ($i=0; $i < 5000; $i++) { 
             $newView = new View;
             $newView->house_id= $houses->random()->id;
             $newView->view_date= $faker->dateTimeThisYear('now');

@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             HousesTableSeeder::class,
             ServicesTableSeeder::class,
             SponsorsTableSeeder::class,
-            ViewsTableSeeder::class
+            ViewsTableSeeder::class,
+            MessagesTableSeeder::class
         ]);
     }
 }
