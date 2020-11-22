@@ -190,11 +190,18 @@ class HouseController extends Controller {
 
     public function viewsStats($house_id){
         $monthlyViews=[];
-        for ($i=1; $i <= 12; $i++) { 
+        $monthlyMessages=[];
+        for ($i=1; $i <= 12; $i++) {
+            //visualizzazioni 
             $monthlyView= View::whereMonth('view_date', $i)->where('house_id', $house_id)->get();
             $monthlyViews[]=$monthlyView;
+            // messaggi
+            $monthlyMessage= Message::whereMonth('created_at', $i)->where('house_id', $house_id)->get();
+            $monthlyMessages[]=$monthlyMessage;
         }
         
-        return view('user.stats.stats', compact('monthlyViews'));
+        return view('user.stats.stats', compact('monthlyViews', 'monthlyMessages'));
     }
+
+    
 }
