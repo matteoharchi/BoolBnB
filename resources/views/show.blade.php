@@ -1,16 +1,24 @@
 @extends('layouts.authlayout')
 @section('content')
-<div class="container">
+
+<div class="container show-house">
+
+  {{-- row-casa --}}
+
     <div class="row">
 
       {{-- card casa --}}
-      <div class="card-group col-6 card-show">
-        <div class="card">
-          <h5 class="card-title">{{$house->title}}</h5>
-          <img class="card-img-top" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}" alt="{{$house->title}}">
-          <div class="card-body">
-            <p class="card-text text-light">{{ $house->description }}
-            </p>
+
+        <div class="card col-12 card-show">
+
+          <div class="row">
+
+          <img id="img-show" class="card-img-top col-6" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}" alt="{{$house->title}}">
+          
+          <div class="card-body col-6 pt-0">
+            <h5 class="card-title">{{$house->title}}</h5>
+            <p class="card-text text-light">{{ $house->description }}</p>
+
             <ul class="list-group list-group-horizontal">
               @forelse ($house->services as $service)
                 
@@ -28,31 +36,39 @@
                   @elseif ($service->name == 'Vista mare')
                     <i class="fas fa-umbrella-beach"></i>
                   @endif
-
                   {{ $service->name }}</li>
-
               @empty
                 <p class="mt-2 text-light">Nessun Servizio offerto</p>
               @endforelse
-
             </ul>
+
           </div>
+
+         </div>
+
         </div>
-      </div>
+    
+    </div>  
 
+    {{-- row-mappe-domande --}}
 
+    <div class="row">
 
-
-      <div class="col-6">
+      <div class="col-6 maps">
 
         {{-- Div contenente la mappa --}}
-        <div id="map" style="width: 500px; height: 500px; margin: auto"></div>
+        <div id="map" style="width: 100%; height: 100%"></div>
+      
+      </div>  
+
+      <div class="col-6 maps">
 
         {{-- Form messaggi se non sei loggato o non sei l'utente proprietario--}}
         @if (!Auth::check() || Auth::user()->id != $house->user_id)
           <form action="{{route('messages.store')}}" method="POST">
             @csrf
             @method('POST')
+            <h5>Invia una domanda al proprietario</h5>
               <div class="form-group">
                 <input type="hidden" class="form-control" id="house_id"  value="{{$house->id}}" name="house_id">
               </div>
@@ -69,7 +85,7 @@
                   <label for="body">Domanda</label>
                   <textarea class="form-control" id="body" rows="6" name="body"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary float-right mt-3">Invia la tua domanda</button>
+                <button type="submit" class="btn float-right mt-3 btnwhite">Invia la tua domanda</button>
           </form>
 
         @endif
@@ -77,20 +93,14 @@
 
         @auth
           @if (Auth::user()->id == $house->user_id)
-          <a href="{{route('sponsor.create', $house->id)}}" class="btn btn-success">Sponsorizza la tua casa</a>
+          <a href="{{route('sponsor.create', $house->id)}}" class="btn btn-success col-6">Sponsorizza la tua casa</a>
 
           @endif
         @endauth
 
-        
+      </div>  
 
-  
-       
-      </div>
-      
-
-
-        
+    </div>  
     
 
 
@@ -115,7 +125,6 @@
       
     </script>
 
-      </div>
     </div>
 
 </div>

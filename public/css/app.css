@@ -10,13 +10,26 @@
   height: 100% !important;
 }
 
-.btnblu {
+.btn {
+  font-weight: bold !important;
+}
+
+.btnblue {
   background-color: #001632 !important;
   color: #ffffff !important;
 }
 
+.btnwhite {
+  background-color: #ffffff !important;
+  color: #001632 !important;
+}
+
 a {
   text-decoration: none !important;
+}
+
+.btn-link {
+  color: #001632 !important;
 }
 
 header {
@@ -182,28 +195,59 @@ main .container .host .col-4 .row {
   text-align: center;
 }
 
-main .card-show .card {
-  border: none;
-  background-color: #001632;
+main .show-house h5 {
+  color: #ffffff;
+  font-weight: bold;
 }
 
-main .container form .row label {
+main .show-house #img-show {
+  border-radius: 10px !important;
+}
+
+main .show-house .row .card-show {
+  background-color: transparent !important;
+  margin-top: 100px;
+}
+
+main .show-house .row .maps {
+  margin: 100px 0;
+}
+
+main .show-house .row .maps #map {
+  border-radius: 10px;
+}
+
+main .show-house .row label {
+  color: #ffffff;
+}
+
+main .login-register .card {
+  margin-top: 100px;
+}
+
+main .login-register .card label {
+  color: #001632;
+  text-align: center;
+}
+
+main .create form .row label {
   color: #ffffff;
   text-align: center;
 }
 
-main .container form #img-create {
+main .create form #img-create,
+main .create form #img-edit {
   background-color: #001632;
   border: none;
   padding-left: 0;
   margin-right: 20px;
 }
 
-main .container form #create-house {
+main .create form #create-house,
+main .create form #edit-house {
   margin-bottom: 20px;
   background-color: white;
   color: #001632;
-  font-weight: bold;
 }
 
 main li a {
@@ -220,19 +264,19 @@ main .form-message {
 }
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {
-  .card {
+  .apartment {
     width: 40% !important;
   }
 }
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
-  .card {
+  .apartment {
     width: 50% !important;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .card {
+  .apartment {
     width: 100% !important;
   }
 }

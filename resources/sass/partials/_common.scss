@@ -11,12 +11,25 @@
 
 }
 
-.btnblu {
+.btn {
+    font-weight: bold !important;
+}
+
+.btnblue {
     background-color: #001632 !important;
     color: #ffffff !important;
 }
 
+.btnwhite {
+    background-color: #ffffff !important;
+    color: #001632 !important;
+}
+
 a {
     text-decoration: none !important;
+}
+
+.btn-link {
+    color: #001632 !important;
 }
 

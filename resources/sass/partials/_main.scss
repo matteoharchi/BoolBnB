@@ -93,42 +93,85 @@ main {
 
     // Show
 
-    .card-show {
-        .card {
-            border: none;
-            background-color: #001632;
-        }
+   .show-house {
+
+    h5 {
+        color: #ffffff;
+        font-weight: bold;
     }
 
-    // Login
+    #img-show {
+        border-radius: 10px !important;
+       }
 
-    .container {}
+       .row {
+
+           .card-show {
+
+               background-color: transparent !important;
+               margin-top: 100px;
+
+           }
+
+           .maps {
+
+               margin: 100px 0;
+
+               #map {
+                   border-radius: 10px;
+               }
+           }
+
+           label {
+               color: #ffffff;
+           }
+       }
+   }
+
+    // Login - register
+
+    .login-register {
+
+        .card {
+            margin-top: 100px;
+
+            label {
+                color:  #001632;
+                text-align: center;
+            }
+
+        } 
+
+    }
 
     // Create
 
-    .container {
+    .create {
 
         form {
+
             .row {
+
+                
 
                 label {
                     color: #ffffff;
                     text-align: center;
                 }
+
             }
 
-            #img-create {
+            #img-create, #img-edit {
                 background-color: #001632;
                 border: none;
                 padding-left: 0;
                 margin-right: 20px;
             }
 
-            #create-house {
+            #create-house, #edit-house {
                 margin-bottom: 20px;
                 background-color: white;
                 color: #001632;
-                font-weight: bold;
             }
         }
     }
@@ -153,7 +196,7 @@ main {
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {
 
-    .card {
+    .apartment {
         width: 40% !important;
     }
 
@@ -161,7 +204,7 @@ main {
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
 
-    .card {
+    .apartment {
         width: 50% !important;
     }
 
@@ -169,7 +212,7 @@ main {
 
 @media screen and (max-width: 767px) {
 
-    .card {
+    .apartment {
         width: 100% !important;
     }
 

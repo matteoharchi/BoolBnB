@@ -20,7 +20,7 @@
 
           @foreach ($houses as $house)
 
-          <div class="card">
+          <div class="card apartment">
             <img class="card-img-top" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}">
             <div class="card-body">
               <h5 class="card-title">{{$house->title}}</h5>
@@ -29,7 +29,7 @@
             </div>
             <div class="card-footer">
               @if (Auth::id() == $house->user_id)
-                <a href="{{route('houses.show', $house->slug)}}" class="btn btnred">Dettagli</a>
+                <a href="{{route('houses.show', $house->slug)}}" class="btn btnblue">Dettagli</a>
                   
               @else
                 <form action="{{route('view.store')}}" method="POST">
@@ -37,10 +37,10 @@
                   @method('POST')
                   <input type="hidden" name="house_id" value="{{$house->id}}">
                   <input type="hidden" name="slug" value="{{$house->slug}}">
-                  <button type="submit" class="btn btnred">Dettagli</button>
+                  <button type="submit" class="btn btnblue">Dettagli</button>
                 </form>                
               @endif
-              <small class="text-muted">Ultima modifica alle {{$house->updated_at}}</small>
+              {{-- <small class="text-muted">Ultima modifica alle {{$house->updated_at}}</small> --}}
             </div>
           </div>
 

@@ -60,7 +60,7 @@
 
             <input type="search" id="input-map" class="form-control col-10" placeholder="Dove vuoi andare?"/>
 
-            <button class="btnblu col-2"><i class="fas fa-search"></i></button>
+            <button class="btnblue col-2"><i class="fas fa-search"></i></button>
 
             <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
             <script>
