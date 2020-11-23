@@ -25,7 +25,7 @@
     <title>@yield('titolo')</title>
 </head>
 <body>
-
+        
         <header>
             @include('partials/header')
         </header>

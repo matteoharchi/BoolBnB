@@ -4,18 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateViewsTable extends Migration
-{
+class CreateViewsTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('views', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('house_id')->constrained('houses')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('house_id')
+                ->constrained('houses')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->datetime('view_date');
         });
     }
@@ -25,8 +26,7 @@ class CreateViewsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('views');
     }
 }

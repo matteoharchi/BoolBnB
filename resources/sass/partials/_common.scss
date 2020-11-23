@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,7 +12,8 @@
 }
 
 .btn {
-    font-weight: bold !important;
+
+    outline: none !important;
 }
 
 .btnblue {
@@ -32,4 +33,3 @@ a {
 .btn-link {
     color: #001632 !important;
 }
-

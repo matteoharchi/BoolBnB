@@ -1,24 +1,21 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\House;
+use App\Service;
 use App\User;
-use Faker\Generator as Faker;
-use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Faker\Generator as Faker;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
-
-
-class HousesTableSeeder extends Seeder
-{
+class HousesTableSeeder extends Seeder {
     /**
      * Run the database seeds.
      *
      * @return void
      */
 
-    public function run()
-    {
+    public function run() {
         //Appartamenti da inserire
         $seedHouses = [
 
@@ -34,7 +31,22 @@ class HousesTableSeeder extends Seeder
                 'long' => 9.033431,
                 'lat' => 45.617325,
                 'img' => "https://a0.muscache.com/im/pictures/miso/Hosting-43468629/original/71129021-ed34-4613-b24d-c2894faf3977.jpeg?im_w=1200",
-                'user_id' => 1
+                'user_id' => 1,
+            ],
+
+            [
+                'title' => "B&B Honey Rooms Saronno",
+                'description' => "Due camere con mobili moderni e una con mobili antichi. Camera Blu con accesso disabili e 4 posti letto. Camera Rossa spaziosa e soleggiata con uscita sul giardino. Camera Retrò in stile anni 60 con uscita sul giardino.",
+                'rooms' => 1,
+                'beds' => 1,
+                'bathrooms' => 1,
+                'price' => 25,
+                'size' => 30,
+                'address' => "Via Varese 20, Saronno, VA",
+                'long' => 9.026511,
+                'lat' => 45.625151,
+                'img' => "https://a0.muscache.com/im/pictures/52efbe8e-7f27-4139-adaa-4e8e4f9dcfbd.jpg?im_w=1200",
+                'user_id' => 4,
             ],
 
             [
@@ -51,7 +63,23 @@ class HousesTableSeeder extends Seeder
                 'long' => 9.079435,
                 'lat' => 45.812812,
                 'img' => "https://www.lagomaggioreapartments.com/uploads/large/Appartamento-Vista-Lago-M-Appartamento-Tronzano-Lago-Maggiore-8378-1151056.jpg",
-                'user_id' => 2
+                'user_id' => 2,
+            ],
+
+            [
+                'title' => "Villa Cardano Como-Penthouse, Stunning View",
+                'description' => "Villa Cardano has been completely renovated and offers today 2 apartments for rent. It is located on a hill in the Spina Verde Nature Park, surrounded by a large garden and only a few minutes from Como and the motorway. The villa is easily accessible by car, train, and plane and offers gated free parking next to the house.
+                It is especially suited for holidays at Lake Como or day trips to Milan or Switzerland or just as a stop-over on the way from Northern Europe to Italy or Southern France.",
+                'rooms' => 4,
+                'beds' => 2,
+                'bathrooms' => 1,
+                'price' => 100,
+                'size' => 70,
+                'address' => "Via Cardano 42, Como, CO",
+                'long' => 9.056318,
+                'lat' => 45.813373,
+                'img' => "https://a0.muscache.com/im/pictures/7f5f2796-de51-4395-9605-cc7bb27157dc.jpg?im_w=1200",
+                'user_id' => 2,
             ],
 
             [
@@ -66,7 +94,25 @@ class HousesTableSeeder extends Seeder
                 'long' => 11.102854,
                 'lat' => 46.097570,
                 'img' => "https://a0.muscache.com/im/pictures/9f6f8b4e-ca47-4e14-8c06-142db5238e97.jpg?aki_policy=xx_large",
-                'user_id' => 2
+                'user_id' => 2,
+            ],
+
+            [
+                'title' => "SWEET HOME 2",
+                'description' => "Grazioso appartamento appena ristrutturato,nel pieno centro di Trento,open space con angolo cottura,divano e letto matrimoniale.
+                Armadio 4 ante,bagno con doccia e lavatrice.
+                A due passi dal centro in uno dei palazzi più importanti della città!
+                Vicino a tutti i servizi.",
+                'rooms' => 3,
+                'beds' => 6,
+                'bathrooms' => 2,
+                'price' => 80,
+                'size' => 120,
+                'address' => "Via Antonio Pranzelores 76, Trento, TN",
+                'long' => 11.120138,
+                'lat' => 46.085919,
+                'img' => "https://a0.muscache.com/im/pictures/8f711c39-6155-44dc-b588-b595f11c3c54.jpg?im_w=1200",
+                'user_id' => 3,
             ],
 
             [
@@ -77,11 +123,27 @@ class HousesTableSeeder extends Seeder
                 'bathrooms' => 1,
                 'price' => 55,
                 'size' => 60,
-                'address' => "Via Enrico Bernardi, Trento, TN",
+                'address' => "Via Enrico Bernardi, Abano Terme, PD",
                 'long' => 11.787375,
                 'lat' => 45.361639,
                 'img' => "https://a0.muscache.com/im/pictures/209c34d8-137c-4fd6-906e-b1001cf94258.jpg?aki_policy=x_large",
-                'user_id' => 2
+                'user_id' => 1,
+            ],
+
+            [
+                'title' => "Il Giardino dei Gi, great flat with large terrace",
+                'description' => "The apartment is part of a house with large garden, in a quiet area though close to the city center (10 minutes by car to Prato della Valle, Basilica del Santo, Hospitals), accessible by public transport (600m from bus #3 stop).
+                It's also a good location to easily go to Venice.",
+                'rooms' => 2,
+                'beds' => 3,
+                'bathrooms' => 1,
+                'price' => 45,
+                'size' => 68,
+                'address' => "Via Gaspare Gozzi, Padova, PD",
+                'long' => 11.882979,
+                'lat' => 45.412637,
+                'img' => "https://a0.muscache.com/im/pictures/954b64d5-e3cc-40ad-b8f3-001a7ddc882a.jpg?im_w=1200",
+                'user_id' => 2,
             ],
 
             [
@@ -96,7 +158,7 @@ class HousesTableSeeder extends Seeder
                 'long' => 8.692754,
                 'lat' => 45.780956,
                 'img' => "https://a0.muscache.com/im/pictures/5683e785-15c4-422a-8cf1-e418a6355131.jpg?im_w=1200",
-                'user_id' => 1
+                'user_id' => 1,
             ],
 
             [
@@ -111,61 +173,88 @@ class HousesTableSeeder extends Seeder
                 'long' => 9.198977,
                 'lat' => 45.485214,
                 'img' => "https://a0.muscache.com/im/pictures/3c3f1d89-47f4-4ede-97db-8d3b0fb8dc31.jpg?im_w=1200",
-                'user_id' => 3
-            ]
+                'user_id' => 3,
+            ],
 
         ];
-            foreach ($seedHouses as $seedHouse) {
-                DB::table('houses')->insert([
-                    'title' => $seedHouse['title'],
-                    'description' => $seedHouse['description'],
-                    'rooms' => $seedHouse['rooms'],
-                    'beds' => $seedHouse['beds'],
-                    'bathrooms' => $seedHouse['bathrooms'],
-                    'price' => $seedHouse['price'],
-                    'size' => $seedHouse['size'],
-                    'address' => $seedHouse['address'],
-                    'long' => $seedHouse['long'],
-                    'lat' => $seedHouse['lat'],
-                    'img' => $seedHouse['img'],
-                    'user_id' => $seedHouse['user_id'],
-                    'visible' => 1,
-                    'slug' => Str::slug($seedHouse['title']),
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-    
-                ]);
-    
-        
-    }
-    
-    // Faker per appartamenti
 
-    // public function run(Faker $faker)
-    // {
-    //     $users = User::all();
+        // Prendo servizi e count
+        $services = Service::all();
+        $servicesCount = count(Service::all()->toArray());
 
-    //     for ($i=0; $i < 3; $i++) {
-    //         $newHouse = new House;
-    //         $newHouse->title = $faker->sentence(3);
-    //         $newHouse->description = $faker->text(500);
-    //         $newHouse->slug = Str::slug($newHouse->title);
-    //         $newHouse->rooms = $faker->randomDigitNotNull;
-    //         $newHouse->beds = $faker->randomDigitNotNull;
-    //         $newHouse->bathrooms = $faker->numberBetween(1, 3);
-    //         $newHouse->price = $faker->numberBetween(30, 300);
-    //         $newHouse->size = $faker->numberBetween(20, 150);
-    //         $newHouse->address = $faker->city.' '.$faker->streetAddress;
-    //         $newHouse->long = $faker->longitude(-180, 180);
-    //         $newHouse->lat = $faker->latitude(-90, 90);
-    //         $newHouse->img = $faker->imageUrl(640, 480);
-    //         $newHouse->visible = 1;
-    //         $newHouse->created_at = Carbon::now('Europe/Rome');
-    //         $newHouse->updated_at = Carbon::now('Europe/Rome');
-    //         $newHouse->user_id = $users->random()->id;
-    //         $newHouse->save();
-    //       }
-    // }
+        // Creo le case inserite nel db seedHouses
+        for ($i = 0; $i < 10; $i++) {
+            $newHouse = new House;
+            $newHouse->title = $seedHouses[$i]['title'];
+            $newHouse->description = $seedHouses[$i]['description'];
+            $newHouse->slug = Str::slug($seedHouses[$i]['title']);
+            $newHouse->rooms = $seedHouses[$i]['rooms'];
+            $newHouse->beds = $seedHouses[$i]['beds'];
+            $newHouse->bathrooms = $seedHouses[$i]['bathrooms'];
+            $newHouse->price = $seedHouses[$i]['price'];
+            $newHouse->size = $seedHouses[$i]['size'];
+            $newHouse->address = $seedHouses[$i]['address'];
+            $newHouse->long = $seedHouses[$i]['long'];
+            $newHouse->lat = $seedHouses[$i]['lat'];
+            $newHouse->img = $seedHouses[$i]['img'];
+            $newHouse->user_id = $seedHouses[$i]['user_id'];
+            $newHouse->visible = 1;
+            $newHouse->created_at = Carbon::now('Europe/Rome');
+            $newHouse->updated_at = Carbon::now('Europe/Rome');
+            $newHouse->save();
+
+            // Attacco i servizi casuali
+            $newHouse->services()->attach($services->random(rand(1, $servicesCount))->pluck('id')->toArray());
+        }
+
+        // foreach ($seedHouses as $seedHouse) {
+        //     DB::table('houses')->insert([
+        //         'title' => $seedHouse['title'],
+        //         'description' => $seedHouse['description'],
+        //         'rooms' => $seedHouse['rooms'],
+        //         'beds' => $seedHouse['beds'],
+        //         'bathrooms' => $seedHouse['bathrooms'],
+        //         'price' => $seedHouse['price'],
+        //         'size' => $seedHouse['size'],
+        //         'address' => $seedHouse['address'],
+        //         'long' => $seedHouse['long'],
+        //         'lat' => $seedHouse['lat'],
+        //         'img' => $seedHouse['img'],
+        //         'user_id' => $seedHouse['user_id'],
+        //         'visible' => 1,
+        //         'slug' => Str::slug($seedHouse['title']),
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // }
+
+        // Faker per appartamenti
+
+        // public function run(Faker $faker)
+        // {
+        //     $users = User::all();
+
+        //     for ($i=0; $i < 3; $i++) {
+        //         $newHouse = new House;
+        //         $newHouse->title = $faker->sentence(3);
+        //         $newHouse->description = $faker->text(500);
+        //         $newHouse->slug = Str::slug($newHouse->title);
+        //         $newHouse->rooms = $faker->randomDigitNotNull;
+        //         $newHouse->beds = $faker->randomDigitNotNull;
+        //         $newHouse->bathrooms = $faker->numberBetween(1, 3);
+        //         $newHouse->price = $faker->numberBetween(30, 300);
+        //         $newHouse->size = $faker->numberBetween(20, 150);
+        //         $newHouse->address = $faker->city.' '.$faker->streetAddress;
+        //         $newHouse->long = $faker->longitude(-180, 180);
+        //         $newHouse->lat = $faker->latitude(-90, 90);
+        //         $newHouse->img = $faker->imageUrl(640, 480);
+        //         $newHouse->visible = 1;
+        //         $newHouse->created_at = Carbon::now('Europe/Rome');
+        //         $newHouse->updated_at = Carbon::now('Europe/Rome');
+        //         $newHouse->user_id = $users->random()->id;
+        //         $newHouse->save();
+        //       }
+        // }
     }
 
 }

@@ -24,8 +24,6 @@ main {
                 overflow-y: hidden;
                 flex-wrap: nowrap;
 
-
-
                 .card {
                     border-radius: 10px;
                     flex: 0 0 auto;
@@ -93,48 +91,44 @@ main {
 
     // Show
 
-   .show-house {
+    .show-house {
 
-    h5 {
-        color: #ffffff;
-        font-weight: bold;
+        #img-show {
+            border-radius: 10px;
+        }
+
+        .row {
+
+            // height: 473px;
+
+            .card-show {
+
+                background-color: transparent !important;
+                margin-top: 100px;
+                border: none;
+            }
+
+            .maps,
+            .messages {
+
+                #stonks {
+                    width: 100%;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                }
+
+                margin: 100px 0;
+
+                #map {
+                    border-radius: 10px;
+                }
+            }
+
+            label {
+                color: #ffffff;
+            }
+        }
     }
-
-     #img-show {
-                border-radius: 10px;
-               }
-
-       .row {
-
-        // height: 473px;
-
-           .card-show {
-
-               background-color: transparent !important;
-               margin-top: 100px;
-               border: none;
-           }
-
-           .maps, .messages {
-
-               #stonks {
-                   width: 100%;
-                   border-radius: 10px;
-                   margin-bottom: 20px;
-               }
-
-               margin: 100px 0;
-
-               #map {
-                   border-radius: 10px;
-               }
-           }
-
-           label {
-               color: #ffffff;
-           }
-       }
-   }
 
     // Login - register
 
@@ -144,11 +138,11 @@ main {
             margin-top: 100px;
 
             label {
-                color:  #001632;
+                color: #001632;
                 text-align: center;
             }
 
-        } 
+        }
 
     }
 
@@ -160,7 +154,7 @@ main {
 
             .row {
 
-                
+
 
                 label {
                     color: #ffffff;
@@ -169,14 +163,15 @@ main {
 
             }
 
-            #img-create, #img-edit {
+            #img-create,
+            #img-edit {
                 background-color: #001632;
                 border: none;
                 padding-left: 0;
                 margin-right: 20px;
             }
 
-            #create-house, #edit-house {
+            #create-house {
                 margin-bottom: 20px;
                 background-color: white;
                 color: #001632;
@@ -188,16 +183,25 @@ main {
         color: #ffffff;
     }
 
+    // edit house
+
+    #edit-house {
+        margin-bottom: 20px;
+    }
+
     // create sponsor
 
-    #map-example-container {
-        width: 50%;
-        min-height: calc(100vh - 216px);
+    .sponsor-select {
+        padding-top: 20px;
     }
 
 
     .form-message {
         margin-top: 40px !important;
+    }
+
+    #payment-btn {
+        margin-bottom: 20px;
     }
 }
 

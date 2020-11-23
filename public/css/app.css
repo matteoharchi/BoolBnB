@@ -11,7 +11,7 @@
 }
 
 .btn {
-  font-weight: bold !important;
+  outline: none !important;
 }
 
 .btnblue {
@@ -85,35 +85,35 @@ header .container .form-inline button {
   border: none;
 }
 
-section {
+.header {
   height: 100px;
   width: 100%;
   background-color: #ffffff;
 }
 
-section .container .row {
+.header .container .row {
   height: 100%;
 }
 
-section .container .row .logo h1 {
+.header .container .row .logo h1 {
   font-weight: bolder;
   color: #001632;
 }
 
-section .container .row .navbar-nav .nav-item .nav-link {
+.header .container .row .navbar-nav .nav-item .nav-link {
   color: #001632;
 }
 
-section .container .row .navbar-nav .dropdown-menu {
+.header .container .row .navbar-nav .dropdown-menu {
   background-color: #001632;
   border-radius: 10px;
 }
 
-section .container .row .navbar-nav .dropdown-menu .dropdown-item {
+.header .container .row .navbar-nav .dropdown-menu .dropdown-item {
   color: #ffffff;
 }
 
-section .container .row .navbar-nav .dropdown-menu .dropdown-item:hover {
+.header .container .row .navbar-nav .dropdown-menu .dropdown-item:hover {
   background-color: #001632;
 }
 
@@ -195,11 +195,6 @@ main .container .host .col-4 .row {
   text-align: center;
 }
 
-main .show-house h5 {
-  color: #ffffff;
-  font-weight: bold;
-}
-
 main .show-house #img-show {
   border-radius: 10px;
 }
@@ -253,8 +248,7 @@ main .create form #img-edit {
   margin-right: 20px;
 }
 
-main .create form #create-house,
-main .create form #edit-house {
+main .create form #create-house {
   margin-bottom: 20px;
   background-color: white;
   color: #001632;
@@ -264,13 +258,20 @@ main li a {
   color: #ffffff;
 }
 
-main #map-example-container {
-  width: 50%;
-  min-height: calc(100vh - 216px);
+main #edit-house {
+  margin-bottom: 20px;
+}
+
+main .sponsor-select {
+  padding-top: 20px;
 }
 
 main .form-message {
   margin-top: 40px !important;
+}
+
+main #payment-btn {
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {

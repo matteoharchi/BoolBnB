@@ -10,23 +10,18 @@
         @endforeach
     </div>
     @endif
-    
     {{-- Form edit house --}}
-
     <form action="{{route('houses.update', $house->id)}}" method="POST" enctype="multipart/form-data">
-
         @csrf
         @method('PATCH')
 
         {{-- Titolo e indirizzo --}}
-
         <div class="row">
             <div class="form-group pt-2 col-9">
                 <label for="title">Titolo</label>
             <input  type="text" class="form-control" id="title" name="title" placeholder="Titolo annuncio" value="{{$house->title}}">
             </div>
         </div>
-
         <div class="row">
             <div class="form-group col-9">
                 <label for="address">Indirizzo</label>
@@ -35,7 +30,6 @@
         </div>
 
         {{-- Stanze, letti, bagni, mq e prezzo --}}
-
         <div class="row">
                 <div class="form-group col-md-2 col-sm-2 col-4 mr-1">
                     <label for="rooms">Stanze</label>
@@ -60,7 +54,6 @@
         </div>
 
         {{-- Descrizione --}}
-
         <div class="row">
             <div class="form-group col-9">
                 <label for="description">Descrizione</label>
@@ -69,18 +62,18 @@
         </div>
 
         {{-- Servizi --}}
-
          <div class="row">
             <div class="form-group col-12 d-flex flex-wrap">    
-                @foreach ($services as $service)          
-                    <label class="mr-2  mb-0" for="{{$service->name}}">{{$service->name}}</label>
-                    <input type="checkbox" class="mr-4" name="services[]" value="{{$service->id}}" {{($house->services->contains($service->id) ? 'checked' : '')}}>
+                @foreach ($services as $service)
+                    <div class="pr-2 pl-0">
+                        <label class="pr-2" for="{{$service->name}}">{{$service->name}}</label>
+                        <input type="checkbox" class="mr-4" name="services[]" value="{{$service->id}}" {{($house->services->contains($service->id) ? 'checked' : '')}}>
+                    </div>    
                 @endforeach
                 </div>
          </div>
 
         {{-- Inserimento immagini --}}
-
         <div class="row">
             <div class="col-12">
                 <img src="{{ asset('storage/' . $house->img)}}" alt="{{$house->slug}}" width="300px">
@@ -89,14 +82,14 @@
 
         <div class="row">
             <div class="form-group col-12 bg-none pt-3">
-                <label for="img">Cambia foto della casa</label>
+                <label for="img">Cambia l'immagine dell'annuncio</label>
                 <input type="file" accept="image/*" class="form-control text-light" id="img-edit" name="img">
             </div>
         </div>
 
         {{-- Modifica casa --}}
 
-        <button id="edit-house" type="submit" class="btn btnwhite">Modifica annuncio</button>       
+        <button id="edit-house" type="submit" class="btn btn-warning">Modifica annuncio</button>       
 
     </form>
 

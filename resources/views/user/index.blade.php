@@ -1,5 +1,13 @@
 @extends('layouts.authlayout')
 @section('content')
+
+{{-- Barra messaggi di stato CRUD --}}
+@if (session('status'))
+      <div class="alert alert-success rounded-0">
+          {{ session('status') }}
+      </div>
+@endif
+
 <div class="container">
     <div class="row" id="app">
         <div class="col-2">

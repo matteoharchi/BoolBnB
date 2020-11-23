@@ -82,14 +82,14 @@
                     @foreach ($services as $service)
                         <div class="pr-2 pl-0">
                             <label class="pr-2" for="{{$service->name}}">{{$service->name}}</label>
-                            <input type="checkbox" class="mr-3" id="{{$service->name}}" name='services[]' value="{{$service->id}}">
+                            <input type="checkbox" class="mr-4" id="{{$service->name}}" name='services[]' value="{{$service->id}}">
                         </div>    
                     @endforeach
                 </div>
             </div>
 
             <div class="row">
-
+                {{-- Immagine --}}
                 <div class="form-group col-12 bg-none">
                     <label for="img">Aggiungi foto della casa</label>
                     <input type="file" accept="image/*" class="form-control text-light" id="img-create" name="img">

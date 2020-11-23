@@ -1,7 +1,6 @@
-<div class="container">
+<div class="container pl-4 pr-4">
 
     {{-- row-logo --}}
-
     <div class="row align-items-center" >
 
         {{-- logo --}}

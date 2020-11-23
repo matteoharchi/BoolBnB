@@ -91,7 +91,7 @@ class HouseController extends Controller {
             $newHouse->services()->attach($data['services']);
         }
         if ($saved) {
-            return redirect()->route('houses.index');
+            return redirect()->route('houses.index')->with('status', 'Hai inserito con successo una nuova casa');
         }
     }
 
@@ -190,6 +190,7 @@ class HouseController extends Controller {
         return redirect(route('houses.show', $request->slug));
     }
 
+    // Funzione per statistiche mensili per grafici
     public function viewsStats($house_id) {
         $monthlyViews = [];
         $monthlyMessages = [];
