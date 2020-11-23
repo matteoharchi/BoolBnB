@@ -48,7 +48,7 @@
                 </div>
             </section>
             <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button class="button" type="submit"><span>Paga ora</span></button>
+            <button class="button" type="submit" style="position: absolute; bottom:150px"><span>Paga ora</span></button>
         </form>
     </div>
 </div>

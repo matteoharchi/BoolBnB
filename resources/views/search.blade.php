@@ -33,7 +33,7 @@
         @endforeach
       </div>
   </div>
-
+  <div class="search-premium-container" style="color:red"></div>
   <div class="search-container"></div>
   <div id="map" style="width: 500px; height: 500px; margin: auto"></div>
 
