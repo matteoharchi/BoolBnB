@@ -107,6 +107,7 @@ section .container .row .navbar-nav .dropdown-menu .dropdown-item:hover {
 main {
   width: 100%;
   background-color: #001632;
+  min-height: calc(100vh - 100px - 100px);
 }
 
 main .container .title {
@@ -120,7 +121,7 @@ main .container .title h2 {
 }
 
 main .container .view .scrollMenu {
-  overflow-x: scroll;
+  overflow-y: hidden;
   flex-wrap: nowrap;
 }
 
@@ -181,9 +182,28 @@ main .container .host .col-4 .row {
   text-align: center;
 }
 
+main .card-show .card {
+  border: none;
+  background-color: #001632;
+}
+
 main .container form .row label {
   color: #ffffff;
   text-align: center;
+}
+
+main .container form #img-create {
+  background-color: #001632;
+  border: none;
+  padding-left: 0;
+  margin-right: 20px;
+}
+
+main .container form #create-house {
+  margin-bottom: 20px;
+  background-color: white;
+  color: #001632;
+  font-weight: bold;
 }
 
 main li a {

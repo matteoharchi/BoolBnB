@@ -179,29 +179,31 @@ class HouseController extends Controller {
         }
     }
 
+    // Funzioni statistiche
 
-    public function postView(Request $request){
-        $newView= new View;
+    //Funzione per visualizzazioni in database
+    public function postView(Request $request) {
+        $newView = new View;
         $newView->house_id = $request->house_id;
         $newView->view_date = Carbon::now('Europe/Rome');
         $newView->save();
         return redirect(route('houses.show', $request->slug));
     }
 
-    public function viewsStats($house_id){
-        $monthlyViews=[];
-        $monthlyMessages=[];
-        for ($i=1; $i <= 12; $i++) {
-            //visualizzazioni 
-            $monthlyView= View::whereMonth('view_date', $i)->where('house_id', $house_id)->get();
-            $monthlyViews[]=$monthlyView;
+    public function viewsStats($house_id) {
+        $monthlyViews = [];
+        $monthlyMessages = [];
+        for ($i = 1; $i <= 12; $i++) {
+            //visualizzazioni
+            $monthlyView = View::whereMonth('view_date', $i)->where('house_id', $house_id)->get();
+            $monthlyViews[] = $monthlyView;
             // messaggi
-            $monthlyMessage= Message::whereMonth('created_at', $i)->where('house_id', $house_id)->get();
-            $monthlyMessages[]=$monthlyMessage;
+            $monthlyMessage = Message::whereMonth('created_at', $i)->where('house_id', $house_id)->get();
+            $monthlyMessages[] = $monthlyMessage;
+
         }
-        
+
         return view('user.stats.stats', compact('monthlyViews', 'monthlyMessages'));
     }
 
-    
 }

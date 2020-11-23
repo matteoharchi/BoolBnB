@@ -40,7 +40,6 @@ const app = new Vue({
 
 $(document).ready(function () {
 
-
 // Funzioni pagamenti
 
     //funzione selezione sponsor 

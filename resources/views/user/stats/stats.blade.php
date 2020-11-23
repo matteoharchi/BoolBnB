@@ -1,22 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.authlayout')
 @section('content')
 
 {{-- // foreach x as y
 //array=View where il mese di view_date=x
-
 count dell'array diventerebbe il dato che ci serve sul grafico --}}
-<div class="grafico" style="width:500px; height:500px">
-    <canvas id="myChart"></canvas>
 
+<div class="container">
+    <div class="row">
+        {{-- Grafico Visualizzazioni --}}
+
+        <div class="grafico col-12 mt-4" style="width:80%; height:80%">
+            <canvas id="myChartViews"></canvas>
+        </div>
+        {{-- Grafico Messaggi --}}
+        <div class="grafico col-12 mt-4" style="width:80%; height:80%">
+            <canvas id="myChartMessages"></canvas>
+        </div>
+    </div>
 </div>
-<div class="grafico" style="width:500px; height:500px">
-    <canvas id="myChartMessages"></canvas>
 
-</div>
-
-
+{{-- Script Grafico Visualizzazioni --}}
 <script>
-    var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById('myChartViews');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -41,7 +46,7 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
                     'rgba(153, 105, 255, 1)',
                     'rgba(255, 156, 64, 1)'
                 ],
-                borderColor:'rgba(255, 99, 132, 1)',
+                borderColor:'yellow',
                 borderWidth: 2,
                 lineTension:0,
             }]
@@ -50,6 +55,13 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
             scales: {
                 yAxes: [{
                     ticks: {
+                        fontColor: 'yellow',
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: 'yellow',
                         beginAtZero: true
                     }
                 }]
@@ -57,6 +69,8 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
         }
     });
 </script>
+
+{{-- Script Grafico Messaggi --}}
 <script>
     var ctx = document.getElementById('myChartMessages');
     var myChart = new Chart(ctx, {
@@ -64,8 +78,9 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
         data: {
             labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre','Novembre', 'Dicembre'],
             datasets: [{
-                label: 'Visualizzazioni',
+                label: 'Messaggi',
                 data: [{{count($monthlyMessages[0])}}, {{count($monthlyMessages[1])}}, {{count($monthlyMessages[2])}}, {{count($monthlyMessages[3])}}, {{count($monthlyMessages[4])}}, {{count($monthlyMessages[5])}}, {{count($monthlyMessages[6])}}, {{count($monthlyMessages[7])}}, {{count($monthlyMessages[8])}}, {{count($monthlyMessages[9])}}, {{count($monthlyMessages[10])}}, {{count($monthlyMessages[11])}}],
+
                 backgroundColor: [
                     'rgba(0,0,0,0)'
                 ],
@@ -92,6 +107,13 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
             scales: {
                 yAxes: [{
                     ticks: {
+                        fontColor: 'rgba(255, 99, 132, 1)',
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: 'rgba(255, 99, 132, 1)',
                         beginAtZero: true
                     }
                 }]

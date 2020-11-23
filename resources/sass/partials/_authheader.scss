@@ -1,53 +1,53 @@
 section {
 
-    height: 100px;
+    height: $header;
     width: 100%;
     background-color: #ffffff;
 
     .container {
 
-            .row {
+        .row {
 
-                height: 100%;
+            height: 100%;
 
-                .logo {
-    
-                    h1 {
-                        font-weight: bolder;
-                        color: #001632;
-                    }
-            
+            .logo {
+
+                h1 {
+                    font-weight: bolder;
+                    color: #001632;
                 }
-                
-                .navbar-nav {
-            
-                    .nav-item .nav-link {
-    
-                        color: #001632;
 
-    
+            }
+
+            .navbar-nav {
+
+                .nav-item .nav-link {
+
+                    color: #001632;
+
+
+                }
+
+                .dropdown-menu {
+
+                    background-color: #001632;
+                    border-radius: 10px;
+
+                    .dropdown-item {
+                        color: #ffffff;
                     }
-                
-                    .dropdown-menu {
+
+                    .dropdown-item:hover {
 
                         background-color: #001632;
-                        border-radius: 10px;
-
-                        .dropdown-item {
-                            color: #ffffff;
-                        }
-
-                        .dropdown-item:hover {
-                            
-                            background-color: #001632;
-                        }
-
                     }
-    
+
                 }
-                
+
             }
-            
+
+        }
+
     }
-    
+
 }

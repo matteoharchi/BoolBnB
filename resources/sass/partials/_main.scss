@@ -2,38 +2,35 @@ main {
 
     width: 100%;
     background-color: #001632;
+    min-height: calc(100vh - #{$header} - #{$footer});
 
     // home
 
     .container {
-        
+
         .title {
-
             text-align: center;
-                
-                h2 {
 
-                    color: #ffffff;
-                    font-weight: bolder;
-                    margin: 100px 0px;
-    
-                }
-
+            h2 {
+                color: #ffffff;
+                font-weight: bolder;
+                margin: 100px 0px;
+            }
         }
 
         .view {
-
             .scrollMenu {
-                
-                overflow-x: scroll;
-                flex-wrap: nowrap;
-    
-                .card {
 
+                overflow-y: hidden;
+                flex-wrap: nowrap;
+
+
+
+                .card {
                     border-radius: 10px;
                     flex: 0 0 auto;
                     width: 33.333%;
-    
+
                     h5 {
                         color: #001632;
                         font-weight: bolder;
@@ -47,45 +44,33 @@ main {
 
                         border-radius: 10px 10px 0px 0px;
                         height: 40%;
-
                     }
 
                     .card-body {
-
                         height: 50%;
 
                         .card.title {
-
                             height: 20%;
                         }
 
                         .card-text {
-
                             height: 80%;
-
                         }
 
                     }
 
                     .card-footer {
-
                         height: 10%;
                         background-color: #ffffff;
                         border-top: 2px solid #c2c2c2;
                         border-radius: 0px 0px 10px 10px;
 
                         small {
-
                             color: #c2c2c2;
-
                         }
-
                     }
-                    
                 }
-    
             }
-
         }
 
         .host {
@@ -98,65 +83,77 @@ main {
                 color: #ffffff;
                 font-weight: bolder;
                 margin-bottom: 100px;
-
             }
 
             .col-4 .row {
                 text-align: center;
             }
-
         }
+    }
 
+    // Show
+
+    .card-show {
+        .card {
+            border: none;
+            background-color: #001632;
+        }
     }
 
     // Login
 
-    .container {
-
-        
-    }
+    .container {}
 
     // Create
 
     .container {
 
         form {
-
             .row {
 
                 label {
                     color: #ffffff;
                     text-align: center;
                 }
-
-
             }
-        
-        }
 
+            #img-create {
+                background-color: #001632;
+                border: none;
+                padding-left: 0;
+                margin-right: 20px;
+            }
+
+            #create-house {
+                margin-bottom: 20px;
+                background-color: white;
+                color: #001632;
+                font-weight: bold;
+            }
+        }
     }
 
     li a {
-        color:  #ffffff;
+        color: #ffffff;
     }
 
     // create sponsor
 
-         #map-example-container {
-             width: 50%;
-             min-height: calc(100vh - 216px);
-            }
+    #map-example-container {
+        width: 50%;
+        min-height: calc(100vh - 216px);
+    }
 
 
     .form-message {
         margin-top: 40px !important;
-    }        
+    }
 }
 
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {
 
-    .card{
+    .card {
         width: 40% !important;
     }
 
@@ -164,7 +161,7 @@ main {
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
 
-    .card{
+    .card {
         width: 50% !important;
     }
 
@@ -172,7 +169,7 @@ main {
 
 @media screen and (max-width: 767px) {
 
-    .card{
+    .card {
         width: 100% !important;
     }
 
