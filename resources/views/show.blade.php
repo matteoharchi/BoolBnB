@@ -74,7 +74,7 @@
                 <input type="hidden" class="form-control" id="house_id"  value="{{$house->id}}" name="house_id">
               </div>
               <div class="form-group">
-                <label for="email">E-Mail</label>
+                <label for="email">Email</label>
                 <input type="email" class="form-control" id="sender_mail" placeholder="Inserisci il tuo indirizzo mail" value="{{Auth::check() ? Auth::user()->email : ''}}" name="sender_mail">
               </div>
                 <div class="form-group">
