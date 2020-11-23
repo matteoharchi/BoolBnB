@@ -96,19 +96,19 @@
 
         {{-- Modifica casa --}}
 
-        <button id="edit-house" type="submit" class="btn btnwhite">Modifica annuncio</button>
-
-        {{-- Cancella casa --}}
-
-        <form action="{{route('houses.destroy', $house->id)}}" method="post">
-
-            @csrf
-            @method('DELETE')
-                <button type="submit" class="btn btn-danger float-right">Cancella annuncio</button>
-        
-        </form>        
+        <button id="edit-house" type="submit" class="btn btnwhite">Modifica annuncio</button>       
 
     </form>
+
+     {{-- Cancella casa --}}
+
+     <form action="{{route('houses.destroy', $house->id)}}" method="post">
+
+        @csrf
+        @method('DELETE')
+            <button type="submit" class="btn btn-danger float-right">Cancella annuncio</button>
+    
+    </form> 
     
 </div>  
 
