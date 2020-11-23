@@ -121,7 +121,7 @@ $(document).ready(function () {
         $('[type=checkbox]:checked').each(function () {
             servicesFlagged.push($(this).val());
         });
-        console.log('services', servicesFlagged);
+        
         searchHouses(inputUser, minRooms, minBeds, radius, servicesFlagged);
     }
 
@@ -152,18 +152,26 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 var result = [];
+                var goldHouses = [];
                 var position = [searchLong, searchLat];
+                var now = moment();
                 data.forEach(element => {
                     var dist = getDist(element.lat, element.long, searchLat, searchLong);
                     if (dist <= radius && element.rooms >= rooms && element.beds >= beds && checkArr(element.services, services) && element.visible) {
                         element.distance = dist;
-                        result.push(element);
-                        console.log(checkArr(element.services, services));
-                    }
-                    console.log(element.services, services);
+                        for (let i = 0; i < element.sponsors.length; i++) {
+                            if(moment(element.sponsors[i].end_date).isAfter(now)){
+                                goldHouses.push(element);
+                            } else {
+                                result.push(element); 
+                            }                   
+                        }   
+      
+                    }                  
                 });
                 result.sort(compare);
                 printHouses(result);
+                printHouses(goldHouses);
                 housesOnMap(result, position);
             },
             error: function (response) {
@@ -187,6 +195,7 @@ $(document).ready(function () {
     }
 
     function printHouses(data) {
+        $('.search-premium-container').empty();
         $('.search-container').empty();
         var source = $("#entry-template").html();
         var template = Handlebars.compile(source);
@@ -195,11 +204,18 @@ $(document).ready(function () {
                 title: data[i].title,
                 description: data[i].description,
                 services: data[i].services
-            };
-            console.log('HB', data[i]);
-            var html = template(context);
-            $('.search-container').append(html);
+            };         
         }
+        premiumHouses(context, template);
+        regularHouses(context, template);
+    }
+    function premiumHouses(context, template){
+        var html = template(context);
+        $('.search-premium-container').append(html);
+    }
+    function regularHouses(context, template){
+        var html = template(context);
+        $('.search-container').append(html);
     }
 
     function housesOnMap(data, position) {

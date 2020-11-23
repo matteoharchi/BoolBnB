@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Resources;
+use App\Transaction;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -30,6 +31,7 @@ class House extends JsonResource {
             'img' => $this->img,
             'visible' => $this->visible,
             'services' => $this->services->pluck('name'),
+            'sponsors' => Transaction::where('house_id', $this->id)->get('end_date')
             // 'services' => $this->whenPivotLoadedAs('services', 'house_service', function () {
             //     return $this->services->name;
             // }),
