@@ -201,19 +201,29 @@ main .show-house h5 {
 }
 
 main .show-house #img-show {
-  border-radius: 10px !important;
+  border-radius: 10px;
 }
 
 main .show-house .row .card-show {
   background-color: transparent !important;
   margin-top: 100px;
+  border: none;
 }
 
-main .show-house .row .maps {
+main .show-house .row .maps,
+main .show-house .row .messages {
   margin: 100px 0;
 }
 
-main .show-house .row .maps #map {
+main .show-house .row .maps #stonks,
+main .show-house .row .messages #stonks {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+main .show-house .row .maps #map,
+main .show-house .row .messages #map {
   border-radius: 10px;
 }
 

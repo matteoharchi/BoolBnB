@@ -100,20 +100,28 @@ main {
         font-weight: bold;
     }
 
-    #img-show {
-        border-radius: 10px !important;
-       }
+     #img-show {
+                border-radius: 10px;
+               }
 
        .row {
+
+        // height: 473px;
 
            .card-show {
 
                background-color: transparent !important;
                margin-top: 100px;
-
+               border: none;
            }
 
-           .maps {
+           .maps, .messages {
+
+               #stonks {
+                   width: 100%;
+                   border-radius: 10px;
+                   margin-bottom: 20px;
+               }
 
                margin: 100px 0;
 

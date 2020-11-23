@@ -13,7 +13,7 @@
 
           <div class="row">
 
-          <img id="img-show" class="card-img-top col-6" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}" alt="{{$house->title}}">
+          <img id="img-show" class="card-img-top p-0 col-6" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}" alt="{{$house->title}}">
           
           <div class="card-body col-6 pt-0">
             <h5 class="card-title">{{$house->title}}</h5>
@@ -54,16 +54,17 @@
 
     <div class="row">
 
-      <div class="col-6 maps">
+      <div class="col-6 p-0 maps">
 
         {{-- Div contenente la mappa --}}
         <div id="map" style="width: 100%; height: 100%"></div>
       
       </div>  
 
-      <div class="col-6 maps">
+      <div class="col-6 messages">
 
         {{-- Form messaggi se non sei loggato o non sei l'utente proprietario--}}
+
         @if (!Auth::check() || Auth::user()->id != $house->user_id)
           <form action="{{route('messages.store')}}" method="POST">
             @csrf
@@ -93,7 +94,9 @@
 
         @auth
           @if (Auth::user()->id == $house->user_id)
-          <a href="{{route('sponsor.create', $house->id)}}" class="btn btn-success col-6">Sponsorizza la tua casa</a>
+
+          <img id="stonks" src="{{ asset('/images/Stonks.jpg') }}" alt="">
+          <a href="{{route('sponsor.create', $house->id)}}" class="btn btnwhite col-6 float-right">Sponsorizza la tua casa</a>
 
           @endif
         @endauth
