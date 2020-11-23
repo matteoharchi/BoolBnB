@@ -56,22 +56,20 @@
 
     <div class="row align-items-center justify-content-center">
 
-        <form class="form-inline col-8 align-items-center">
+        <form action="{{route('search')}}" class="form-inline col-8 align-items-center">
 
-            <input type="search" id="input-map" class="form-control col-10" placeholder="Dove vuoi andare?"/>
+            <input type="search" id="search-home" name="query" class="form-control col-10" autocomplete="off" placeholder="Dove vuoi andare?">
 
-            <button class="btnblue col-2"><i class="fas fa-search"></i></button>
+            <button type="submit" class="btnblu col-2"><i class="fas fa-search"></i></button>
 
-            <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+            {{-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
             <script>
               var placesAutocomplete = places({
                 appId: 'pl0HV962CP1I',
                 apiKey: '6d8ad5a03272f61b882a985b5180435d',
                 container: document.querySelector('#address-input')
               });
-            </script>
+            </script> --}}
            
         </form>
-
-
-</div>
+    </div>

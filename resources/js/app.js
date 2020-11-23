@@ -39,22 +39,25 @@ const app = new Vue({
 
 
 $(document).ready(function () {
+    if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
+        init();
+    }
 
-// Funzioni pagamenti
+    // Funzioni pagamenti
 
     //funzione selezione sponsor 
 
-    $('#sponsor-box').on('change', function(){
+    $('#sponsor-box').on('change', function () {
         var selected = $('input[name="sponsor"]:checked').val();
         $('#amount').val(selected);
 
-        if ($('#amount').val() == 2.99){
+        if ($('#amount').val() == 2.99) {
             var sponsorId = 1;
             var duration = 24;
-        } else if ($('#amount').val() == 5.99){
+        } else if ($('#amount').val() == 5.99) {
             sponsorId = 2;
             duration = 72;
-        } else if ($('#amount').val() == 9.99){
+        } else if ($('#amount').val() == 9.99) {
             sponsorId = 3;
             duration = 144;
         }
@@ -66,7 +69,7 @@ $(document).ready(function () {
 
 
 
-// Funzioni mappe 
+    // Funzioni mappe 
 
     // Store lat, long e indirizzo esatto
     // Al focus out del campo dell'indirizzo ne salvo il valore e invoco la funzione che lancia la chiamata ajax
@@ -99,16 +102,31 @@ $(document).ready(function () {
         $('#address').val(data.results[0].address.freeformAddress);
     }
 
-
+    // Ricerca case nella pagina 'search'
     $('#search').keydown(function (e) {
         if (e.which == 13 || e.keyCode == 13) {
-            var inputUser = $('#search').val();
-            searchHouses(inputUser);
+            init();
         }
     });
 
+    $('#search-btn').on('click', init);
+
+    // Inizializzazione ricerca
+    function init() {
+        var inputUser = $('#search').val();
+        var minRooms = $('#rooms').val();
+        var minBeds = $('#beds').val();
+        var radius = $('#radius').val();
+        var servicesFlagged = [];
+        $('[type=checkbox]:checked').each(function () {
+            servicesFlagged.push($(this).val());
+        });
+        console.log('services', servicesFlagged);
+        searchHouses(inputUser, minRooms, minBeds, radius, servicesFlagged);
+    }
+
     // Ricerca case e stampa a video
-    function searchHouses(query) {
+    function searchHouses(query, rooms, beds, radius, services) {
         $.ajax({
             url: `https://api.tomtom.com/search/2/geocode/${query}.json?typeahead=true&countrySet=IT`,
             method: "GET",
@@ -116,10 +134,10 @@ $(document).ready(function () {
                 key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq"
             },
             success: function (obj) {
+                $('#search').val(obj.results[0].address.freeformAddress);
                 var latInput = obj.results[0].position.lat;
                 var longInput = obj.results[0].position.lon;
-                getHouses(latInput, longInput);
-                
+                getHouses(latInput, longInput, rooms, beds, radius, services);
             },
             error: function (response) {
                 alert('Errore');
@@ -127,21 +145,24 @@ $(document).ready(function () {
         });
     }
 
-    function getHouses(searchLat, searchLong) {
-
+    function getHouses(searchLat, searchLong, rooms, beds, radius, services) {
         $.ajax({
             url: "http://localhost:8000/api/houses",
             method: "GET",
             success: function (data) {
                 console.log(data);
-                var result=[];
+                var result = [];
                 var position = [searchLong, searchLat];
                 data.forEach(element => {
-                    if(getDist(element.lat, element.long, searchLat, searchLong)<=20 && element.visible){
+                    var dist = getDist(element.lat, element.long, searchLat, searchLong);
+                    if (dist <= radius && element.rooms >= rooms && element.beds >= beds && checkArr(element.services, services) && element.visible) {
+                        element.distance = dist;
                         result.push(element);
+                        console.log(checkArr(element.services, services));
                     }
-                    
+                    console.log(element.services, services);
                 });
+                result.sort(compare);
                 printHouses(result);
                 housesOnMap(result, position);
             },
@@ -151,23 +172,37 @@ $(document).ready(function () {
         });
     }
 
-    function printHouses(data){
+    function checkArr(arr, target) {
+        return target.every(item => arr.includes(item));
+    }
+
+    function compare(a, b) {
+        if (a.distance < b.distance) {
+            return -1;
+        }
+        if (a.distance > b.distance) {
+            return 1;
+        }
+        return 0;
+    }
+
+    function printHouses(data) {
         $('.search-container').empty();
         var source = $("#entry-template").html();
         var template = Handlebars.compile(source);
         for (let i = 0; i < data.length; i++) {
-            var context = { 
-                title:data[i].title, 
-                description:data[i].description
+            var context = {
+                title: data[i].title,
+                description: data[i].description,
+                services: data[i].services
             };
+            console.log('HB', data[i]);
             var html = template(context);
             $('.search-container').append(html);
-            
-            
         }
     }
 
-    function housesOnMap(data, position){
+    function housesOnMap(data, position) {
         //mappa+controlli
         var map = tt.map({
             key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq",
@@ -183,8 +218,8 @@ $(document).ready(function () {
         for (let i = 0; i < data.length; i++) {
             var markerCoord = [data[i].long, data[i].lat];
             var marker = new tt.Marker()
-            .setLngLat(markerCoord)
-            .addTo(map);           
+                .setLngLat(markerCoord)
+                .addTo(map);
         }
     }
 

@@ -50194,8 +50194,12 @@ var app = new Vue({
   el: '#app'
 });
 $(document).ready(function () {
-  // Funzioni pagamenti
+  if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
+    init();
+  } // Funzioni pagamenti
   //funzione selezione sponsor 
+
+
   $('#sponsor-box').on('change', function () {
     var selected = $('input[name="sponsor"]:checked').val();
     $('#amount').val(selected);
@@ -50243,16 +50247,31 @@ $(document).ready(function () {
     $('#lat').val(data.results[0].position.lat);
     $('#long').val(data.results[0].position.lon);
     $('#address').val(data.results[0].address.freeformAddress);
-  }
+  } // Ricerca case nella pagina 'search'
+
 
   $('#search').keydown(function (e) {
     if (e.which == 13 || e.keyCode == 13) {
-      var inputUser = $('#search').val();
-      searchHouses(inputUser);
+      init();
     }
-  }); // Ricerca case e stampa a video
+  });
+  $('#search-btn').on('click', init); // Inizializzazione ricerca
 
-  function searchHouses(query) {
+  function init() {
+    var inputUser = $('#search').val();
+    var minRooms = $('#rooms').val();
+    var minBeds = $('#beds').val();
+    var radius = $('#radius').val();
+    var servicesFlagged = [];
+    $('[type=checkbox]:checked').each(function () {
+      servicesFlagged.push($(this).val());
+    });
+    console.log('services', servicesFlagged);
+    searchHouses(inputUser, minRooms, minBeds, radius, servicesFlagged);
+  } // Ricerca case e stampa a video
+
+
+  function searchHouses(query, rooms, beds, radius, services) {
     $.ajax({
       url: "https://api.tomtom.com/search/2/geocode/".concat(query, ".json?typeahead=true&countrySet=IT"),
       method: "GET",
@@ -50260,9 +50279,10 @@ $(document).ready(function () {
         key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq"
       },
       success: function success(obj) {
+        $('#search').val(obj.results[0].address.freeformAddress);
         var latInput = obj.results[0].position.lat;
         var longInput = obj.results[0].position.lon;
-        getHouses(latInput, longInput);
+        getHouses(latInput, longInput, rooms, beds, radius, services);
       },
       error: function error(response) {
         alert('Errore');
@@ -50270,7 +50290,7 @@ $(document).ready(function () {
     });
   }
 
-  function getHouses(searchLat, searchLong) {
+  function getHouses(searchLat, searchLong, rooms, beds, radius, services) {
     $.ajax({
       url: "http://localhost:8000/api/houses",
       method: "GET",
@@ -50279,10 +50299,17 @@ $(document).ready(function () {
         var result = [];
         var position = [searchLong, searchLat];
         data.forEach(function (element) {
-          if (getDist(element.lat, element["long"], searchLat, searchLong) <= 20 && element.visible) {
+          var dist = getDist(element.lat, element["long"], searchLat, searchLong);
+
+          if (dist <= radius && element.rooms >= rooms && element.beds >= beds && checkArr(element.services, services) && element.visible) {
+            element.distance = dist;
             result.push(element);
+            console.log(checkArr(element.services, services));
           }
+
+          console.log(element.services, services);
         });
+        result.sort(compare);
         printHouses(result);
         housesOnMap(result, position);
       },
@@ -50290,6 +50317,24 @@ $(document).ready(function () {
         alert('Errore');
       }
     });
+  }
+
+  function checkArr(arr, target) {
+    return target.every(function (item) {
+      return arr.includes(item);
+    });
+  }
+
+  function compare(a, b) {
+    if (a.distance < b.distance) {
+      return -1;
+    }
+
+    if (a.distance > b.distance) {
+      return 1;
+    }
+
+    return 0;
   }
 
   function printHouses(data) {
@@ -50300,8 +50345,10 @@ $(document).ready(function () {
     for (var i = 0; i < data.length; i++) {
       var context = {
         title: data[i].title,
-        description: data[i].description
+        description: data[i].description,
+        services: data[i].services
       };
+      console.log('HB', data[i]);
       var html = template(context);
       $('.search-container').append(html);
     }
@@ -50753,8 +50800,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/micheleprova/Documents/Esercizi-Git/BoolBnB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/micheleprova/Documents/Esercizi-Git/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Desktop\Boolean\Esercizi\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\Esercizi\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
