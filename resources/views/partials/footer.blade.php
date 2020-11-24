@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pl-4 pr-4">
 
    <div class="row">
 

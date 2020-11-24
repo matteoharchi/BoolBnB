@@ -73,8 +73,12 @@ main {
 
         .host {
 
+            padding-bottom: 100px;
+
             img {
                 border-radius: 10px;
+                height: 100%;
+                width: 100%;
             }
 
             h4 {
@@ -185,7 +189,7 @@ main {
     .login-register {
 
         .card {
-            margin-top: 100px;
+            margin: 100px 0;
 
             label {
                 color: #001632;
@@ -255,7 +259,7 @@ main {
 
 
     .apartment {
-        width: 40%;
+        width: 40% !important;
     }
 
 }
@@ -263,12 +267,12 @@ main {
 @media screen and (max-width: 991px) and (min-width: 768px) {
 
     #img-show {
-        height: 400px;
-        width: 400px;
+        height: 400px !important;
+        width: 400px !important;
     }
 
     .apartment {
-        width: 50%;
+        width: 50% !important;
     }
 
 }
@@ -276,18 +280,18 @@ main {
 @media screen and (max-width: 767px) {
 
     .img-show-ctr {
-        margin-bottom: 40px;
-        height: 135px;
-        width: 280px;
+        margin-bottom: 40px !important;
+        height: 135px !important;
+        width: 280px !important;
     }
 
     #img-show {
-        height: 300px;
-        width: 300px;
+        height: 300px !important;
+        width: 300px !important;
     }
 
     .apartment {
-        width: 100%;
+        width: 100% !important;
     }
 
 }

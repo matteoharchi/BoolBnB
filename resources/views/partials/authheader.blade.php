@@ -5,16 +5,16 @@
 
         {{-- logo --}}
 
-        <div class="logo col-6">
-            <div class="row align-items-center justify-content-start">
+        <div class="logo col-10">
+            <div class="row align-items-center">
                 <a href="{{route('home')}}"><h1><i class="fab fa-bootstrap"></i> boolbnb</h1></a>
             </div>
         </div>
 
         {{-- Authentication Links --}}
 
-        <ul class="navbar-nav col-6">
-            <div class="row align-items-center justify-content-end">
+        <ul class="navbar-nav col-2">
+            <div class="row align-items-center">
                 @guest
               <li class="nav-item mr-5">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>

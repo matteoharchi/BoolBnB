@@ -62,31 +62,8 @@
 
       <div class="row host">
 
-        <div class="col-4">
-          <div class="row">
-            <img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-          </div>
-          <div class="row">
-            <h4 class="col-12">Diventa un host</h4>
-          </div>
-        </div>
-
-        <div class="col-4">
-          <div class="row">
-            <img src="https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-          </div>
-          <div class="row">
-            <h4 class="col-12">Offri un' esperienza online</h4>
-          </div>
-        </div>
-
-        <div class="col-4">
-          <div class="row">
-            <img src="https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-          </div>
-          <div class="row">
-            <h4 class="col-12">Offri un' esperienza</h4>
-          </div>
+        <div class="col-12">
+          <img src="{{ asset('/images/host.jpg') }}" alt="">
         </div>
 
       </div>
