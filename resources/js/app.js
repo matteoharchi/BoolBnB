@@ -183,7 +183,8 @@ $(document).ready(function () {
                 printHousesGold(goldHouses);
                 printHousesRegular(result);
                 // Case sulla mappa
-                housesOnMap(result, position);
+                housesOnMap(data, position);
+                
             }
         });
     }
@@ -255,6 +256,7 @@ $(document).ready(function () {
             var marker = new tt.Marker()
                 .setLngLat(markerCoord)
                 .addTo(map);
+                
         }
     }
 
@@ -275,6 +277,10 @@ $(document).ready(function () {
         return deg * (Math.PI / 180);
     }
 
+//banner successo o errore
+    setTimeout(() => {
+        $('.conferma, .error').fadeOut();
+    }, 3000);
 });
 
 

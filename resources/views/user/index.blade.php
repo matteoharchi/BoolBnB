@@ -3,7 +3,7 @@
 
 {{-- Barra messaggi di stato CRUD --}}
 @if (session('status'))
-      <div class="alert alert-success rounded-0">
+      <div class="alert alert-success rounded-0 conferma" style="position:absolute; width:100vw">
           {{ session('status') }}
       </div>
 @endif
