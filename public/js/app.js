@@ -50319,13 +50319,15 @@ $(document).ready(function () {
               result.push(element);
             }
           }
-        }); // Ordine case per distanza crescente e stampa nei div premium e barboni
+        }); // markers dei risultati sulla mappa
+
+        var markers = result.concat(goldHouses); // Ordine case per distanza crescente e stampa nei div premium e barboni
 
         result.sort(compare);
         printHousesGold(goldHouses);
         printHousesRegular(result); // Case sulla mappa
 
-        housesOnMap(data, position);
+        housesOnMap(markers, position);
       }
     });
   }
@@ -50358,6 +50360,7 @@ $(document).ready(function () {
         title: data[i].title,
         description: data[i].description,
         services: data[i].services,
+        price: data[i].price,
         img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
       };
       console.log(context);
@@ -50376,6 +50379,7 @@ $(document).ready(function () {
         title: data[i].title,
         description: data[i].description,
         services: data[i].services,
+        price: data[i].price,
         img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
       };
       console.log(context);
@@ -50399,6 +50403,19 @@ $(document).ready(function () {
     for (var i = 0; i < data.length; i++) {
       var markerCoord = [data[i]["long"], data[i].lat];
       var marker = new tt.Marker().setLngLat(markerCoord).addTo(map);
+      var popupOffsets = {
+        top: [0, 0],
+        bottom: [0, -70],
+        'bottom-right': [0, -70],
+        'bottom-left': [0, -70],
+        left: [25, -35],
+        right: [-25, -35]
+      };
+      var popup = new tt.Popup({
+        offset: popupOffsets
+      }).setHTML("<b>" + data[i].title + "</b>" + "<br>" + data[i].address);
+      !popup.isOpen();
+      marker.setPopup(popup).togglePopup();
     }
   }
 

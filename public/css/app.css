@@ -332,8 +332,8 @@ main #payment-btn {
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
   #img-show {
-    height: 400px !important;
-    width: 400px !important;
+    height: 400px;
+    width: 400px;
   }
 
   .apartment {
@@ -343,14 +343,14 @@ main #payment-btn {
 
 @media screen and (max-width: 767px) {
   .img-show-ctr {
-    margin-bottom: 40px !important;
-    height: 135px !important;
-    width: 280px !important;
+    margin-bottom: 40px;
+    height: 135px;
+    width: 280px;
   }
 
   #img-show {
-    height: 300px !important;
-    width: 300px !important;
+    height: 300px;
+    width: 300px;
   }
 
   .apartment {

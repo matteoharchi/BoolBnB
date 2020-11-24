@@ -41,53 +41,36 @@
             <div class="search-container text-light"></div>
           </div>
           {{-- mappa --}}
-          <div class="map-ctr-search col-6">
+          <div class="map-ctr-search col-6 text-dark">
             <div id="map" style="width: 500px; height: 500px; margin: auto"></div>
+            
           </div>
 
         </div>
 
         
   </div>
-{{-- 
-    <div class="container bcontent">
-      <h2>Bootstrap Horizontal Card</h2>
-      <hr />
-      <div class="card" style="width: 500px;">
-          <div class="row no-gutters">
-              <div class="col-sm-5">
-                  <img class="card-img" src="/images/defaultimg.png" alt="Suresh Dasari Card">
-              </div>
-              <div class="col-sm-7">
-                  <div class="card-body">
-                      <h5 class="card-title">Suresh Dasari</h5>
-                      <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
-                      <a href="#" class="btn btn-primary">View Profile</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div> --}}
-
 
 {{-- Handlebars --}}
 <script id="entry-template" type="text/x-handlebars-template">
-  <div class="col-sm-5">
-    {{-- <img id="img-show" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}" alt="{{$house->title}}"> --}}
 
-    <img class="card-img" src="@{{img}}" alt="">
-  </div>
   <div class="entry">
-    <h4>@{{title}}</h4>
-    <div class="body">
-      @{{description}}
-	  <div class="services">
-      @{{#each services}}
-			<label class="mr-2 mb-0" for="@{{this}}">@{{this}}</label>
-      @{{/each}}
-	  </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <img class="card-img" src="@{{img}}" alt="@{{title}}">
+        </div>
+        <div class="col-sm-7">
+          <h4>@{{title}}</h4>
+          <div class="services">
+            @{{#each services}}
+            <label class="mr-2 mb-0" for="@{{this}}">@{{this}}</label>
+            @{{/each}}
+          </div>
+          <h5>@{{price}}</h5>
+        </div>
     </div>
   </div>
+  
 </script>
 
 
