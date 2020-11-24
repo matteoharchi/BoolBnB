@@ -13,7 +13,7 @@ class MessagesTableSeeder extends Seeder {
      */
     public function run(Faker $faker) {
         $houses = House::all();
-        for ($i = 0; $i < 2000; $i++) {
+        for ($i = 0; $i < 1000; $i++) {
             $newMessage = new Message;
             $newMessage->house_id = $houses->random()->id;
             $newMessage->sender_mail = $faker->email;

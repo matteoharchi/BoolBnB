@@ -18,12 +18,16 @@ class CreateTransactionsTable extends Migration {
             $table->unsignedBigInteger('house_id');
             $table->foreign('house_id')
                 ->references('id')
-                ->on('houses');
+                ->on('houses')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->unsignedBigInteger('sponsor_id');
             $table->foreign('sponsor_id')
                 ->references('id')
-                ->on('sponsors');
+                ->on('sponsors')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->datetime('start_date');
             $table->datetime('end_date');
         });

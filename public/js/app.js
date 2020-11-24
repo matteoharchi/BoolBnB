@@ -50357,8 +50357,10 @@ $(document).ready(function () {
       var context = {
         title: data[i].title,
         description: data[i].description,
-        services: data[i].services
+        services: data[i].services,
+        img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
       };
+      console.log(context);
       var html = template(context);
       $('.search-premium-container').append(html);
     }
@@ -50373,8 +50375,10 @@ $(document).ready(function () {
       var context = {
         title: data[i].title,
         description: data[i].description,
-        services: data[i].services
+        services: data[i].services,
+        img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
       };
+      console.log(context);
       var html = template(context);
       $('.search-container').append(html);
     }
@@ -50826,8 +50830,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/micheleprova/Documents/Esercizi-Git/BoolBnB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/micheleprova/Documents/Esercizi-Git/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

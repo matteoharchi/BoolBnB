@@ -210,8 +210,10 @@ $(document).ready(function () {
             var context = {
                 title: data[i].title,
                 description: data[i].description,
-                services: data[i].services
+                services: data[i].services,
+                img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
             };
+            console.log(context);
             var html = template(context);
             $('.search-premium-container').append(html);         
         }
@@ -225,8 +227,10 @@ $(document).ready(function () {
             var context = {
                 title: data[i].title,
                 description: data[i].description,
-                services: data[i].services
+                services: data[i].services,
+                img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
             };
+            console.log(context);
             var html = template(context);
             $('.search-container').append(html);         
         }
