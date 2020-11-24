@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.authlayout')
 @section('content')
 
 {{-- @dd($services, $query) --}}
-  <div class="container">
+  <div class="container col-12">
 	  <div>
       @if (!empty($query))
         <input type="search" id="search" autocomplete="off" value="{{$query['query']}}">
@@ -32,11 +32,15 @@
             <input type="checkbox" class="mr-4" id="service-{{$service->id}}" value="{{$service->name}}">
         @endforeach
       </div>
-  </div>
-  <div class="search-premium-container" style="color:red"></div>
-  <div class="search-container"></div>
-  <div id="map" style="width: 500px; height: 500px; margin: auto"></div>
+        {{-- contenitore ricerche annunci sponsorizzati --}}
+        <div class="search-premium-container" style="color:red"></div>
+        {{-- contenitore annunci per poveri --}}
+        <div class="search-container text-light"></div>
+        <div id="map" style="width: 500px; height: 500px; margin: auto"></div>
+    </div>
 
+
+{{-- Handlebars --}}
 <script id="entry-template" type="text/x-handlebars-template">
   <div class="entry">
     <h4>@{{title}}</h4>

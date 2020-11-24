@@ -6,6 +6,7 @@
 count dell'array diventerebbe il dato che ci serve sul grafico --}}
 
 <div class="container">
+    <h3 class="text-light text-center pt-3">Statistiche dell'appartamento "{{$house->title}}"</h3>
     <div class="row">
         {{-- Grafico Visualizzazioni --}}
 

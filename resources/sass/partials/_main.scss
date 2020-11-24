@@ -91,33 +91,83 @@ main {
 
     // Show
 
+    #map {
+        width: 500px;
+        height: 500px;
+    }
+
     .show-house {
+
+        .img-show-ctr {
+            height: 400px;
+            width: 700px;
+        }
 
         #img-show {
             border-radius: 10px;
+            height: 90%;
+            width: 90%;
         }
 
         .row {
 
-            // height: 473px;
-
             .card-show {
 
                 background-color: transparent !important;
-                margin-top: 100px;
+                margin-top: 40px;
                 border: none;
+
+                .house-main-text {
+                    padding-left: 10px;
+                    padding-bottom: 10px;
+                }
+
+                .house-details {
+
+                    .house-det {
+                        padding: 0 10px;
+
+                        i {
+                            font-size: 20px;
+                        }
+                    }
+                }
+
+                .service-title {
+
+                    padding-top: 20px;
+
+                }
+
+                .service-show {
+                    padding-left: 10px;
+                    display: inline-block;
+
+                    li {
+                        list-style: none;
+                        float: left;
+
+                        i {
+                            font-size: 20px;
+                        }
+                    }
+                }
             }
 
             .maps,
             .messages {
 
-                #stonks {
+                margin: 20px 0;
+
+                #sponsor-img {
                     width: 100%;
                     border-radius: 10px;
                     margin-bottom: 20px;
                 }
 
-                margin: 100px 0;
+                .sponsor-show-text {
+                    padding-top: 40px;
+                }
 
                 #map {
                     border-radius: 10px;
@@ -141,9 +191,7 @@ main {
                 color: #001632;
                 text-align: center;
             }
-
         }
-
     }
 
     // Create
@@ -154,13 +202,10 @@ main {
 
             .row {
 
-
-
                 label {
                     color: #ffffff;
                     text-align: center;
                 }
-
             }
 
             #img-create,
@@ -208,26 +253,41 @@ main {
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {
 
+
     .apartment {
-        width: 40% !important;
+        width: 40%;
     }
 
 }
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
 
+    #img-show {
+        height: 400px;
+        width: 400px;
+    }
+
     .apartment {
-        width: 50% !important;
+        width: 50%;
     }
 
 }
 
 @media screen and (max-width: 767px) {
 
+    .img-show-ctr {
+        margin-bottom: 40px;
+        height: 135px;
+        width: 280px;
+    }
+
+    #img-show {
+        height: 300px;
+        width: 300px;
+    }
+
     .apartment {
-        width: 100% !important;
+        width: 100%;
     }
 
 }
-
-// sistemare responsive sotto i 577px 

@@ -50291,34 +50291,40 @@ $(document).ready(function () {
       url: "http://localhost:8000/api/houses",
       method: "GET",
       success: function success(data) {
-        console.log(data);
         var result = [];
         var goldHouses = [];
         var position = [searchLong, searchLat];
-        var now = moment();
-        var found = false;
+        var now = moment(); // controllo per ogni casa trovata controllo
+
         data.forEach(function (element) {
-          var dist = getDist(element.lat, element["long"], searchLat, searchLong);
+          var found = false;
+          var dist = getDist(element.lat, element["long"], searchLat, searchLong); // controllo per i filtri di ricerca
 
           if (dist <= radius && element.rooms >= rooms && element.beds >= beds && checkArr(element.services, services) && element.visible) {
-            element.distance = dist;
+            element.distance = dist; // controllo sponsorizzazioni
 
             if (element.sponsors.length > 0) {
               for (var i = 0; i < element.sponsors.length; i++) {
+                // controllo data scadenza sponsor e push in array premium
                 if (moment(element.sponsors[i].end_date).isAfter(now) && found == false) {
                   goldHouses.push(element);
+                  found = true; // controllo data scadenza sponsor e push in array barboni
+                } else if (moment(element.sponsors[i].end_date).isBefore(now) && !goldHouses.includes(element) && !result.includes(element)) {
+                  result.push(element);
                   found = true;
                 }
               }
-            } else if (!goldHouses.includes(element)) {
+            } else {
+              // push case in array barboni in caso di nessuna sponsorizzazione
               result.push(element);
             }
           }
-        });
-        console.log(result);
+        }); // Ordine case per distanza crescente e stampa nei div premium e barboni
+
         result.sort(compare);
         printHousesGold(goldHouses);
-        printHousesRegular(result);
+        printHousesRegular(result); // Case sulla mappa
+
         housesOnMap(result, position);
       }
     });
@@ -50820,8 +50826,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

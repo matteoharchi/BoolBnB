@@ -21,7 +21,6 @@
 
     {{-- <a href="" class="btn btn-success">Conferma</a> --}}
 
-    
         <form method="post" id="payment-form" action="{{ route('checkout') }}">
             @csrf
             

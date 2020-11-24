@@ -147,33 +147,42 @@ $(document).ready(function () {
             url: "http://localhost:8000/api/houses",
             method: "GET",
             success: function (data) {
-                console.log(data);
                 var result = [];
                 var goldHouses = [];
                 var position = [searchLong, searchLat];
                 var now = moment();
-                var found=false;
+                // controllo per ogni casa trovata controllo
                 data.forEach(element => {
+                    var found = false;
                     var dist = getDist(element.lat, element.long, searchLat, searchLong);
+                    // controllo per i filtri di ricerca
                     if (dist <= radius && element.rooms >= rooms && element.beds >= beds && checkArr(element.services, services) && element.visible) {
                         element.distance = dist;
-                        if (element.sponsors.length >0) {
+                        // controllo sponsorizzazioni
+                        if (element.sponsors.length > 0) {
                             for (let i = 0; i < element.sponsors.length; i++) {
-                                if(moment(element.sponsors[i].end_date).isAfter(now) && found == false){
-                                    goldHouses.push(element);
-                                    found = true;                                                                      
-                                }                            
+                                // controllo data scadenza sponsor e push in array premium
+                                if (moment(element.sponsors[i].end_date).isAfter(now) && found == false){
+                                    goldHouses.push(element);   
+                                    found = true;
+                                // controllo data scadenza sponsor e push in array barboni
+                                }  else if (moment(element.sponsors[i].end_date).isBefore(now) && !goldHouses.includes(element) && !result.includes(element)) {
+                                    result.push(element);
+                                    found = true; 
+                                }                                                               
                             }
-                        }else if(!goldHouses.includes(element)){
+                        } else {
+                            // push case in array barboni in caso di nessuna sponsorizzazione
                             result.push(element); 
                         }                  
-                            
                     }                  
                 });
-                console.log(result);
+
+                // Ordine case per distanza crescente e stampa nei div premium e barboni
                 result.sort(compare);
                 printHousesGold(goldHouses);
                 printHousesRegular(result);
+                // Case sulla mappa
                 housesOnMap(result, position);
             }
         });
