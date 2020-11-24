@@ -88,8 +88,12 @@
         </div>
 
         {{-- Modifica casa --}}
-
-        <button id="edit-house" type="submit" class="btn btn-warning">Modifica annuncio</button>       
+        <div class="form-group col-12 bg-none pt-3">
+            <label for="visible">Visibile</label>
+            <input type="hidden" name="visible" value="0">
+            <input type="checkbox" name="visible" id="visible" value="1" {{($house->visible==1 ? 'checked' : '')}}>
+        </div>
+        <button id="edit-house" type="submit" class="btn btnwhite">Modifica annuncio</button>       
 
     </form>
 
@@ -104,5 +108,4 @@
     </form> 
     
 </div>  
-
 @endsection

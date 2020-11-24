@@ -50235,9 +50235,6 @@ $(document).ready(function () {
       },
       success: function success(obj) {
         getLatLng(obj);
-      },
-      error: function error(response) {
-        alert('Errore');
       }
     });
   }
@@ -50299,28 +50296,30 @@ $(document).ready(function () {
         var goldHouses = [];
         var position = [searchLong, searchLat];
         var now = moment();
+        var found = false;
         data.forEach(function (element) {
           var dist = getDist(element.lat, element["long"], searchLat, searchLong);
 
           if (dist <= radius && element.rooms >= rooms && element.beds >= beds && checkArr(element.services, services) && element.visible) {
             element.distance = dist;
 
-            for (var i = 0; i < element.sponsors.length; i++) {
-              if (moment(element.sponsors[i].end_date).isAfter(now)) {
-                goldHouses.push(element);
-              } else {
-                result.push(element);
+            if (element.sponsors.length > 0) {
+              for (var i = 0; i < element.sponsors.length; i++) {
+                if (moment(element.sponsors[i].end_date).isAfter(now) && found == false) {
+                  goldHouses.push(element);
+                  found = true;
+                }
               }
+            } else if (!goldHouses.includes(element)) {
+              result.push(element);
             }
           }
         });
+        console.log(result);
         result.sort(compare);
-        printHouses(result);
-        printHouses(goldHouses);
+        printHousesGold(goldHouses);
+        printHousesRegular(result);
         housesOnMap(result, position);
-      },
-      error: function error(response) {
-        alert('Errore');
       }
     });
   }
@@ -50343,8 +50342,23 @@ $(document).ready(function () {
     return 0;
   }
 
-  function printHouses(data) {
+  function printHousesGold(data) {
     $('.search-premium-container').empty();
+    var source = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+
+    for (var i = 0; i < data.length; i++) {
+      var context = {
+        title: data[i].title,
+        description: data[i].description,
+        services: data[i].services
+      };
+      var html = template(context);
+      $('.search-premium-container').append(html);
+    }
+  }
+
+  function printHousesRegular(data) {
     $('.search-container').empty();
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
@@ -50355,20 +50369,9 @@ $(document).ready(function () {
         description: data[i].description,
         services: data[i].services
       };
+      var html = template(context);
+      $('.search-container').append(html);
     }
-
-    premiumHouses(context, template);
-    regularHouses(context, template);
-  }
-
-  function premiumHouses(context, template) {
-    var html = template(context);
-    $('.search-premium-container').append(html);
-  }
-
-  function regularHouses(context, template) {
-    var html = template(context);
-    $('.search-container').append(html);
   }
 
   function housesOnMap(data, position) {
@@ -50817,8 +50820,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

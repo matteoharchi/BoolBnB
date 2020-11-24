@@ -143,7 +143,7 @@ class HouseController extends Controller {
             'beds' => 'required|numeric',
             'rooms' => 'required|numeric',
             'bathrooms' => 'required|numeric',
-        ]);
+            ]);
         $data['slug'] = Str::slug($data['title'], '-');
         $data['updated_at'] = Carbon::now('Europe/Rome');
         // $data['user_id']=Auth::id();
