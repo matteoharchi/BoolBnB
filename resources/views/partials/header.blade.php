@@ -6,16 +6,16 @@
 
         {{-- logo --}}
 
-        <div class="logo col-6">
-            <div class="row align-items-center justify-content-start">
+        <div class="logo col-10">
+            <div class="row align-items-center">
                 <a href="{{route('home')}}"><h1><i class="fab fa-bootstrap"></i> boolbnb</h1></a>
             </div>
         </div>
 
         {{-- Authentication Links --}}
 
-        <ul class="navbar-nav col-6">
-            <div class="row align-items-center justify-content-end">
+        <ul class="navbar-nav col-2">
+            <div class="row align-items-center">
                 @guest
               <li class="nav-item mr-5">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
@@ -61,15 +61,6 @@
             <input type="search" id="search-home" name="query" class="form-control col-10" autocomplete="off" placeholder="Dove vuoi andare?">
 
             <button type="submit" class="btnblue col-2"><i class="fas fa-search"></i></button>
-
-            {{-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-            <script>
-              var placesAutocomplete = places({
-                appId: 'pl0HV962CP1I',
-                apiKey: '6d8ad5a03272f61b882a985b5180435d',
-                container: document.querySelector('#address-input')
-              });
-            </script> --}}
            
         </form>
     </div>
