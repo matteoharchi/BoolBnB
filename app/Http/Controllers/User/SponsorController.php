@@ -82,7 +82,7 @@ class SponsorController extends Controller {
             $newTransaction->fill($data);
             $saved = $newTransaction->save();
             if ($saved) {
-                return back()->with('success_message', 'Transaction successful. The ID is:' . $transaction->id);
+                return back()->with('success_message', 'Transazione andata a buon fine. ID pagamento: ' . $transaction->id);
             }
         } else {
             $errorString = "";
@@ -93,7 +93,7 @@ class SponsorController extends Controller {
 
             // $_SESSION["errors"] = $errorString;
             // header("Location: index.php");
-            return back()->withErrors('An error occurred with the message: ' . $result->message);
+            return back()->withErrors('Si è verificato un errore: ' . $result->message);
         }
     }
 
