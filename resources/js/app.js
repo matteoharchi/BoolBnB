@@ -300,6 +300,42 @@ $(document).ready(function () {
     setTimeout(() => {
         $('.conferma, .error').fadeOut();
     }, 3000);
+
+//alert 'are you sure' cancellazione annuncio
+
+    $('.delete-btn').on('click', function(event){
+        var form = $(this).closest('form');
+        var name = $(this).attr('name');
+        event.preventDefault();
+        swal({
+            title: 'Sei sicuro di voler cancellare questo annuncio?',
+            text: 'L\'azione è irreversibile!',
+            icon: 'warning',
+            buttons: ['Annulla','Conferma'],
+            dangerMode: true
+        }).then((willDelete)=>{
+            if (willDelete) {
+                form.submit();
+            };
+        });
+    });
+
+//alert "are you sure" modifica
+    $('#edit-house').on('click', function(event){
+        var form = $(this).closest('form');
+        var name = $(this).attr('name');
+        event.preventDefault();
+        swal({
+            title: 'Sei sicuro di voler applicare le modifiche?',
+            icon: 'warning',
+            buttons: ['Annulla','Conferma'],
+            
+        }).then((willEdit)=>{
+            if (willEdit) {
+                form.submit();
+            };
+        });
+    });
 });
 
 

@@ -9,7 +9,7 @@
 @endif
 
 <div class="container">
-    <div class="row" id="app">
+    <div class="row dashboard" id="app">
         <div class="col-2">
             <div class="list-group" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Informazioni Personali</a>

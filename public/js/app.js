@@ -50439,7 +50439,43 @@ $(document).ready(function () {
 
   setTimeout(function () {
     $('.conferma, .error').fadeOut();
-  }, 3000);
+  }, 3000); //alert 'are you sure' cancellazione annuncio
+
+  $('.delete-btn').on('click', function (event) {
+    var form = $(this).closest('form');
+    var name = $(this).attr('name');
+    event.preventDefault();
+    swal({
+      title: 'Sei sicuro di voler cancellare questo annuncio?',
+      text: 'L\'azione è irreversibile!',
+      icon: 'warning',
+      buttons: ['Annulla', 'Conferma'],
+      dangerMode: true
+    }).then(function (willDelete) {
+      if (willDelete) {
+        form.submit();
+      }
+
+      ;
+    });
+  }); //alert "are you sure" modifica
+
+  $('#edit-house').on('click', function (event) {
+    var form = $(this).closest('form');
+    var name = $(this).attr('name');
+    event.preventDefault();
+    swal({
+      title: 'Sei sicuro di voler applicare le modifiche?',
+      icon: 'warning',
+      buttons: ['Annulla', 'Conferma']
+    }).then(function (willEdit) {
+      if (willEdit) {
+        form.submit();
+      }
+
+      ;
+    });
+  });
 });
 
 /***/ }),
@@ -50852,8 +50888,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
