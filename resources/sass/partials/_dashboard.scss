@@ -1,3 +1,9 @@
 .dashboard{
     padding: 80px 0;
+
+    .dashboard-section{
+        height: 500px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
 }

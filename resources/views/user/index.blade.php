@@ -4,7 +4,7 @@
 {{-- Barra messaggi di stato CRUD --}}
 @if (session('status'))
       <div class="alert alert-success rounded-0 conferma" style="position:absolute; width:100vw">
-          {{ session('status') }}
+        {{ session('status') }}
       </div>
 @endif
 
@@ -12,18 +12,16 @@
     <div class="row dashboard" id="app">
         <div class="col-2">
             <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Informazioni Personali</a>
-                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">I tuoi appartamenti</a>
+                <a class="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">I tuoi appartamenti</a>
                 <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messaggi</a>
                 <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Pagamenti e compensi</a>
             </div>
         </div>
         <div class="col-10">
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><edit-user></edit-user></div>
-                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><houses :your_houses="{{$yourHouses->toJson()}}"></houses></div>
-                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list"><messages :your_messages="{{$yourMessages->toJson()}}"></messages></div>
-                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list"><transactions :your_transactions="{{$yourTransactions->toJson()}}"></transactions></div>
+                <div class="dashboard-section tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><houses :your_houses="{{$yourHouses->toJson()}}"></houses></div>
+                <div class="dashboard-section tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list"><messages :your_messages="{{$yourMessages->toJson()}}"></messages></div>
+                <div class="dashboard-section tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list"><transactions :your_transactions="{{$yourTransactions->toJson()}}"></transactions></div>
             </div>
         </div>
     </div>
