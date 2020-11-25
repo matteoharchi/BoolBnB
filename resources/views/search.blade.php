@@ -1,7 +1,7 @@
 @extends('layouts.authlayout')
 @section('content')
 
-  <div class="container text-light col-12">
+  <div class="container col-12">
 	  <div class="search-bar d-flex">
       @if (!empty($query))
         <input type="text" id="search" autocomplete="off" value="{{$query['query']}}">
@@ -40,7 +40,7 @@
             {{-- contenitore ricerche annunci sponsorizzati --}}
             <div class="search-premium-container" style="color:gold"></div>
             {{-- contenitore annunci per poveri --}}
-            <div class="search-container text-light"></div>
+            <div class="search-container"></div>
           </div>
           {{-- mappa --}}
           <div class="map-ctr-search col-12 col-md-6 text-dark d-flex justify-content-center rounded">

@@ -14,7 +14,7 @@
     @endforeach
 </div>
 @endif
-<div class="container text-light">
+<div class="container">
 
     <div class="sponsor-select">
         <h2>Sponsorizza il tuo appartamento</h2>

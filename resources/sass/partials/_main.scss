@@ -182,59 +182,60 @@ main {
             border: none;
             margin-right: 5px;
         }
+
         .card {
             margin: 100px 0;
             border: none;
             border-radius: 10px;
             background-color: white;
 
-        #search-btn {
-            border-radius: 50%;
-            padding: 4px 12px;
-            outline: none;
-            border: none;
-            .card-header {
-                background-color: white;
+            #search-btn {
+                border-radius: 50%;
+                padding: 4px 12px;
+                outline: none;
                 border: none;
-                color: black;
-                border-radius: 10px;
-            }
 
-            label {
-                text-align: center;
-            }
-        }
-    }
-
-
-
-    .house-ctr-search {
-        max-height: calc(100vh - #{$header} - #{$footer});
-        overflow-y: scroll;
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-        // overflow-x: hidden;
-    }
-
-    .house-ctr-search::-webkit-scrollbar {
-        display: none;
-    }
+                .card-header {
+                    background-color: white;
+                    border: none;
+                    color: black;
+                    border-radius: 10px;
+                }
 
                 label {
                     text-align: center;
                 }
             }
+        }
+
+        .house-ctr-search {
+            max-height: calc(100vh - #{$header} - #{$footer});
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            // overflow-x: hidden;
+        }
+
+        .house-ctr-search::-webkit-scrollbar {
+            display: none;
+        }
+
+        label {
+            text-align: center;
+        }
+    }
 
     .house-card-src {
-            #img-create,
-            #img-edit {
-                background-color: white;
-                border: none;
-                padding-left: 0;
-                margin-right: 20px;
-            }
+
+        #img-create,
+        #img-edit {
+            background-color: white;
+            border: none;
+            padding-left: 0;
+            margin-right: 20px;
+        }
 
         height: 150px;
         margin-top: 10px;
@@ -242,13 +243,6 @@ main {
 
         .row {
             height: 100%;
-            #create-house {
-                margin-bottom: 20px;
-                background-color: white;
-                color: white;
-            }
-
-
         }
 
         .card-img {
@@ -257,7 +251,6 @@ main {
     }
 
     .house-details {
-    // edit house
 
         position: relative;
 
@@ -283,54 +276,59 @@ main {
     .map-ctr-search {
         padding-top: 20px;
     }
-}
 
+    // Login - register
 
+    .login-register {
 
-// Login - register
+        .card {
+            margin: 100px 0;
 
-.login-register {
-
-    .card {
-        margin: 100px 0;
-
-        label {
-            color: #001632;
-            text-align: center;
+            label {
+                color: #001632;
+                text-align: center;
+            }
         }
     }
-}
 
-    #payment-btn {
-        margin-top: 20px;
+
+    li a {
+        color: #ffffff;
     }
 
+    //create house 
+
+
+    #create-house {
+        margin-bottom: 20px;
+        background-color: white;
+        color: white;
+    }
+
+    // edit house
+
+    #edit-house {
+        margin-bottom: 20px;
+    }
+
+    // create sponsor
+
+    .sponsor-select {
+        padding-top: 20px;
+    }
+
+
+    .form-message {
+        margin-top: 40px !important;
+    }
+
+    #payment-btn {
+        margin: 20px 0;
+    }
 }
 
-li a {
-    color: #ffffff;
-}
-
-// edit house
-
-#edit-house {
-    margin-bottom: 20px;
-}
-
-// create sponsor
-
-.sponsor-select {
-    padding-top: 20px;
-}
 
 
-.form-message {
-    margin-top: 40px !important;
-}
-
-#payment-btn {
-    margin-bottom: 20px;
-}
 
 
 
