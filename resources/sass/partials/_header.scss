@@ -12,39 +12,32 @@ header {
 
             height: 22%;
 
-            .logo {
-
-                h1 {
-                    font-weight: bolder;
-                    color: #ffffff;
+                .logo {
+    
+                    h1 {
+                        font-weight: bolder;
+                        color: white;
+                    }
+            
                 }
-            }
+                
+                .navbar-nav {
 
-            .navbar-nav {
+            
+                    .nav-item .nav-link {
+    
+                        color: white;
 
-                .nav-item .nav-link {
-
-                    color: #ffffff;
-
-                }
-
-                .dropdown-menu {
-
-                    background-color: #001632;
-                    border-radius: 10px;
-
-                    .dropdown-item {
-                        color: #ffffff;
+    
                     }
 
-                    .dropdown-item:hover {
+                        background-color: white;
+                        border-radius: 10px;
+                        border: none;
 
-                        background-color: #001632;
-                    }
-                }
-            }
-        }
-
+                        .dropdown-item {
+                            color: #6c757d;
+                        }
         // Barra di ricerca
         .search-bar-home {
             position: absolute;
@@ -56,6 +49,11 @@ header {
             width: 300px;
             height: 100px;
 
+                        .dropdown-item:hover {
+                            
+                            color: #ff385c;
+                            background-color: white;
+                        }
             .search {
                 position: absolute;
                 margin: auto;

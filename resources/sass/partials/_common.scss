@@ -11,20 +11,69 @@
 
 }
 
-.btnblue {
-    background-color: #001632 !important;
-    color: #ffffff !important;
+.btn-red {
+    background-color: #ff385c !important;
+    color: white !important;
+    border-radius: 10px !important;
 }
 
-.btnwhite {
-    background-color: #ffffff !important;
-    color: #001632 !important;
+.btn-white {
+    background-color: white !important;
+    color: #ff385c !important;
+    border: 1px solid #ff385c !important;
+    border-radius: 10px !important;
+
+    &:hover {
+        box-shadow: 0px 0px 10px 0px #ff385c!important;
+    }
 }
+
+.btn-authheader {
+    background-color: transparent !important;
+    color: #ff385c !important;
+    border: 1px solid #ff385c !important;
+    padding: 0.375rem 0.75rem !important;
+    border-radius: 10px !important;
+
+    &:hover {
+        box-shadow: 0px 0px 10px 0px #ff385c!important;
+    }
+}
+
+.btn-header {
+    background-color: transparent !important;
+    color: white !important;
+    border: 1px solid white !important;
+    padding: 0.375rem 0.75rem !important;
+    border-radius: 10px !important;
+
+    &:hover {
+        box-shadow: 0px 0px 10px 0px white!important;
+    }
+}
+
+.ombra {
+    box-shadow: 0px 0px 15px 0px #c2c2c2 !important;
+  }
 
 a {
     text-decoration: none !important;
 }
 
+input {
+    border: 1px solid #c2c2c2 !important;
+    border-radius: 10px !important;
+}
+
+textarea {
+    border: 1px solid #c2c2c2 !important;
+    border-radius: 10px !important;
+}
+
 .btn-link {
-    color: #001632 !important;
+    color: black !important;
+}
+
+h4, h5, h3, h2, label, p {
+    color: black !important;
 }

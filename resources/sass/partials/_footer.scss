@@ -2,7 +2,8 @@ footer {
 
     height: $footer;
     width: 100%;
-    background-color: #ffffff;
+    background-color: white;
+    border: none;
 
     .container {
 
@@ -10,9 +11,6 @@ footer {
 
             height: 100%;
 
-            li a {
-                color: #001632;
-            }
         }
     }
 }

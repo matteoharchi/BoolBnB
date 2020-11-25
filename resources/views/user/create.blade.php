@@ -23,14 +23,14 @@
             <div class="row">
                 <div class="form-group pt-2 col-9">
                     <label for="title">Titolo</label>
-                    <input  type="text" class="form-control" id="title" name="title" placeholder="Titolo annuncio">
+                    <input  type="text" class="form-control" id="title" name="title">
                 </div>
             </div>
 
             <div class="row">
                 <div class="form-group col-9">
                     <label for="address">Indirizzo</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Inserisci l'indirizzo completo della casa">
+                    <input type="text" class="form-control" id="address" name="address">
         
                     <input type="hidden" id="lat" name="lat" value="">
                     <input type="hidden" id="long" name="long" value="">
@@ -90,14 +90,14 @@
 
             <div class="row">
                 {{-- Immagine --}}
-                <div class="form-group col-12 bg-none">
+                <div class="form-group col-12">
                     <label for="img">Aggiungi foto della casa</label>
-                    <input type="file" accept="image/*" class="form-control text-light" id="img-create" name="img">
+                    <input type="file" accept="image/*" class="" id="img-create" name="img">
                 </div>
 
             </div>
 
-            <button type="submit" id="create-house" class="btn btnwhite">Crea annuncio</button>
+            <button type="submit" id="create-house" class="btn btn-white">Crea annuncio</button>
 
     </form>
 
