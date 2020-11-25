@@ -103,7 +103,7 @@
 
         @csrf
         @method('DELETE')
-            <button type="submit" class="btn btn-red mb-3">Cancella annuncio</button>
+            <button type="submit" class="btn delete-btn btn-red mb-3">Cancella annuncio</button>
     
     </form> 
     
