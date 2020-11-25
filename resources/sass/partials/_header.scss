@@ -16,32 +16,35 @@ header {
     
                     h1 {
                         font-weight: bolder;
-                        color: #ffffff;
+                        color: white;
                     }
             
                 }
                 
                 .navbar-nav {
+
             
                     .nav-item .nav-link {
     
-                        color: #ffffff;
+                        color: white;
 
     
                     }
                 
                     .dropdown-menu {
 
-                        background-color: #001632;
+                        background-color: white;
                         border-radius: 10px;
+                        border: none;
 
                         .dropdown-item {
-                            color: #ffffff;
+                            color: #6c757d;
                         }
 
                         .dropdown-item:hover {
                             
-                            background-color: #001632;
+                            color: #ff385c;
+                            background-color: white;
                         }
 
                     }

@@ -36,7 +36,7 @@
                 @yield('content')
             </main>
 
-            <footer>
+            <footer class="ombra">
                 @include('partials/footer')
             </footer>
 

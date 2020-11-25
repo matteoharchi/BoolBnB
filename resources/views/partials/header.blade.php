@@ -6,7 +6,7 @@
 
         {{-- logo --}}
 
-        <div class="logo col-10">
+        <div class="logo col-9">
             <div class="row align-items-center">
                 <a href="{{route('home')}}"><h1><i class="fab fa-bootstrap"></i> boolbnb</h1></a>
             </div>
@@ -14,20 +14,20 @@
 
         {{-- Authentication Links --}}
 
-        <ul class="navbar-nav col-2">
-            <div class="row align-items-center">
+        <ul class="navbar-nav col-3">
+            <div class="row align-items-center justify-content-end">
                 @guest
-              <li class="nav-item mr-5">
-                  <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+              <li class="nav-item mr-2">
+                  <a class="nav-link btn btn-header" href="{{ route('login') }}">{{ __('Accedi') }}</a>
               </li>
               @if (Route::has('register'))
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                      <a class="nav-link btn btn-header" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                   </li>
               @endif
           @else
               <li class="nav-item dropdown">
-                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-header" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       {{ Auth::user()->name }}
                   </a>
 
@@ -60,7 +60,9 @@
 
             <input type="search" id="search-home" name="query" class="form-control col-10" autocomplete="off" placeholder="Dove vuoi andare?">
 
-            <button type="submit" class="btnblue col-2"><i class="fas fa-search"></i></button>
+            <button type="submit" class="btn-red col-2"><i class="fas fa-search"></i></button>
            
         </form>
     </div>
+
+</div>

@@ -1,7 +1,7 @@
 main {
 
     width: 100%;
-    background-color: #001632;
+    background-color: white;
     min-height: calc(100vh - #{$header} - #{$footer});
 
     // home
@@ -12,7 +12,7 @@ main {
             text-align: center;
 
             h2 {
-                color: #ffffff;
+                color: black;
                 font-weight: bolder;
                 margin: 100px 0px;
             }
@@ -28,15 +28,8 @@ main {
                     border-radius: 10px;
                     flex: 0 0 auto;
                     width: 33.333%;
-
-                    h5 {
-                        color: #001632;
-                        font-weight: bolder;
-                    }
-
-                    p {
-                        color: #001632;
-                    }
+                    border: 1px solid #c2c2c2;
+                    background-color: white;
 
                     .card-img-top {
 
@@ -59,13 +52,9 @@ main {
 
                     .card-footer {
                         height: 10%;
-                        background-color: #ffffff;
-                        border-top: 2px solid #c2c2c2;
+                        background-color: white;
+                        border-top: none;
                         border-radius: 0px 0px 10px 10px;
-
-                        small {
-                            color: #c2c2c2;
-                        }
                     }
                 }
             }
@@ -82,7 +71,6 @@ main {
             }
 
             h4 {
-                color: #ffffff;
                 font-weight: bolder;
                 margin-bottom: 100px;
             }
@@ -178,10 +166,8 @@ main {
                 }
             }
 
-            label {
-                color: #ffffff;
-            }
         }
+
     }
 
     // Login - register
@@ -190,9 +176,18 @@ main {
 
         .card {
             margin: 100px 0;
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+
+            .card-header {
+                background-color: white;
+                border: none;
+                color: black;
+                border-radius: 10px;
+            }
 
             label {
-                color: #001632;
                 text-align: center;
             }
         }
@@ -207,14 +202,13 @@ main {
             .row {
 
                 label {
-                    color: #ffffff;
                     text-align: center;
                 }
             }
 
             #img-create,
             #img-edit {
-                background-color: #001632;
+                background-color: white;
                 border: none;
                 padding-left: 0;
                 margin-right: 20px;
@@ -223,13 +217,11 @@ main {
             #create-house {
                 margin-bottom: 20px;
                 background-color: white;
-                color: #001632;
+                color: white;
             }
-        }
-    }
 
-    li a {
-        color: #ffffff;
+
+        }
     }
 
     // edit house
@@ -250,8 +242,9 @@ main {
     }
 
     #payment-btn {
-        margin-bottom: 20px;
+        margin-top: 20px;
     }
+
 }
 
 

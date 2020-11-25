@@ -83,7 +83,7 @@
         <div class="row">
             <div class="form-group col-12 bg-none pt-3">
                 <label for="img">Cambia l'immagine dell'annuncio</label>
-                <input type="file" accept="image/*" class="form-control text-light" id="img-edit" name="img">
+                <input type="file" accept="image/*" class="" id="img-edit" name="img">
             </div>
         </div>
 
@@ -93,7 +93,7 @@
             <input type="hidden" name="visible" value="0">
             <input type="checkbox" name="visible" id="visible" value="1" {{($house->visible==1 ? 'checked' : '')}}>
         </div>
-        <button id="edit-house" type="submit" class="btn btnwhite">Modifica annuncio</button>       
+        <button id="edit-house" type="submit" class="btn btn-white">Modifica annuncio</button>       
 
     </form>
 
@@ -103,7 +103,7 @@
 
         @csrf
         @method('DELETE')
-            <button type="submit" class="btn btn-danger mb-3 delete-btn">Cancella annuncio</button>
+            <button type="submit" class="btn btn-red mb-3">Cancella annuncio</button>
     
     </form> 
     
