@@ -2,6 +2,7 @@
 
 use App\House;
 use App\Service;
+use App\Sponsor;
 use App\User;
 use Carbon\Carbon;
 use Faker\Generator as Faker;

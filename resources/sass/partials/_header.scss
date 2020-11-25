@@ -8,69 +8,41 @@ header {
 
     .container {
 
-            .row {
+        .row {
 
-                height: 22%;
+            height: 22%;
 
-                .logo {
-    
-                    h1 {
-                        font-weight: bolder;
-                        color: #ffffff;
-                    }
-            
+            .logo {
+
+                h1 {
+                    font-weight: bolder;
+                    color: white;
                 }
-                
-                .navbar-nav {
-            
-                    .nav-item .nav-link {
-    
-                        color: #ffffff;
 
-    
-                    }
-                
-                    .dropdown-menu {
-
-                        background-color: #001632;
-                        border-radius: 10px;
-
-                        .dropdown-item {
-                            color: #ffffff;
-                        }
-
-                        .dropdown-item:hover {
-                            
-                            background-color: #001632;
-                        }
-
-                    }
-    
-                }
-                
             }
-    
-            .form-inline {
-                 
-                background: none;
-                border-radius: 10px;
-                height: 40%;
-                background: none;
 
-                input {
-                    height: 100%;
-                    border-radius: 10px 0px 0px 10px;
-                    border: none;
+            .navbar-nav {
+
+
+                .nav-item .nav-link {
+
+                    color: white;
+
+
                 }
 
-                button {
-                    height: 100%;
-                    border-radius: 0px 10px 10px 0px;
-                    border: none;
+                border: none;
+
+                .dropdown-item {
+                    color: #6c757d;
+                }
+
+                .dropdown-item:hover {
+
+                    color: #ff385c;
+                    background-color: white;
                 }
             }
-            
+        }
     }
-    
 }
-

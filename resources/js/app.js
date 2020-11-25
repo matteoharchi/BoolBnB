@@ -218,6 +218,9 @@ $(document).ready(function () {
                 description: data[i].description,
                 services: data[i].services,
                 price: data[i].price,
+                rooms: data[i].rooms,
+                beds: data[i].beds,
+                bathrooms: data[i].bathrooms,
                 img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
             };
             console.log(context);
@@ -236,6 +239,9 @@ $(document).ready(function () {
                 description: data[i].description,
                 services: data[i].services,
                 price: data[i].price,
+                rooms: data[i].rooms,
+                beds: data[i].beds,
+                bathrooms: data[i].bathrooms,
                 img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
             };
             console.log(context);

@@ -2,7 +2,7 @@
 
      height: $header;
      width: 100%;
-     background-color: #ffffff;
+     background-color: white;
 
      .container {
 
@@ -14,35 +14,28 @@
 
                  h1 {
                      font-weight: bolder;
-                     color: #001632;
+                     color: #ff385c;
                  }
 
              }
 
              .navbar-nav {
 
-                 .nav-item .nav-link {
+                .dropdown-menu {
 
-                     color: #001632;
+                    background-color: white;
+                    border-radius: 10px;
 
+                    .dropdown-item {
+                        color: #6c757d;
+                        &:hover {
+                        
+                            color: #ff385c;
+                            background-color: white;
+                        }
+                    }
 
-                 }
-
-                 .dropdown-menu {
-
-                     background-color: #001632;
-                     border-radius: 10px;
-
-                     .dropdown-item {
-                         color: #ffffff;
-                     }
-
-                     .dropdown-item:hover {
-
-                         background-color: #001632;
-                     }
-
-                 }
+                }
 
              }
 

@@ -1,7 +1,7 @@
 main {
 
     width: 100%;
-    background-color: #001632;
+    background-color: white;
     min-height: calc(100vh - #{$header} - #{$footer});
 
     // home
@@ -12,7 +12,7 @@ main {
             text-align: center;
 
             h2 {
-                color: #ffffff;
+                color: black;
                 font-weight: bolder;
                 margin: 100px 0px;
             }
@@ -28,15 +28,8 @@ main {
                     border-radius: 10px;
                     flex: 0 0 auto;
                     width: 33.333%;
-
-                    h5 {
-                        color: #001632;
-                        font-weight: bolder;
-                    }
-
-                    p {
-                        color: #001632;
-                    }
+                    border: 1px solid #c2c2c2;
+                    background-color: white;
 
                     .card-img-top {
 
@@ -59,13 +52,9 @@ main {
 
                     .card-footer {
                         height: 10%;
-                        background-color: #ffffff;
-                        border-top: 2px solid #c2c2c2;
+                        background-color: white;
+                        border-top: none;
                         border-radius: 0px 0px 10px 10px;
-
-                        small {
-                            color: #c2c2c2;
-                        }
                     }
                 }
             }
@@ -82,7 +71,6 @@ main {
             }
 
             h4 {
-                color: #ffffff;
                 font-weight: bolder;
                 margin-bottom: 100px;
             }
@@ -178,10 +166,115 @@ main {
                 }
             }
 
-            label {
-                color: #ffffff;
+        }
+
+    }
+
+    //Search 
+
+    .search-bar {
+        padding: 20px 0;
+
+        #search {
+            border-radius: 5px;
+            padding: 8px 4px;
+            outline: none;
+            border: none;
+            margin-right: 5px;
+        }
+
+        .card {
+            margin: 100px 0;
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+
+            #search-btn {
+                border-radius: 50%;
+                padding: 4px 12px;
+                outline: none;
+                border: none;
+
+                .card-header {
+                    background-color: white;
+                    border: none;
+                    color: black;
+                    border-radius: 10px;
+                }
+
+                label {
+                    text-align: center;
+                }
             }
         }
+
+        .house-ctr-search {
+            max-height: calc(100vh - #{$header} - #{$footer});
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            // overflow-x: hidden;
+        }
+
+        .house-ctr-search::-webkit-scrollbar {
+            display: none;
+        }
+
+        label {
+            text-align: center;
+        }
+    }
+
+    .house-card-src {
+
+        #img-create,
+        #img-edit {
+            background-color: white;
+            border: none;
+            padding-left: 0;
+            margin-right: 20px;
+        }
+
+        height: 150px;
+        margin-top: 10px;
+        border-bottom: 3px solid whitesmoke;
+
+        .row {
+            height: 100%;
+        }
+
+        .card-img {
+            height: 140px;
+        }
+    }
+
+    .house-details {
+
+        position: relative;
+
+        .house-details-rooms {
+            font-weight: bold;
+
+            ul {
+                list-style: none;
+
+                li {
+                    display: inline-block;
+                }
+            }
+        }
+
+        .house-price-src {
+            position: absolute;
+            left: 15px;
+            bottom: 0;
+        }
+    }
+
+    .map-ctr-search {
+        padding-top: 20px;
     }
 
     // Login - register
@@ -198,38 +291,18 @@ main {
         }
     }
 
-    // Create
-
-    .create {
-
-        form {
-
-            .row {
-
-                label {
-                    color: #ffffff;
-                    text-align: center;
-                }
-            }
-
-            #img-create,
-            #img-edit {
-                background-color: #001632;
-                border: none;
-                padding-left: 0;
-                margin-right: 20px;
-            }
-
-            #create-house {
-                margin-bottom: 20px;
-                background-color: white;
-                color: #001632;
-            }
-        }
-    }
 
     li a {
         color: #ffffff;
+    }
+
+    //create house 
+
+
+    #create-house {
+        margin-bottom: 20px;
+        background-color: white;
+        color: white;
     }
 
     // edit house
@@ -250,9 +323,13 @@ main {
     }
 
     #payment-btn {
-        margin-bottom: 20px;
+        margin: 20px 0;
     }
 }
+
+
+
+
 
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {
@@ -260,7 +337,6 @@ main {
     .apartment {
         width: 40% !important;
     }
-
 }
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
@@ -274,6 +350,15 @@ main {
         width: 50% !important;
     }
 
+    .house-card-src {
+        .services {
+            display: none;
+        }
+
+        #search-img {
+            height: 120px;
+        }
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -293,4 +378,28 @@ main {
         width: 100% !important;
     }
 
+    .house-card-src {
+        height: 120px;
+
+        .card-img {
+            height: 120px;
+        }
+
+        #search-img {
+            height: 60px;
+        }
+    }
 }
+
+
+// .card-az {
+//     flex: 0 1 25%;
+//     margin: 20px;
+//     border: 1px solid rgba(0, 0, 0, 0.2) !important;
+//     border-radius: 0.5rem !important;
+//     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+//     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+//     &:hover {
+//         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+//     }

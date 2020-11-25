@@ -14,12 +14,12 @@
     @endforeach
 </div>
 @endif
-<div class="container text-light">
+<div class="container">
 
     <div class="sponsor-select">
         <h2>Sponsorizza il tuo appartamento</h2>
         {{-- andrà messo il collegamento al titolo della casa --}}
-        <p>Scegli la modalità di sponsorizzazione:</p>
+        {{-- <p>Scegli la modalità di sponsorizzazione:</p> --}}
         <div id="sponsor-box">
             @foreach ($sponsors as $sponsor)
                 <div class="form-check" >
@@ -62,7 +62,7 @@
                 </div>
             
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
-            <button id="payment-btn" class="btn btnwhite" type="submit"><span>Paga Ora</span></button>
+            <button id="payment-btn" class="btn btn-white" type="submit"><span>Paga Ora</span></button>
         </form>
     
 </div>
