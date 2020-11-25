@@ -62,23 +62,141 @@ header .container .row .navbar-nav .dropdown-menu .dropdown-item:hover {
   background-color: #001632;
 }
 
-header .container .form-inline {
-  background: none;
-  border-radius: 10px;
-  height: 40%;
-  background: none;
+header .container .search-bar-home {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100px;
 }
 
-header .container .form-inline input {
-  height: 100%;
-  border-radius: 10px 0px 0px 10px;
-  border: none;
+header .container .search-bar-home .search {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: crimson;
+  border-radius: 50%;
+  transition: all 1.5s;
+  z-index: 4;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
 }
 
-header .container .form-inline button {
-  height: 100%;
-  border-radius: 0px 10px 10px 0px;
+header .container .search-bar-home .search:hover {
+  cursor: pointer;
+}
+
+header .container .search-bar-home .search::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  transition: all 0.75s;
+}
+
+header .container .search-bar-home .search::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.75s;
+}
+
+header .container .search-bar-home input {
+  font-family: "Nunito", monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
   border: none;
+  background: #a5606e;
+  color: white;
+  text-shadow: 0 0 10px crimson;
+  padding: 0 80px 0 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+}
+
+header .container .search-bar-home input:hover {
+  cursor: pointer;
+}
+
+header .container .search-bar-home input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+
+header .container .search-bar-home input:focus ~ .search {
+  right: -250px;
+  background: #151515;
+  z-index: 6;
+}
+
+header .container .search-bar-home input:focus ~ .search::before {
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+
+header .container .search-bar-home input:focus ~ .search::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: white;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+}
+
+header .container .search-bar-home input::-moz-placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+header .container .search-bar-home input:-ms-input-placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+header .container .search-bar-home input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
 }
 
 .header {
@@ -276,51 +394,123 @@ main .show-house .row label {
   color: #ffffff;
 }
 
-main .login-register .card {
+main .search-bar {
+  padding: 20px 0;
+}
+
+main .search-bar #search {
+  border-radius: 5px;
+  padding: 8px 4px;
+  outline: none;
+  border: none;
+  margin-right: 5px;
+}
+
+main .search-bar #search-btn {
+  border-radius: 50%;
+  padding: 4px 12px;
+  outline: none;
+  border: none;
+}
+
+main .house-ctr-search {
+  max-height: calc(100vh - 100px - 100px);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+main .house-ctr-search::-webkit-scrollbar {
+  display: none;
+}
+
+main .house-card-src {
+  height: 150px;
+  margin-top: 10px;
+  border-bottom: 3px solid whitesmoke;
+}
+
+main .house-card-src .row {
+  height: 100%;
+}
+
+main .house-card-src .card-img {
+  height: 140px;
+}
+
+main .house-details {
+  position: relative;
+}
+
+main .house-details .house-details-rooms {
+  font-weight: bold;
+}
+
+main .house-details .house-details-rooms ul {
+  list-style: none;
+}
+
+main .house-details .house-details-rooms ul li {
+  display: inline-block;
+}
+
+main .house-details .house-price-src {
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+}
+
+main .map-ctr-search {
+  padding-top: 20px;
+}
+
+.login-register .card {
   margin: 100px 0;
 }
 
-main .login-register .card label {
+.login-register .card label {
   color: #001632;
   text-align: center;
 }
 
-main .create form .row label {
+.create form .row label {
   color: #ffffff;
   text-align: center;
 }
 
-main .create form #img-create,
-main .create form #img-edit {
+.create form #img-create,
+.create form #img-edit {
   background-color: #001632;
   border: none;
   padding-left: 0;
   margin-right: 20px;
 }
 
-main .create form #create-house {
+.create form #create-house {
   margin-bottom: 20px;
   background-color: white;
   color: #001632;
 }
 
-main li a {
+li a {
   color: #ffffff;
 }
 
-main #edit-house {
+#edit-house {
   margin-bottom: 20px;
 }
 
-main .sponsor-select {
+.sponsor-select {
   padding-top: 20px;
 }
 
-main .form-message {
+.form-message {
   margin-top: 40px !important;
 }
 
-main #payment-btn {
+#payment-btn {
   margin-bottom: 20px;
 }
 
@@ -339,6 +529,14 @@ main #payment-btn {
   .apartment {
     width: 50% !important;
   }
+
+  .house-card-src .services {
+    display: none;
+  }
+
+  .house-card-src #search-img {
+    height: 120px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -355,6 +553,18 @@ main #payment-btn {
 
   .apartment {
     width: 100% !important;
+  }
+
+  .house-card-src {
+    height: 120px;
+  }
+
+  .house-card-src .card-img {
+    height: 120px;
+  }
+
+  .house-card-src #search-img {
+    height: 60px;
   }
 }
 

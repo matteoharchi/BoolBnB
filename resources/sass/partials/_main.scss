@@ -184,75 +184,158 @@ main {
         }
     }
 
-    // Login - register
+    //Search 
 
-    .login-register {
+    .search-bar {
+        padding: 20px 0;
 
-        .card {
-            margin: 100px 0;
+        #search {
+            border-radius: 5px;
+            padding: 8px 4px;
+            outline: none;
+            border: none;
+            margin-right: 5px;
+        }
+
+        #search-btn {
+            border-radius: 50%;
+            padding: 4px 12px;
+            outline: none;
+            border: none;
+        }
+    }
+
+
+
+    .house-ctr-search {
+        max-height: calc(100vh - #{$header} - #{$footer});
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+        // overflow-x: hidden;
+    }
+
+    .house-ctr-search::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .house-card-src {
+
+        height: 150px;
+        margin-top: 10px;
+        border-bottom: 3px solid whitesmoke;
+
+        .row {
+            height: 100%;
+        }
+
+        .card-img {
+            height: 140px;
+        }
+    }
+
+    .house-details {
+
+        position: relative;
+
+        .house-details-rooms {
+            font-weight: bold;
+
+            ul {
+                list-style: none;
+
+                li {
+                    display: inline-block;
+                }
+            }
+        }
+
+        .house-price-src {
+            position: absolute;
+            left: 15px;
+            bottom: 0;
+        }
+    }
+
+    .map-ctr-search {
+        padding-top: 20px;
+    }
+}
+
+
+
+// Login - register
+
+.login-register {
+
+    .card {
+        margin: 100px 0;
+
+        label {
+            color: #001632;
+            text-align: center;
+        }
+    }
+}
+
+// Create
+
+.create {
+
+    form {
+
+        .row {
 
             label {
-                color: #001632;
+                color: #ffffff;
                 text-align: center;
             }
         }
-    }
 
-    // Create
+        #img-create,
+        #img-edit {
+            background-color: #001632;
+            border: none;
+            padding-left: 0;
+            margin-right: 20px;
+        }
 
-    .create {
-
-        form {
-
-            .row {
-
-                label {
-                    color: #ffffff;
-                    text-align: center;
-                }
-            }
-
-            #img-create,
-            #img-edit {
-                background-color: #001632;
-                border: none;
-                padding-left: 0;
-                margin-right: 20px;
-            }
-
-            #create-house {
-                margin-bottom: 20px;
-                background-color: white;
-                color: #001632;
-            }
+        #create-house {
+            margin-bottom: 20px;
+            background-color: white;
+            color: #001632;
         }
     }
-
-    li a {
-        color: #ffffff;
-    }
-
-    // edit house
-
-    #edit-house {
-        margin-bottom: 20px;
-    }
-
-    // create sponsor
-
-    .sponsor-select {
-        padding-top: 20px;
-    }
-
-
-    .form-message {
-        margin-top: 40px !important;
-    }
-
-    #payment-btn {
-        margin-bottom: 20px;
-    }
 }
+
+li a {
+    color: #ffffff;
+}
+
+// edit house
+
+#edit-house {
+    margin-bottom: 20px;
+}
+
+// create sponsor
+
+.sponsor-select {
+    padding-top: 20px;
+}
+
+
+.form-message {
+    margin-top: 40px !important;
+}
+
+#payment-btn {
+    margin-bottom: 20px;
+}
+
 
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {
@@ -260,7 +343,6 @@ main {
     .apartment {
         width: 40% !important;
     }
-
 }
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
@@ -274,6 +356,15 @@ main {
         width: 50% !important;
     }
 
+    .house-card-src {
+        .services {
+            display: none;
+        }
+
+        #search-img {
+            height: 120px;
+        }
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -293,4 +384,28 @@ main {
         width: 100% !important;
     }
 
+    .house-card-src {
+        height: 120px;
+
+        .card-img {
+            height: 120px;
+        }
+
+        #search-img {
+            height: 60px;
+        }
+    }
 }
+
+
+// .card-az {
+//     flex: 0 1 25%;
+//     margin: 20px;
+//     border: 1px solid rgba(0, 0, 0, 0.2) !important;
+//     border-radius: 0.5rem !important;
+//     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+//     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+//     &:hover {
+//         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+//     }

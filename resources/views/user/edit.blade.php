@@ -88,7 +88,7 @@
         </div>
 
         {{-- Modifica casa --}}
-        <div class="form-group col-12 bg-none pt-3">
+        <div class="form-group col-12 bg-none pt-1 pl-0 text-light">
             <label for="visible">Visibile</label>
             <input type="hidden" name="visible" value="0">
             <input type="checkbox" name="visible" id="visible" value="1" {{($house->visible==1 ? 'checked' : '')}}>

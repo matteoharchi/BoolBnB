@@ -57,10 +57,13 @@
     <div class="row align-items-center justify-content-center">
 
         <form action="{{route('search')}}" class="form-inline col-8 align-items-center">
-
-            <input type="search" id="search-home" name="query" class="form-control col-10" autocomplete="off" placeholder="Dove vuoi andare?">
-
-            <button type="submit" class="btnblue col-2"><i class="fas fa-search"></i></button>
+            <div class="search-bar-home">
+                <input type="search" id="search-home" name="query" autocomplete="off" placeholder="Dove vuoi andare?">
+                <div class="search"></div>
+            </div>
+            {{-- <input type="search" id="search-home" name="query" class="form-control col-10" autocomplete="off" placeholder="Dove vuoi andare?">
+            <button type="submit" class="btnblue col-2"><i class="fas fa-search"></i></button> --}}
            
         </form>
     </div>
+</div>

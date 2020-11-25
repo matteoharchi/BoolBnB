@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder {
             SponsorsTableSeeder::class,
             ViewsTableSeeder::class,
             MessagesTableSeeder::class,
+            TransactionsTableSeeder::class,
         ]);
     }
 }

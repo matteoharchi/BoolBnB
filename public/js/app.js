@@ -50361,6 +50361,9 @@ $(document).ready(function () {
         description: data[i].description,
         services: data[i].services,
         price: data[i].price,
+        rooms: data[i].rooms,
+        beds: data[i].beds,
+        bathrooms: data[i].bathrooms,
         img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
       };
       console.log(context);
@@ -50380,6 +50383,9 @@ $(document).ready(function () {
         description: data[i].description,
         services: data[i].services,
         price: data[i].price,
+        rooms: data[i].rooms,
+        beds: data[i].beds,
+        bathrooms: data[i].bathrooms,
         img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
       };
       console.log(context);
@@ -50888,8 +50894,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
