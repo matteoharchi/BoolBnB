@@ -61,7 +61,7 @@
       <div class="row host">
 
         <div class="col-12">
-          <img src="{{ asset('/images/host.jpg') }}" alt="">
+          <img src="{{ asset('/images/host.jpg') }}" alt="" class="ombra">
         </div>
 
       </div>

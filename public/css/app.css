@@ -313,6 +313,11 @@ main .container .view .scrollMenu .card {
   background-color: white;
 }
 
+main .container .view .scrollMenu .card h5,
+main .container .view .scrollMenu .card p {
+  color: black;
+}
+
 main .container .view .scrollMenu .card .card-img-top {
   border-radius: 10px 10px 0px 0px;
   height: 40%;
@@ -649,7 +654,6 @@ main #payment-btn {
 }
 
 footer {
-  height: 352px;
   width: 100%;
   background-color: white;
   border: none;
@@ -662,12 +666,13 @@ footer .container li {
   color: black;
 }
 
-footer .container .social {
-  height: 80%;
+footer .container ul {
+  line-height: 40px;
+  margin-top: 20px;
 }
 
-footer .container .social ul {
-  line-height: 40px;
+footer .container .social {
+  height: 80%;
 }
 
 footer .container .inc {

@@ -1,6 +1,6 @@
 footer {
 
-    height: $footer;
+    // height: $footer;
     width: 100%;
     background-color: white;
     border: none;
@@ -11,12 +11,13 @@ footer {
             color: black;
         }
 
+        ul {
+            line-height: 40px;
+            margin-top: 20px;
+        }
+
         .social {
             height: 80%;
-
-            ul {
-                line-height: 40px;
-            }
         }
 
         .inc {
