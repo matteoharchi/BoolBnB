@@ -58,7 +58,7 @@
         <form action="{{route('search')}}" class="form-inline col-8 align-items-center">
 
             <div class="search-bar-home">
-                <input type="search" id="search-home" name="query" autocomplete="off" placeholder="Dove vuoi andare">
+                <input type="search" id="search-home" name="query" autocomplete="off" placeholder="Dove vuoi andare?">
                 <div class="search"></div>
             </div>
            

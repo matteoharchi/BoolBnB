@@ -14,7 +14,7 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
             <canvas id="myChartViews"></canvas>
         </div>
         {{-- Grafico Messaggi --}}
-        <div class="grafico col-12 mt-4" style="width:80%; height:80%">
+        <div class="grafico col-12 mt-4 mb-4" style="width:80%; height:80%">
             <canvas id="myChartMessages"></canvas>
         </div>
     </div>
@@ -47,7 +47,7 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
                     'rgba(153, 105, 255, 1)',
                     'rgba(255, 156, 64, 1)'
                 ],
-                borderColor:'yellow',
+                borderColor:'#ff385c',
                 borderWidth: 2,
                 lineTension:0,
             }]
@@ -56,13 +56,13 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
             scales: {
                 yAxes: [{
                     ticks: {
-                        fontColor: 'yellow',
+                        fontColor: 'black',
                         beginAtZero: true
                     }
                 }],
                 xAxes: [{
                     ticks: {
-                        fontColor: 'yellow',
+                        fontColor: 'black',
                         beginAtZero: true
                     }
                 }]
@@ -83,7 +83,18 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
                 data: [{{count($monthlyMessages[0])}}, {{count($monthlyMessages[1])}}, {{count($monthlyMessages[2])}}, {{count($monthlyMessages[3])}}, {{count($monthlyMessages[4])}}, {{count($monthlyMessages[5])}}, {{count($monthlyMessages[6])}}, {{count($monthlyMessages[7])}}, {{count($monthlyMessages[8])}}, {{count($monthlyMessages[9])}}, {{count($monthlyMessages[10])}}, {{count($monthlyMessages[11])}}],
 
                 backgroundColor: [
-                    'rgba(0,0,0,0)'
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c',
+                    '#ff385c'
                 ],
                 pointborderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -108,13 +119,13 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
             scales: {
                 yAxes: [{
                     ticks: {
-                        fontColor: 'rgba(255, 99, 132, 1)',
+                        fontColor: 'black',
                         beginAtZero: true
                     }
                 }],
                 xAxes: [{
                     ticks: {
-                        fontColor: 'rgba(255, 99, 132, 1)',
+                        fontColor: 'black',
                         beginAtZero: true
                     }
                 }]

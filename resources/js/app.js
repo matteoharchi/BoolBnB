@@ -304,6 +304,8 @@ $(document).ready(function () {
         return deg * (Math.PI / 180);
     }
 
+
+
 //banner successo o errore
     setTimeout(() => {
         $('.conferma, .error').fadeOut();
@@ -344,6 +346,14 @@ $(document).ready(function () {
             };
         });
     });
+
+    
+    //toggle servizi search
+
+    $("#services-btn").click(function(){
+        $(".services-bar").slideToggle(1000);
+    });
+    
 });
 
 

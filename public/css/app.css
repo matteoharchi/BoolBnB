@@ -516,8 +516,30 @@ main .house-card-src .card-img {
   height: 140px;
 }
 
+main #services-btn {
+  border-radius: 10px;
+  padding: 6px 15px;
+  color: white;
+  background-color: #ff385c;
+  outline: none;
+  border: none;
+  opacity: 1;
+  transition: 0.5s;
+  display: none;
+  margin-bottom: 10px;
+}
+
+main #services-btn:hover {
+  opacity: 0.8;
+}
+
+main .services-bar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 main .house-ctr-search {
-  max-height: calc(100vh - 176px - 352px);
+  max-height: calc(100vh - 200px);
   overflow-y: scroll;
   -ms-overflow-style: none;
   /* IE and Edge */
@@ -599,6 +621,10 @@ main #payment-btn {
   .apartment {
     width: 40% !important;
   }
+
+  .services-bar {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
@@ -617,6 +643,12 @@ main #payment-btn {
 
   .house-card-src #search-img {
     height: 125px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .services-bar {
+    display: flex !important;
   }
 }
 
@@ -651,6 +683,19 @@ main #payment-btn {
   main .house-card-src .house-details .house-price-src {
     position: absolute;
     bottom: 0px;
+  }
+
+  main #services-btn {
+    display: block;
+  }
+
+  main .services-bar {
+    padding-top: 10px;
+    display: none;
+  }
+
+  main .services-bar .service-bar-dtl label {
+    width: 120px;
   }
 }
 

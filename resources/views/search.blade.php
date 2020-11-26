@@ -8,7 +8,7 @@
       @else
         <input type="text" id="search" autocomplete="off" value="" placeholder="Dove vuoi andare?">
       @endif
-		  <button id="search-btn"><i class="fas fa-search"></i></button>
+		  <button class="ml-4" id="search-btn"><i class="fas fa-search"></i></button>
 	  </div>
       <div class="sub details-bar d-flex width-100">
         <div class="form-group col-4 col-sm-3 col-md-2 pl-0">
@@ -25,10 +25,11 @@
         </div>        
       </div>
 
-      <div class="services-bar align-items-center col-12 col-md-6 pb-2 d-flex flex-wrap">
+      <button id="services-btn">Servizi</button>
+      <div class="services-bar align-items-center col-12 pb-2">
         @foreach ($services as $service)
           <div class="service-bar-dtl">
-            <label class="mr-2 mb-0" for="{{$service->name}}">{{$service->name}}</label>
+            <label class="mr-2 mb-0 pl-0 ml-0" for="{{$service->name}}">{{$service->name}}</label>
             <input type="checkbox" class="mr-4" id="service-{{$service->id}}" value="{{$service->name}}">
           </div> 
         @endforeach

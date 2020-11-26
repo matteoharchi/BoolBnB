@@ -260,8 +260,30 @@ main {
         }
     }
 
+    #services-btn {
+        border-radius: 10px;
+        padding: 6px 15px;
+        color: white;
+        background-color: #ff385c;
+        outline: none;
+        border: none;
+        opacity: 1;
+        transition: 0.5s;
+        display: none;
+        margin-bottom: 10px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .services-bar {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
     .house-ctr-search {
-        max-height: calc(100vh - #{$header} - #{$footer});
+        max-height: calc(100vh - 200px);
         overflow-y: scroll;
         -ms-overflow-style: none;
         /* IE and Edge */
@@ -364,6 +386,10 @@ main {
     .apartment {
         width: 40% !important;
     }
+
+    .services-bar {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
@@ -386,7 +412,20 @@ main {
             height: 125px;
         }
     }
+
+
 }
+
+@media screen and (min-width: 768px) {
+
+    .services-bar {
+        display: flex !important;
+    }
+}
+
+
+
+
 
 @media screen and (max-width: 767px) {
 
@@ -423,6 +462,19 @@ main {
                     position: absolute;
                     bottom: 0px;
                 }
+            }
+        }
+
+        #services-btn {
+            display: block;
+        }
+
+        .services-bar {
+            padding-top: 10px;
+            display: none;
+
+            .service-bar-dtl label {
+                width: 120px;
             }
         }
     }
