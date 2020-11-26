@@ -76,7 +76,7 @@
         {{-- Inserimento immagini --}}
         <div class="row">
             <div class="col-12">
-                <img src="{{ asset('storage/' . $house->img)}}" alt="{{$house->slug}}" width="300px">
+                <img src="{{ asset('storage/' . $house->img)}}" alt="{{$house->slug}}" class="previewImg" width="300px" style="object-fit: cover">
             </div>
         </div>
 

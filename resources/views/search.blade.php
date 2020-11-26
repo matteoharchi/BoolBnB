@@ -8,7 +8,7 @@
       @else
         <input type="text" id="search" autocomplete="off" value="" placeholder="Dove vuoi andare?">
       @endif
-		  <button id="search-btn"><i class="fas fa-search"></i></button>
+		  <button class="ml-4" id="search-btn"><i class="fas fa-search"></i></button>
 	  </div>
       <div class="sub details-bar d-flex width-100">
         <div class="form-group col-4 col-sm-3 col-md-2 pl-0">
@@ -25,10 +25,11 @@
         </div>        
       </div>
 
-      <div class="services-bar align-items-center col-12 col-md-6 pb-2 d-flex flex-wrap">
+      <button id="services-btn">Servizi</button>
+      <div class="services-bar align-items-center col-12 pb-2">
         @foreach ($services as $service)
           <div class="service-bar-dtl">
-            <label class="mr-2 mb-0" for="{{$service->name}}">{{$service->name}}</label>
+            <label class="mr-2 mb-0 pl-0 ml-0" for="{{$service->name}}">{{$service->name}}</label>
             <input type="checkbox" class="mr-4" id="service-{{$service->id}}" value="{{$service->name}}">
           </div> 
         @endforeach
@@ -38,19 +39,15 @@
         
           <div class="house-ctr-search col-12 col-md-6">
             {{-- contenitore ricerche annunci sponsorizzati --}}
-            <div class="search-premium-container" style="color:gold"></div>
+            <div class="search-premium-container"></div>
             {{-- contenitore annunci per poveri --}}
             <div class="search-container"></div>
           </div>
           {{-- mappa --}}
-          <div class="map-ctr-search col-12 col-md-6 text-dark d-flex justify-content-center rounded">
+          <div class="map-ctr-search col-12 pt-1 col-md-6 text-dark d-flex justify-content-center rounded">
             <div id="map"></div>
-            
           </div>
-
-        </div>
-
-        
+      </div>
   </div>
 
 {{-- Handlebars --}}
@@ -60,10 +57,10 @@
     <div class="house-card-src">
         <div class="row">
           <div class="col-3 col-md-5 search-img">
-            <img id="search-img" class="card-img rounded" src="@{{img}}" alt="@{{title}}">
+            <img id="search-img" class="card-img rounded pt-2" src="@{{img}}" alt="@{{title}}">
           </div>
-          <div class="col-9 col-md-7 house-details">
-            <h5>@{{title}}</h5>
+          <div class="col-9 col-md-7 pt-2 house-details">
+          <a href="houses/show/@{{slug}}"><h5 class="text-dark mb-0">@{{title}}</h5></a>
             <div class="house-details-rooms">
               <ul class="mb-0">
                 <li><small>stanze: @{{rooms}} - </small></li>

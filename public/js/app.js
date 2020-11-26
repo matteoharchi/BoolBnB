@@ -50904,6 +50904,7 @@ var app = new Vue({
 });
 $(document).ready(function () {
   if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
+    $('#radius').val(20);
     init();
   } // Funzioni pagamenti
   //funzione selezione sponsor 
@@ -51068,6 +51069,7 @@ $(document).ready(function () {
       var context = {
         title: data[i].title,
         description: data[i].description,
+        slug: data[i].slug,
         services: data[i].services,
         price: data[i].price,
         rooms: data[i].rooms,
@@ -51090,6 +51092,7 @@ $(document).ready(function () {
       var context = {
         title: data[i].title,
         description: data[i].description,
+        slug: data[i].slug,
         services: data[i].services,
         price: data[i].price,
         rooms: data[i].rooms,
@@ -51150,6 +51153,7 @@ $(document).ready(function () {
   function deg2rad(deg) {
     return deg * (Math.PI / 180);
   } //banner successo o errore
+  //banner successo o errore
 
 
   setTimeout(function () {
@@ -51190,6 +51194,27 @@ $(document).ready(function () {
 
       ;
     });
+  }); //toggle servizi search
+
+  $("#services-btn").click(function () {
+    $(".services-bar").slideToggle(1000);
+  });
+  $("input[type=file]").on('change', function () {
+    var file = $(this).get(0).files[0];
+
+    if (file) {
+      var reader = new FileReader();
+
+      reader.onload = function () {
+        $(".previewImg").attr("src", reader.result);
+        $(".previewImg").attr({
+          "width": "300px",
+          "height": "187.5px"
+        });
+      };
+
+      reader.readAsDataURL(file);
+    }
   });
 });
 

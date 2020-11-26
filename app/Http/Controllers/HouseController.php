@@ -27,6 +27,7 @@ class HouseController extends Controller {
     public function search(Request $request) {
         $data = $request->all();
         $services = Service::all();
+
         return view('search', ['services' => $services, 'query' => $data]);
     }
 

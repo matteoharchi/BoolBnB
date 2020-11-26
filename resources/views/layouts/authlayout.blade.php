@@ -36,9 +36,9 @@
                 @yield('content')
             </main>
 
-            <footer>
-                {{-- @include('partials/footer') --}}
-                @includeUnless(true, 'login','partials/footer')
+            <footer class="ombra">
+                @include('partials/footer')
+                {{-- @includeUnless(true, 'login', 'register') --}}
             </footer>
 
 

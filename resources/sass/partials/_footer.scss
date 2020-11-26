@@ -1,16 +1,36 @@
 footer {
 
-    height: $footer;
+    // height: $footer;
     width: 100%;
     background-color: white;
     border: none;
 
     .container {
 
-        .row {
+        a, h5, i, li {
+            color: black;
+        }
 
-            height: 100%;
+        ul {
+            line-height: 40px;
+            margin-top: 20px;
+        }
+
+        .social {
+            height: 80%;
+        }
+
+        .inc {
+            height: 20%;
+            border-top: 1px solid #c2c2c2;
+
+            #menu li {
+
+                display: inline;
+
+            }
 
         }
+
     }
 }

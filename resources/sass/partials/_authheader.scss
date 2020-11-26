@@ -21,21 +21,22 @@
 
              .navbar-nav {
 
-                .dropdown-menu {
+                 .dropdown-menu {
 
-                    background-color: white;
-                    border-radius: 10px;
+                     background-color: transparent;
+                     border: 1px solid #ff385c;
+                     border-radius: 10px;
 
-                    .dropdown-item {
-                        color: #6c757d;
-                        &:hover {
-                        
-                            color: #ff385c;
-                            background-color: white;
-                        }
-                    }
+                     .dropdown-item {
+                         color: #ff385c;
 
-                }
+                         &:hover {
+                             background-color: white;
+                             box-shadow: 0px 0px 10px 0px #ff385c !important;
+                         }
+
+                     }
+                 }
 
              }
 

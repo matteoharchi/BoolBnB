@@ -1,10 +1,9 @@
 <div class="container pl-4 pr-4">
 
-    {{-- row-logo --}}
 
     <div class="row align-items-center" >
 
-        {{-- logo --}}
+        {{-- Logo --}}
 
         <div class="logo col-9">
             <div class="row align-items-center">
@@ -12,7 +11,7 @@
             </div>
         </div>
 
-        {{-- Authentication Links --}}
+        {{-- Link di autenticazione --}}
 
         <ul class="navbar-nav col-3">
             <div class="row align-items-center justify-content-end">
@@ -52,15 +51,16 @@
 
     </div>
 
-    {{-- row-search --}}
+    {{-- barra di ricerca home --}}
 
     <div class="row align-items-center justify-content-center">
 
         <form action="{{route('search')}}" class="form-inline col-8 align-items-center">
 
-            <input type="search" id="search-home" name="query" class="form-control col-10" autocomplete="off" placeholder="Dove vuoi andare?">
-
-            <button type="submit" class="btn-red col-2"><i class="fas fa-search"></i></button>
+            <div class="search-bar-home">
+                <input type="search" id="search-home" name="query" autocomplete="off" placeholder="Dove vuoi andare?">
+                <div class="search"></div>
+            </div>
            
         </form>
     </div>
