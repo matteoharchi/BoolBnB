@@ -50234,6 +50234,7 @@ var app = new Vue({
 });
 $(document).ready(function () {
   if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
+    $('#radius').val(20);
     init();
   } // Funzioni pagamenti
   //funzione selezione sponsor 
@@ -50526,6 +50527,23 @@ $(document).ready(function () {
 
   $("#services-btn").click(function () {
     $(".services-bar").slideToggle(1000);
+  });
+  $("input[type=file]").on('change', function () {
+    var file = $(this).get(0).files[0];
+
+    if (file) {
+      var reader = new FileReader();
+
+      reader.onload = function () {
+        $(".previewImg").attr("src", reader.result);
+        $(".previewImg").attr({
+          "width": "300px",
+          "height": "187.5px"
+        });
+      };
+
+      reader.readAsDataURL(file);
+    }
   });
 });
 
@@ -50939,8 +50957,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Desktop\Boolean\Esercizi\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\Esercizi\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -37,9 +37,9 @@ const app = new Vue({
 
 
 
-
 $(document).ready(function () {
     if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
+        $('#radius').val(20);
         init();
     }
 
@@ -118,7 +118,7 @@ $(document).ready(function () {
         $('[type=checkbox]:checked').each(function () {
             servicesFlagged.push($(this).val());
         });
-        
+
         searchHouses(inputUser, minRooms, minBeds, radius, servicesFlagged);
     }
 
@@ -149,7 +149,7 @@ $(document).ready(function () {
             success: function (data) {
                 var result = [];
                 var goldHouses = [];
-                
+
                 var position = [searchLong, searchLat];
                 var now = moment();
                 // controllo per ogni casa trovata controllo
@@ -163,20 +163,20 @@ $(document).ready(function () {
                         if (element.sponsors.length > 0) {
                             for (let i = 0; i < element.sponsors.length; i++) {
                                 // controllo data scadenza sponsor e push in array premium
-                                if (moment(element.sponsors[i].end_date).isAfter(now) && found == false){
-                                    goldHouses.push(element);   
+                                if (moment(element.sponsors[i].end_date).isAfter(now) && found == false) {
+                                    goldHouses.push(element);
                                     found = true;
-                                // controllo data scadenza sponsor e push in array barboni
-                                }  else if (moment(element.sponsors[i].end_date).isBefore(now) && !goldHouses.includes(element) && !result.includes(element)) {
+                                    // controllo data scadenza sponsor e push in array barboni
+                                } else if (moment(element.sponsors[i].end_date).isBefore(now) && !goldHouses.includes(element) && !result.includes(element)) {
                                     result.push(element);
-                                    found = true; 
-                                }                                                               
+                                    found = true;
+                                }
                             }
                         } else {
                             // push case in array barboni in caso di nessuna sponsorizzazione
-                            result.push(element); 
-                        }                  
-                    }                  
+                            result.push(element);
+                        }
+                    }
                 });
 
 
@@ -226,7 +226,7 @@ $(document).ready(function () {
             };
             console.log(context);
             var html = template(context);
-            $('.search-premium-container').append(html);         
+            $('.search-premium-container').append(html);
         }
 
     }
@@ -248,7 +248,7 @@ $(document).ready(function () {
             };
             console.log(context);
             var html = template(context);
-            $('.search-container').append(html);         
+            $('.search-container').append(html);
         }
     }
 
@@ -279,11 +279,11 @@ $(document).ready(function () {
                 'bottom-left': [0, -70],
                 left: [25, -35],
                 right: [-25, -35]
-                }
-                
-            var popup = new tt.Popup({offset: popupOffsets}).setHTML("<b>" + data[i].title + "</b>" + "<br>" + data[i].address);
+            }
+
+            var popup = new tt.Popup({ offset: popupOffsets }).setHTML("<b>" + data[i].title + "</b>" + "<br>" + data[i].address);
             !popup.isOpen();
-            marker.setPopup(popup).togglePopup();    
+            marker.setPopup(popup).togglePopup();
         }
     }
 
@@ -307,6 +307,7 @@ $(document).ready(function () {
 
 
 //banner successo o errore
+    //banner successo o errore
     setTimeout(() => {
         $('.conferma, .error').fadeOut();
     }, 3000);
@@ -354,6 +355,23 @@ $(document).ready(function () {
         $(".services-bar").slideToggle(1000);
     });
     
+
+
+    $("input[type=file]").on('change', function () {
+        var file = $(this).get(0).files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                $(".previewImg").attr("src", reader.result);
+                $(".previewImg").attr({ "width": "300px", "height": "187.5px" });
+            }
+
+            reader.readAsDataURL(file);
+        }
+    });
+
 });
 
 
