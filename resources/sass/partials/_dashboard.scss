@@ -6,4 +6,9 @@
         overflow-y: scroll;
         scrollbar-width: none;
     }
+    .list-group-item.active{
+        background-color: #ff385c;
+        border-color: #ff385c;
+    }
+
 }
