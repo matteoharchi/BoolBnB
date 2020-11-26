@@ -98,13 +98,19 @@ header .container .row .navbar-nav .nav-item .nav-link {
   color: white;
 }
 
-header .container .row .navbar-nav .dropdown-item {
-  color: #6c757d;
+header .container .row .navbar-nav .dropdown-menu {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 
-header .container .row .navbar-nav .dropdown-item:hover {
-  color: #ff385c;
-  background-color: white;
+header .container .row .navbar-nav .dropdown-menu .dropdown-item {
+  color: white;
+}
+
+header .container .row .navbar-nav .dropdown-menu .dropdown-item:hover {
+  background-color: #ff385c;
+  box-shadow: 0px 0px 10px 0px #ff385c !important;
 }
 
 header .container .search-bar-home {
@@ -127,7 +133,7 @@ header .container .search-bar-home .search {
   left: 0;
   width: 80px;
   height: 80px;
-  background: crimson;
+  background: #ff385c;
   border-radius: 50%;
   transition: all 1s;
   z-index: 4;
@@ -182,10 +188,10 @@ header .container .search-bar-home input {
   border: none;
   background: #7b6368;
   color: white;
-  text-shadow: 0 0 10px crimson;
+  text-shadow: 0 0 10px #ff385c;
   padding: 0 80px 0 20px;
   border-radius: 30px;
-  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px 0 #ff385c, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
   transition: all 1s;
   opacity: 0;
   z-index: 5;
@@ -205,7 +211,7 @@ header .container .search-bar-home input:focus {
 
 header .container .search-bar-home input:focus ~ .search {
   right: -250px;
-  background: #151515;
+  background: #ff385c;
   z-index: 6;
 }
 
@@ -260,17 +266,18 @@ header .container .search-bar-home input::placeholder {
 }
 
 .header .container .row .navbar-nav .dropdown-menu {
-  background-color: white;
+  background-color: transparent;
+  border: 1px solid #ff385c;
   border-radius: 10px;
 }
 
 .header .container .row .navbar-nav .dropdown-menu .dropdown-item {
-  color: #6c757d;
+  color: #ff385c;
 }
 
 .header .container .row .navbar-nav .dropdown-menu .dropdown-item:hover {
-  color: #ff385c;
   background-color: white;
+  box-shadow: 0px 0px 10px 0px #ff385c !important;
 }
 
 main {
@@ -524,15 +531,19 @@ main .map-ctr-search {
 
 main .login-register .card {
   margin: 100px 0;
+  border-radius: 10px;
+}
+
+main .login-register .card .card-header {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  color: black;
 }
 
 main .login-register .card label {
-  color: #001632;
+  color: black;
   text-align: center;
-}
-
-main li a {
-  color: #ffffff;
 }
 
 main #create-house {
