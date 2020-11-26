@@ -24,7 +24,7 @@
             <img class="card-img-top" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}">
             <div class="card-body">
               <h5 class="card-title">{{$house->title}}</h5>
-              <p class="card-text">{{$house->description}}</p>
+              <p class="card-text">{{ Str::substr($house->description, 0, 200) . "..." }}</p>
             </div>
             <div class="card-footer">
               @if (Auth::id() == $house->user_id)

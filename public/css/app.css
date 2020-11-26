@@ -73,6 +73,10 @@ textarea {
   color: black !important;
 }
 
+li {
+  list-style: none !important;
+}
+
 header {
   height: 800px;
   width: 100%;
@@ -283,7 +287,7 @@ header .container .search-bar-home input::placeholder {
 main {
   width: 100%;
   background-color: white;
-  min-height: calc(100vh - 176px - 176px);
+  min-height: calc(100vh - 176px - 352px);
 }
 
 main .container .title {
@@ -480,8 +484,13 @@ main .search-bar #search-btn .card label {
   text-align: center;
 }
 
-main .search-bar label {
-  text-align: center;
+main .search-bar .house-ctr-search {
+  max-height: calc(100vh - 176px - 352px);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 main .search-premium-container .house-card-src {
@@ -645,14 +654,17 @@ main #payment-btn {
 }
 
 footer {
-  height: 176px;
+  height: 352px;
   width: 100%;
   background-color: white;
   border: none;
 }
 
-footer .container .row {
-  height: 100%;
+footer .container a,
+footer .container h5,
+footer .container i,
+footer .container li {
+  color: black;
 }
 
 .dashboard {
