@@ -104,6 +104,7 @@ header .container .row .navbar-nav .nav-item .nav-link {
 
 header .container .row .navbar-nav .dropdown-menu {
   background-color: transparent;
+  padding: 0;
   border: 1px solid white;
   border-radius: 10px;
 }
@@ -115,6 +116,14 @@ header .container .row .navbar-nav .dropdown-menu .dropdown-item {
 header .container .row .navbar-nav .dropdown-menu .dropdown-item:hover {
   background-color: #ff385c;
   box-shadow: 0px 0px 10px 0px #ff385c !important;
+}
+
+header .container .row .navbar-nav .dropdown-menu .dropdown-item:first-child:hover {
+  border-radius: 10px 10px 0 0;
+}
+
+header .container .row .navbar-nav .dropdown-menu .dropdown-item:nth-last-child(2):hover {
+  border-radius: 0 0 10px 10px;
 }
 
 header .container .search-bar-home {
