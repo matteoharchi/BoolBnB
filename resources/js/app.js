@@ -216,6 +216,7 @@ $(document).ready(function () {
             var context = {
                 title: data[i].title,
                 description: data[i].description,
+                slug: data[i].slug,
                 services: data[i].services,
                 price: data[i].price,
                 rooms: data[i].rooms,
@@ -237,6 +238,7 @@ $(document).ready(function () {
             var context = {
                 title: data[i].title,
                 description: data[i].description,
+                slug: data[i].slug,
                 services: data[i].services,
                 price: data[i].price,
                 rooms: data[i].rooms,

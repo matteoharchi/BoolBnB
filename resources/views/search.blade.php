@@ -38,19 +38,15 @@
         
           <div class="house-ctr-search col-12 col-md-6">
             {{-- contenitore ricerche annunci sponsorizzati --}}
-            <div class="search-premium-container" style="color:gold"></div>
+            <div class="search-premium-container"></div>
             {{-- contenitore annunci per poveri --}}
             <div class="search-container"></div>
           </div>
           {{-- mappa --}}
-          <div class="map-ctr-search col-12 col-md-6 text-dark d-flex justify-content-center rounded">
+          <div class="map-ctr-search col-12 pt-1 col-md-6 text-dark d-flex justify-content-center rounded">
             <div id="map"></div>
-            
           </div>
-
-        </div>
-
-        
+      </div>
   </div>
 
 {{-- Handlebars --}}
@@ -60,10 +56,10 @@
     <div class="house-card-src">
         <div class="row">
           <div class="col-3 col-md-5 search-img">
-            <img id="search-img" class="card-img rounded" src="@{{img}}" alt="@{{title}}">
+            <img id="search-img" class="card-img rounded pt-2" src="@{{img}}" alt="@{{title}}">
           </div>
-          <div class="col-9 col-md-7 house-details">
-            <h5>@{{title}}</h5>
+          <div class="col-9 col-md-7 pt-2 house-details">
+          <a href="houses/show/@{{slug}}"><h5 class="text-dark mb-0">@{{title}}</h5></a>
             <div class="house-details-rooms">
               <ul class="mb-0">
                 <li><small>stanze: @{{rooms}} - </small></li>

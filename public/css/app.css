@@ -354,7 +354,7 @@ main .container .host .col-4 .row {
 
 main #map {
   width: 500px;
-  height: 500px;
+  height: 400px;
 }
 
 main .show-house .img-show-ctr {
@@ -435,64 +435,68 @@ main .search-bar #search {
   border-radius: 5px;
   padding: 8px 4px;
   outline: none;
-  border: none;
+  border: 2px solid #ff385c !important;
   margin-right: 5px;
+  color: #ff385c;
+  font-weight: bold;
+  transition: 0.4s;
 }
 
-main .search-bar .card {
+main .search-bar #search:focus {
+  background-color: #ff385c;
+  color: white;
+}
+
+main .search-bar #search-btn {
+  border-radius: 50%;
+  padding: 4px 13px;
+  color: white;
+  background-color: #ff385c;
+  outline: none;
+  border: none;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+main .search-bar #search-btn:hover {
+  opacity: 0.8;
+}
+
+main .search-bar #search-btn .card {
   margin: 100px 0;
   border: none;
   border-radius: 10px;
   background-color: white;
 }
 
-main .search-bar .card #search-btn {
-  border-radius: 50%;
-  padding: 4px 12px;
-  outline: none;
-  border: none;
-}
-
-main .search-bar .card #search-btn .card-header {
+main .search-bar #search-btn .card .card-header {
   background-color: white;
   border: none;
   color: black;
   border-radius: 10px;
 }
 
-main .search-bar .card #search-btn label {
+main .search-bar #search-btn .card label {
   text-align: center;
-}
-
-main .search-bar .house-ctr-search {
-  max-height: calc(100vh - 176px - 176px);
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-
-main .search-bar .house-ctr-search::-webkit-scrollbar {
-  display: none;
 }
 
 main .search-bar label {
   text-align: center;
 }
 
-main .house-card-src {
-  height: 150px;
-  margin-top: 10px;
-  border-bottom: 3px solid whitesmoke;
+main .search-premium-container .house-card-src {
+  background-color: #fff5f7;
 }
 
-main .house-card-src #img-create,
-main .house-card-src #img-edit {
-  background-color: white;
-  border: none;
-  padding-left: 0;
-  margin-right: 20px;
+main .house-card-src {
+  min-height: 150px;
+  border-bottom: 3px solid #ff385c;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+main .house-card-src:hover {
+  opacity: 0.85;
 }
 
 main .house-card-src .row {
@@ -501,6 +505,19 @@ main .house-card-src .row {
 
 main .house-card-src .card-img {
   height: 140px;
+}
+
+main .house-ctr-search {
+  max-height: calc(100vh - 176px - 176px);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+main .house-ctr-search::-webkit-scrollbar {
+  display: none;
 }
 
 main .house-details {
@@ -521,8 +538,8 @@ main .house-details .house-details-rooms ul li {
 
 main .house-details .house-price-src {
   position: absolute;
-  left: 15px;
-  bottom: 0;
+  right: 20px;
+  bottom: -10px;
 }
 
 main .map-ctr-search {
@@ -589,7 +606,7 @@ main #payment-btn {
   }
 
   .house-card-src #search-img {
-    height: 120px;
+    height: 125px;
   }
 }
 
@@ -609,16 +626,21 @@ main #payment-btn {
     width: 100% !important;
   }
 
-  .house-card-src {
+  main .house-card-src {
     height: 120px;
   }
 
-  .house-card-src .card-img {
+  main .house-card-src .card-img {
     height: 120px;
   }
 
-  .house-card-src #search-img {
+  main .house-card-src #search-img {
     height: 60px;
+  }
+
+  main .house-card-src .house-details .house-price-src {
+    position: absolute;
+    bottom: 0px;
   }
 }
 
