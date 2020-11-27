@@ -148,6 +148,7 @@ $(document).ready(function () {
                 var result = [];
                 var goldHouses = [];
                 var now = moment();
+                var position = [searchLong, searchLat];
                 // controllo per ogni casa trovata
                 data.forEach(element => {
                     var found = false;
@@ -185,11 +186,11 @@ $(document).ready(function () {
 
                 // Ordine case per distanza crescente e stampa nei div premium e barboni
                 result.sort(compare);
-                printHouses(goldHouses);
-                printHouses(result);
+                printHousesGold(goldHouses);
+                printHousesRegular(result);
 
                 // Case sulla mappa
-                housesOnMap(markers);
+                housesOnMap(markers, position);
             }
         });
     }
@@ -210,8 +211,8 @@ $(document).ready(function () {
         return 0;
     }
 
-    function printHouses(data) {
-        $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').empty();
+    function printHousesGold(data) {
+        $('.search-premium-container').empty();
         var source = $("#entry-template").html();
         var template = Handlebars.compile(source);
         for (let i = 0; i < data.length; i++) {
@@ -227,24 +228,44 @@ $(document).ready(function () {
                 img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
             };
             var html = template(context);
-            $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').append(html);
+            $('.search-premium-container').append(html);
         }
     }
 
+    function printHousesRegular(data) {
+        $('.search-container').empty();
+        var source = $("#entry-template").html();
+        var template = Handlebars.compile(source);
+        for (let i = 0; i < data.length; i++) {
+            var context = {
+                title: data[i].title,
+                description: data[i].description,
+                slug: data[i].slug,
+                services: data[i].services,
+                price: data[i].price,
+                rooms: data[i].rooms,
+                beds: data[i].beds,
+                bathrooms: data[i].bathrooms,
+                img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
+            };
+            var html = template(context);
+            $('.search-container').append(html);
+        }
+    }
 
-    function housesOnMap(data) {
+    function housesOnMap(data, position) {
         //mappa+controlli
         var arrCoord = [];
         data.forEach(element => {
             var coord = [element.lat, element.long];
             arrCoord.push(coord);
         });
-
+        console.log(arrCoord);
         var map = tt.map({
             key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq",
             container: "map",
             style: "tomtom://vector/1/basic-main",
-            center: GetCenterFromDegrees(arrCoord),
+            center: arrCoord.length > 0 ? GetCenterFromDegrees(arrCoord) : position,
             zoom: 10
         });
 

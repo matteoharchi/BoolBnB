@@ -15,6 +15,7 @@ class HouseController extends Controller {
         // $houses = House::simplePaginate(3);
         $houses = \DB::table('houses')
             ->join('transactions', 'houses.id', '=', 'transactions.house_id')
+            ->where('transactions.start_date', '<', Carbon::now('Europe/Rome'))
             ->where('transactions.end_date', '>', Carbon::now('Europe/Rome'))
             ->get();
 

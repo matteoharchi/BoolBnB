@@ -51005,7 +51005,8 @@ $(document).ready(function () {
       success: function success(data) {
         var result = [];
         var goldHouses = [];
-        var now = moment(); // controllo per ogni casa trovata
+        var now = moment();
+        var position = [searchLong, searchLat]; // controllo per ogni casa trovata
 
         data.forEach(function (element) {
           var found = false;
@@ -51040,10 +51041,10 @@ $(document).ready(function () {
 
 
         result.sort(compare);
-        printHouses(goldHouses);
-        printHouses(result); // Case sulla mappa
+        printHousesGold(goldHouses);
+        printHousesRegular(result); // Case sulla mappa
 
-        housesOnMap(markers);
+        housesOnMap(markers, position);
       }
     });
   } // Controlla che ogni elemento del target sia contenuto in arr
@@ -51068,8 +51069,8 @@ $(document).ready(function () {
     return 0;
   }
 
-  function printHouses(data) {
-    $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').empty();
+  function printHousesGold(data) {
+    $('.search-premium-container').empty();
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
@@ -51086,29 +51087,52 @@ $(document).ready(function () {
         img: data[_i2].img.substr(0, 4) == 'http' ? data[_i2].img : '/storage/' + data[_i2].img
       };
       var html = template(context);
-      $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').append(html);
+      $('.search-premium-container').append(html);
     }
   }
 
-  function housesOnMap(data) {
+  function printHousesRegular(data) {
+    $('.search-container').empty();
+    var source = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+
+    for (var _i3 = 0; _i3 < data.length; _i3++) {
+      var context = {
+        title: data[_i3].title,
+        description: data[_i3].description,
+        slug: data[_i3].slug,
+        services: data[_i3].services,
+        price: data[_i3].price,
+        rooms: data[_i3].rooms,
+        beds: data[_i3].beds,
+        bathrooms: data[_i3].bathrooms,
+        img: data[_i3].img.substr(0, 4) == 'http' ? data[_i3].img : '/storage/' + data[_i3].img
+      };
+      var html = template(context);
+      $('.search-container').append(html);
+    }
+  }
+
+  function housesOnMap(data, position) {
     //mappa+controlli
     var arrCoord = [];
     data.forEach(function (element) {
       var coord = [element.lat, element["long"]];
       arrCoord.push(coord);
     });
+    console.log(arrCoord);
     var map = tt.map({
       key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq",
       container: "map",
       style: "tomtom://vector/1/basic-main",
-      center: GetCenterFromDegrees(arrCoord),
+      center: arrCoord.length > 0 ? GetCenterFromDegrees(arrCoord) : position,
       zoom: 10
     });
     var nav = new tt.NavigationControl({});
     map.addControl(nav, 'top-right'); //ciclo for per posizionare markers
 
-    for (var _i3 = 0; _i3 < data.length; _i3++) {
-      var markerCoord = [data[_i3]["long"], data[_i3].lat];
+    for (var _i4 = 0; _i4 < data.length; _i4++) {
+      var markerCoord = [data[_i4]["long"], data[_i4].lat];
       var marker = new tt.Marker().setLngLat(markerCoord).addTo(map);
       var popupOffsets = {
         top: [0, 0],
@@ -51120,7 +51144,7 @@ $(document).ready(function () {
       };
       var popup = new tt.Popup({
         offset: popupOffsets
-      }).setHTML("<b>" + data[_i3].title + "</b>" + "<br>" + data[_i3].address);
+      }).setHTML("<b>" + data[_i4].title + "</b>" + "<br>" + data[_i4].address);
       !popup.isOpen();
       marker.setPopup(popup);
     }
