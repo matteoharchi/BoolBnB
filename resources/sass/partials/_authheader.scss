@@ -2,7 +2,7 @@
 
      height: $header;
      width: 100%;
-     background-color: white;
+     background-color: rgb(255, 254, 252);
 
      .container {
 
@@ -37,11 +37,11 @@
                          }
 
                          &:first-child:hover {
-                            border-radius: 10px 10px 0 0;
+                             border-radius: 10px 10px 0 0;
                          }
 
                          &:nth-last-child(2):hover {
-                            border-radius: 0 0 10px 10px;
+                             border-radius: 0 0 10px 10px;
                          }
 
                      }

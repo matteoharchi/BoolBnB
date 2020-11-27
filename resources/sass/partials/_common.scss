@@ -15,6 +15,10 @@
     background-color: #ff385c !important;
     color: white !important;
     border-radius: 10px !important;
+
+    &:focus {
+        box-shadow: 0px 0px 5px 0px #ff385c !important;
+    }
 }
 
 .btn-white {
@@ -25,6 +29,10 @@
 
     &:hover {
         box-shadow: 0px 0px 10px 0px #ff385c !important;
+    }
+
+    &:focus {
+        box-shadow: 0px 0px 5px 0px #ff385c !important;
     }
 }
 

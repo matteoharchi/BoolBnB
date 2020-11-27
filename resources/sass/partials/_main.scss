@@ -1,7 +1,7 @@
 main {
 
     width: 100%;
-    background-color: white;
+    background-color: rgb(255, 254, 252);
     min-height: calc(100vh - #{$header} - #{$footer});
 
     // home
@@ -200,7 +200,7 @@ main {
 
         #search {
             border-radius: 5px;
-            padding: 8px 4px;
+            padding: 8px 6px;
             outline: none;
             border: 2px solid #ff385c !important;
             margin-right: 5px;
@@ -394,14 +394,16 @@ main {
 
         label {
             color: black;
-        }    
+        }
 
-        #create-house, #delete-house {
+        #create-house,
+        #delete-house {
             margin-bottom: 150px;
         }
-        
-        
-        #img-create, #img-edit {
+
+
+        #img-create,
+        #img-edit {
             border: none !important;
         }
 
@@ -411,7 +413,13 @@ main {
 
     .sponsor-select {
         padding-top: 20px;
-        h2, label {
+
+        h2 {
+            color: #ff385c;
+            font-weight: bold;
+        }
+
+        label {
             color: black;
         }
     }

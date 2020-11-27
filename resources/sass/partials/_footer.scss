@@ -2,12 +2,15 @@ footer {
 
     // height: $footer;
     width: 100%;
-    background-color: white;
+    background-color: rgb(255, 254, 252);
     border: none;
 
     .container {
 
-        a, h5, i, li {
+        a,
+        h5,
+        i,
+        li {
             color: black;
         }
 
@@ -20,7 +23,7 @@ footer {
                 text-decoration: underline !important;
                 color: #ff385c !important;
             }
-            
+
         }
 
         .social {
