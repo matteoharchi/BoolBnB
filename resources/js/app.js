@@ -180,14 +180,14 @@ $(document).ready(function () {
                 // markers dei risultati sulla mappa
                 var markers = result.concat(goldHouses);
 
-                if (markers.length == 0){
+                if (markers.length == 0) {
                     $('.search-no-results').show();
                 }
 
                 // Ordine case per distanza crescente e stampa nei div premium e barboni
                 result.sort(compare);
-                printHousesGold(goldHouses);
-                printHousesRegular(result);
+                printHouses(goldHouses);
+                printHouses(result);
 
                 // Case sulla mappa
                 housesOnMap(markers, position);
@@ -209,8 +209,8 @@ $(document).ready(function () {
         return 0;
     }
 
-    function printHousesGold(data) {
-        $('.search-premium-container').empty();
+    function printHouses(data) {
+        $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').empty();
         var source = $("#entry-template").html();
         var template = Handlebars.compile(source);
         for (let i = 0; i < data.length; i++) {
@@ -225,34 +225,10 @@ $(document).ready(function () {
                 bathrooms: data[i].bathrooms,
                 img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
             };
-            console.log(context);
             var html = template(context);
-            $('.search-premium-container').append(html);
-        }
-
-    }
-    function printHousesRegular(data) {
-        $('.search-container').empty();
-        var source = $("#entry-template").html();
-        var template = Handlebars.compile(source);
-        for (let i = 0; i < data.length; i++) {
-            var context = {
-                title: data[i].title,
-                description: data[i].description,
-                slug: data[i].slug,
-                services: data[i].services,
-                price: data[i].price,
-                rooms: data[i].rooms,
-                beds: data[i].beds,
-                bathrooms: data[i].bathrooms,
-                img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
-            };
-            console.log(context);
-            var html = template(context);
-            $('.search-container').append(html);
+            $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').append(html);
         }
     }
-
 
     function housesOnMap(data, position) {
         //mappa+controlli
@@ -305,15 +281,15 @@ $(document).ready(function () {
         return deg * (Math.PI / 180);
     }
 
-//banner successo o errore
+    //banner successo o errore
     //banner successo o errore
     setTimeout(() => {
         $('.conferma, .error').fadeOut();
     }, 3000);
 
-//alert 'are you sure' cancellazione annuncio
+    //alert 'are you sure' cancellazione annuncio
 
-    $('.delete-btn').on('click', function(event){
+    $('.delete-btn').on('click', function (event) {
         var form = $(this).closest('form');
         var name = $(this).attr('name');
         event.preventDefault();
@@ -321,39 +297,39 @@ $(document).ready(function () {
             title: 'Sei sicuro di voler cancellare questo annuncio?',
             text: 'L\'azione è irreversibile!',
             icon: 'warning',
-            buttons: ['Annulla','Conferma'],
+            buttons: ['Annulla', 'Conferma'],
             dangerMode: true
-        }).then((willDelete)=>{
+        }).then((willDelete) => {
             if (willDelete) {
                 form.submit();
             };
         });
     });
 
-//alert "are you sure" modifica
-    $('#edit-house').on('click', function(event){
+    //alert "are you sure" modifica
+    $('#edit-house').on('click', function (event) {
         var form = $(this).closest('form');
         var name = $(this).attr('name');
         event.preventDefault();
         swal({
             title: 'Sei sicuro di voler applicare le modifiche?',
             icon: 'warning',
-            buttons: ['Annulla','Conferma'],
-            
-        }).then((willEdit)=>{
+            buttons: ['Annulla', 'Conferma'],
+
+        }).then((willEdit) => {
             if (willEdit) {
                 form.submit();
             };
         });
     });
 
-    
+
     //toggle servizi search
 
-    $("#services-btn").click(function(){
+    $("#services-btn").click(function () {
         $(".services-bar").slideToggle(1000);
     });
-    
+
 
 
     $("input[type=file]").on('change', function () {

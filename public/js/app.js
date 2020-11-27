@@ -51040,8 +51040,8 @@ $(document).ready(function () {
 
 
         result.sort(compare);
-        printHousesGold(goldHouses);
-        printHousesRegular(result); // Case sulla mappa
+        printHouses(goldHouses);
+        printHouses(result); // Case sulla mappa
 
         housesOnMap(markers, position);
       }
@@ -51066,8 +51066,8 @@ $(document).ready(function () {
     return 0;
   }
 
-  function printHousesGold(data) {
-    $('.search-premium-container').empty();
+  function printHouses(data) {
+    $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').empty();
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
@@ -51083,32 +51083,8 @@ $(document).ready(function () {
         bathrooms: data[i].bathrooms,
         img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
       };
-      console.log(context);
       var html = template(context);
-      $('.search-premium-container').append(html);
-    }
-  }
-
-  function printHousesRegular(data) {
-    $('.search-container').empty();
-    var source = $("#entry-template").html();
-    var template = Handlebars.compile(source);
-
-    for (var i = 0; i < data.length; i++) {
-      var context = {
-        title: data[i].title,
-        description: data[i].description,
-        slug: data[i].slug,
-        services: data[i].services,
-        price: data[i].price,
-        rooms: data[i].rooms,
-        beds: data[i].beds,
-        bathrooms: data[i].bathrooms,
-        img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
-      };
-      console.log(context);
-      var html = template(context);
-      $('.search-container').append(html);
+      $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').append(html);
     }
   }
 
@@ -51652,8 +51628,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Desktop\Boolean\Esercizi\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\Esercizi\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
