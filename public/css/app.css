@@ -706,18 +706,43 @@ main .login-register .card label {
   text-align: center;
 }
 
-main #create-house {
-  margin-bottom: 20px;
-  background-color: white;
-  color: white;
+main .create .add-img label {
+  display: block;
 }
 
-main #edit-house {
-  margin-bottom: 20px;
+main .create .add-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+main .create #editimg {
+  width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .create label {
+  color: black;
+}
+
+main .create #create-house,
+main .create #delete-house {
+  margin-bottom: 150px;
+}
+
+main .create #img-create,
+main .create #img-edit {
+  border: none !important;
 }
 
 main .sponsor-select {
   padding-top: 20px;
+}
+
+main .sponsor-select h2,
+main .sponsor-select label {
+  color: black;
 }
 
 main .form-message {
@@ -725,7 +750,12 @@ main .form-message {
 }
 
 main #payment-btn {
-  margin: 20px 0;
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+main .text-center {
+  color: black;
 }
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {

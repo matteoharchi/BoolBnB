@@ -10,11 +10,11 @@ count dell'array diventerebbe il dato che ci serve sul grafico --}}
     <div class="row">
         {{-- Grafico Visualizzazioni --}}
 
-        <div class="grafico col-12 mt-4" style="width:80%; height:80%">
+        <div class="grafico col-12 mt-5" style="width:80%; height:80%">
             <canvas id="myChartViews"></canvas>
         </div>
         {{-- Grafico Messaggi --}}
-        <div class="grafico col-12 mt-4 mb-4" style="width:80%; height:80%">
+        <div class="grafico col-12 mt-5 mb-5" style="width:80%; height:80%">
             <canvas id="myChartMessages"></canvas>
         </div>
     </div>
