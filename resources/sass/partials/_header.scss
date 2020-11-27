@@ -190,5 +190,65 @@ header {
             }
         }
 
+        .search-bar-home-smart {
+            display: none;
+
+            #search-home-smart {
+                border-radius: 5px;
+                padding: 8px 10px;
+                outline: none;
+                border: 2px solid #ff385c !important;
+                margin-right: 5px;
+                color: #ff385c;
+                font-weight: bold;
+                transition: 0.4s;
+                background-color: rgb(123, 99, 104);
+                box-shadow: 0 0 25px 0 #ff385c,
+                    0 20px 25px 0 rgba(0, 0, 0, 0.2);
+
+                &:focus {
+                    background-color: #ff385c;
+                    color: white;
+                }
+
+                &::placeholder {
+                    color: white;
+                }
+            }
+
+        }
+
+        #search-btn-home {
+            border-radius: 50%;
+            padding: 4px 13px;
+            color: white;
+            background-color: #ff385c;
+            outline: none;
+            border: none;
+            opacity: 1;
+            transition: 0.5s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    header {
+        .container {
+
+            .search-bar-home-smart {
+                display: flex;
+                justify-content: center;
+            }
+
+            .search-bar-home {
+                display: none;
+            }
+        }
     }
 }

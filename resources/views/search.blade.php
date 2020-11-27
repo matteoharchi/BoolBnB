@@ -1,7 +1,7 @@
 @extends('layouts.authlayout')
 @section('content')
 
-  <div class="container col-12">
+  <div class="container">
 	  <div class="search-bar d-flex">
       @if (!empty($query))
         <input type="text" id="search" autocomplete="off" value="{{$query['query']}}">
@@ -10,20 +10,20 @@
       @endif
 		  <button class="ml-4" id="search-btn"><i class="fas fa-search"></i></button>
 	  </div>
-      <div class="sub details-bar d-flex width-100">
-        <div class="form-group col-4 col-sm-3 col-md-2 pl-0">
-            <label for="rooms">Stanze</label>
-            <input type="number" min="1" class="form-control" id="rooms" value="1">
-        </div>
-        <div class="form-group col-4 col-sm-3 col-md-2">
-            <label for="beds">Posti Letto</label>
-            <input type="number" min="1" class="form-control" id="beds" value="1">
-        </div>        
-        <div class="form-group col-4 col-sm-3 col-md-2">
-            <label for="beds">Raggio (km)</label>
-            <input type="number" min="1" class="form-control" id="radius" value="20">
-        </div>        
+    <div class="sub details-bar d-flex width-100">
+      <div class="form-group col-4 col-sm-3 col-md-2 pl-0">
+          <label for="rooms">Stanze</label>
+          <input type="number" min="1" class="form-control" id="rooms" value="1">
       </div>
+      <div class="form-group col-4 col-sm-3 col-md-2">
+          <label for="beds">Posti Letto</label>
+          <input type="number" min="1" class="form-control" id="beds" value="1">
+      </div>        
+      <div class="form-group col-4 col-sm-3 col-md-2">
+          <label for="beds">Raggio (km)</label>
+          <input type="number" min="1" class="form-control" id="radius" value="20">
+      </div>        
+    </div>
 
       <button id="services-btn">Servizi</button>
       <div class="services-bar align-items-center col-12 pb-2">
@@ -44,7 +44,7 @@
             <div class="search-container"></div>
           </div>
           {{-- mappa --}}
-          <div class="map-ctr-search col-12 pt-1 col-md-6 text-dark d-flex justify-content-center rounded">
+          <div class="map-ctr-search col-12 pt-1 col-md-6 text-dark d-flex">
             <div id="map"></div>
           </div>
       </div>

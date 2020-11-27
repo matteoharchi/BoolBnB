@@ -31,7 +31,8 @@ main {
                     border: 1px solid #c2c2c2;
                     background-color: white;
 
-                    h5, p {
+                    h5,
+                    p {
                         color: black;
                     }
 
@@ -194,6 +195,14 @@ main {
                 color: white;
             }
         }
+
+        // .sub-details-bar {
+        //     input {
+        //         &:focus {
+
+        //         }
+        //     }
+        // }
 
 
 
@@ -448,6 +457,10 @@ main {
     main {
         .house-card-src {
             height: 120px;
+
+            .services {
+                display: none;
+            }
 
             .card-img {
                 height: 120px;

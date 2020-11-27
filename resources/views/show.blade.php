@@ -106,7 +106,7 @@
           {{-- Immagine sponsor --}}
           <img id="sponsor-img" src="{{ asset('/images/sponsor.jpg') }}" alt="">
           <div class="sponsor-show-text">
-            <h5>Metti in evidenza il tuoite annuncio</h5>
+            <h5>Metti in evidenza il tuo annuncio</h5>
             <p>Scegli uno dei nostri abbonamenti e il tuo annuncio sarà evidenziato nelle ricerche dei nostri utenti.</p>
           </div>
           <a href="{{route('sponsor.create', $house->id)}}" class="btn btn-white col-12">Sponsorizza la tua casa</a>

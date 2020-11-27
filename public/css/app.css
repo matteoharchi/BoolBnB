@@ -263,6 +263,66 @@ header .container .search-bar-home input::placeholder {
   font-weight: bolder;
 }
 
+header .container .search-bar-home-smart {
+  display: none;
+}
+
+header .container .search-bar-home-smart #search-home-smart {
+  border-radius: 5px;
+  padding: 8px 10px;
+  outline: none;
+  border: 2px solid #ff385c !important;
+  margin-right: 5px;
+  color: #ff385c;
+  font-weight: bold;
+  transition: 0.4s;
+  background-color: #7b6368;
+  box-shadow: 0 0 25px 0 #ff385c, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+header .container .search-bar-home-smart #search-home-smart:focus {
+  background-color: #ff385c;
+  color: white;
+}
+
+header .container .search-bar-home-smart #search-home-smart::-moz-placeholder {
+  color: white;
+}
+
+header .container .search-bar-home-smart #search-home-smart:-ms-input-placeholder {
+  color: white;
+}
+
+header .container .search-bar-home-smart #search-home-smart::placeholder {
+  color: white;
+}
+
+header .container #search-btn-home {
+  border-radius: 50%;
+  padding: 4px 13px;
+  color: white;
+  background-color: #ff385c;
+  outline: none;
+  border: none;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+header .container #search-btn-home:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+  header .container .search-bar-home-smart {
+    display: flex;
+    justify-content: center;
+  }
+
+  header .container .search-bar-home {
+    display: none;
+  }
+}
+
 .header {
   height: 176px;
   width: 100%;
@@ -679,6 +739,10 @@ main #payment-btn {
 
   main .house-card-src {
     height: 120px;
+  }
+
+  main .house-card-src .services {
+    display: none;
   }
 
   main .house-card-src .card-img {

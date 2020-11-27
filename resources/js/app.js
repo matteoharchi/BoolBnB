@@ -65,10 +65,6 @@ $(document).ready(function () {
         $('#duration').val(duration);
     });
 
-
-
-
-
     // Funzioni mappe 
 
     // Store lat, long e indirizzo esatto
@@ -303,8 +299,6 @@ $(document).ready(function () {
     function deg2rad(deg) {
         return deg * (Math.PI / 180);
     }
-
-
 
 //banner successo o errore
     //banner successo o errore

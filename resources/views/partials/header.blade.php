@@ -54,14 +54,21 @@
     {{-- barra di ricerca home --}}
 
     <div class="row align-items-center justify-content-center">
-
-        <form action="{{route('search')}}" class="form-inline col-8 align-items-center">
-
+        {{-- form e input desktop e tablet --}}
+        <form action="{{route('search')}}" class="form-inline align-items-center">
             <div class="search-bar-home">
                 <input type="search" id="search-home" name="query" autocomplete="off" placeholder="Dove vuoi andare?">
                 <div class="search"></div>
             </div>
-           
         </form>
+        {{-- form e input smartphone --}}
+        <form action="{{route('search')}}" class="form-inline align-items-center">
+            <div class="search-bar-home-smart">
+                <input type="search" id="search-home-smart" name="query" autocomplete="off" placeholder="Dove vuoi andare?">
+                <button id="search-btn-home" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+
+
     </div>
 </div>
