@@ -29,15 +29,6 @@
             <li>michele.prova99@gmail.com</li>
          </ul>
 
-         <ul>
-            <li><h5><i class="fas fa-phone-alt"></i> Telefono</h5></li>
-            <li>+39 3274874893</li>
-            <li>+39 3274874893</li>
-            <li>+39 3274874893</li>
-            <li>+39 3274874893</li>
-            <li>+39 3274874893</li>
-         </ul>
-
    </div>
 
    <div class="row inc align-items-center justify-content-between">
