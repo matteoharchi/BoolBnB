@@ -38,6 +38,7 @@ const app = new Vue({
 
 
 $(document).ready(function () {
+    // Prima ricerca (venendo dalla homepage)
     if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
         $('#radius').val(20);
         init();
@@ -146,10 +147,8 @@ $(document).ready(function () {
             success: function (data) {
                 var result = [];
                 var goldHouses = [];
-
-                var position = [searchLong, searchLat];
                 var now = moment();
-                // controllo per ogni casa trovata controllo
+                // controllo per ogni casa trovata
                 data.forEach(element => {
                     var found = false;
                     var dist = getDist(element.lat, element.long, searchLat, searchLong);
@@ -190,15 +189,17 @@ $(document).ready(function () {
                 printHouses(result);
 
                 // Case sulla mappa
-                housesOnMap(markers, position);
+                housesOnMap(markers);
             }
         });
     }
 
+    // Controlla che ogni elemento del target sia contenuto in arr
     function checkArr(arr, target) {
         return target.every(item => arr.includes(item));
     }
 
+    // Ordinamento delle case in base alla distanza (dalla più vicina alla più lontana)
     function compare(a, b) {
         if (a.distance < b.distance) {
             return -1;
@@ -230,15 +231,23 @@ $(document).ready(function () {
         }
     }
 
-    function housesOnMap(data, position) {
+
+    function housesOnMap(data) {
         //mappa+controlli
+        var arrCoord = [];
+        data.forEach(element => {
+            var coord = [element.lat, element.long];
+            arrCoord.push(coord);
+        });
+
         var map = tt.map({
             key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq",
             container: "map",
             style: "tomtom://vector/1/basic-main",
-            center: position,
-            zoom: 12
+            center: GetCenterFromDegrees(arrCoord),
+            zoom: 10
         });
+
         var nav = new tt.NavigationControl({});
         map.addControl(nav, 'top-right');
 
@@ -260,7 +269,7 @@ $(document).ready(function () {
 
             var popup = new tt.Popup({ offset: popupOffsets }).setHTML("<b>" + data[i].title + "</b>" + "<br>" + data[i].address);
             !popup.isOpen();
-            marker.setPopup(popup).togglePopup();
+            marker.setPopup(popup);
         }
     }
 
@@ -282,13 +291,11 @@ $(document).ready(function () {
     }
 
     //banner successo o errore
-    //banner successo o errore
     setTimeout(() => {
         $('.conferma, .error').fadeOut();
     }, 3000);
 
     //alert 'are you sure' cancellazione annuncio
-
     $('.delete-btn').on('click', function (event) {
         var form = $(this).closest('form');
         var name = $(this).attr('name');
@@ -302,7 +309,7 @@ $(document).ready(function () {
         }).then((willDelete) => {
             if (willDelete) {
                 form.submit();
-            };
+            }
         });
     });
 
@@ -319,7 +326,7 @@ $(document).ready(function () {
         }).then((willEdit) => {
             if (willEdit) {
                 form.submit();
-            };
+            }
         });
     });
 
@@ -330,7 +337,7 @@ $(document).ready(function () {
         $(".services-bar").slideToggle(1000);
     });
 
-
+    // Aggiornamento automatico anteprima foto casa in fase di upload
 
     $("input[type=file]").on('change', function () {
         var file = $(this).get(0).files[0];
@@ -346,6 +353,45 @@ $(document).ready(function () {
             reader.readAsDataURL(file);
         }
     });
+
+    // Calcolo baricentro risultati per centramento mappa
+    function GetCenterFromDegrees(data) {
+        if (!(data.length > 0)) {
+            return false;
+        }
+
+        var num_coords = data.length;
+
+        var X = 0.0;
+        var Y = 0.0;
+        var Z = 0.0;
+
+        for (i = 0; i < data.length; i++) {
+            var lat = data[i][0] * Math.PI / 180;
+            var lon = data[i][1] * Math.PI / 180;
+
+            var a = Math.cos(lat) * Math.cos(lon);
+            var b = Math.cos(lat) * Math.sin(lon);
+            var c = Math.sin(lat);
+
+            X += a;
+            Y += b;
+            Z += c;
+        }
+
+        X /= num_coords;
+        Y /= num_coords;
+        Z /= num_coords;
+
+        var lon = Math.atan2(Y, X);
+        var hyp = Math.sqrt(X * X + Y * Y);
+        var lat = Math.atan2(Z, hyp);
+
+        var newX = (lat * 180 / Math.PI).toFixed(6);
+        var newY = (lon * 180 / Math.PI).toFixed(6);
+
+        return new Array(newY, newX);
+    }
 
 });
 

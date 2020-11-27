@@ -50903,6 +50903,7 @@ var app = new Vue({
   el: '#app'
 });
 $(document).ready(function () {
+  // Prima ricerca (venendo dalla homepage)
   if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
     $('#radius').val(20);
     init();
@@ -51004,8 +51005,7 @@ $(document).ready(function () {
       success: function success(data) {
         var result = [];
         var goldHouses = [];
-        var position = [searchLong, searchLat];
-        var now = moment(); // controllo per ogni casa trovata controllo
+        var now = moment(); // controllo per ogni casa trovata
 
         data.forEach(function (element) {
           var found = false;
@@ -51015,12 +51015,12 @@ $(document).ready(function () {
             element.distance = dist; // controllo sponsorizzazioni
 
             if (element.sponsors.length > 0) {
-              for (var i = 0; i < element.sponsors.length; i++) {
+              for (var _i = 0; _i < element.sponsors.length; _i++) {
                 // controllo data scadenza sponsor e push in array premium
-                if (moment(element.sponsors[i].end_date).isAfter(now) && found == false) {
+                if (moment(element.sponsors[_i].end_date).isAfter(now) && found == false) {
                   goldHouses.push(element);
                   found = true; // controllo data scadenza sponsor e push in array barboni
-                } else if (moment(element.sponsors[i].end_date).isBefore(now) && !goldHouses.includes(element) && !result.includes(element)) {
+                } else if (moment(element.sponsors[_i].end_date).isBefore(now) && !goldHouses.includes(element) && !result.includes(element)) {
                   result.push(element);
                   found = true;
                 }
@@ -51043,16 +51043,18 @@ $(document).ready(function () {
         printHouses(goldHouses);
         printHouses(result); // Case sulla mappa
 
-        housesOnMap(markers, position);
+        housesOnMap(markers);
       }
     });
-  }
+  } // Controlla che ogni elemento del target sia contenuto in arr
+
 
   function checkArr(arr, target) {
     return target.every(function (item) {
       return arr.includes(item);
     });
-  }
+  } // Ordinamento delle case in base alla distanza (dalla più vicina alla più lontana)
+
 
   function compare(a, b) {
     if (a.distance < b.distance) {
@@ -51071,37 +51073,42 @@ $(document).ready(function () {
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
-    for (var i = 0; i < data.length; i++) {
+    for (var _i2 = 0; _i2 < data.length; _i2++) {
       var context = {
-        title: data[i].title,
-        description: data[i].description,
-        slug: data[i].slug,
-        services: data[i].services,
-        price: data[i].price,
-        rooms: data[i].rooms,
-        beds: data[i].beds,
-        bathrooms: data[i].bathrooms,
-        img: data[i].img.substr(0, 4) == 'http' ? data[i].img : '/storage/' + data[i].img
+        title: data[_i2].title,
+        description: data[_i2].description,
+        slug: data[_i2].slug,
+        services: data[_i2].services,
+        price: data[_i2].price,
+        rooms: data[_i2].rooms,
+        beds: data[_i2].beds,
+        bathrooms: data[_i2].bathrooms,
+        img: data[_i2].img.substr(0, 4) == 'http' ? data[_i2].img : '/storage/' + data[_i2].img
       };
       var html = template(context);
       $(data[0].sponsors.length > 0 ? '.search-premium-container' : '.search-container').append(html);
     }
   }
 
-  function housesOnMap(data, position) {
+  function housesOnMap(data) {
     //mappa+controlli
+    var arrCoord = [];
+    data.forEach(function (element) {
+      var coord = [element.lat, element["long"]];
+      arrCoord.push(coord);
+    });
     var map = tt.map({
       key: "oCyOS44obJmw9yb7z97dzeeAUwNmVWMq",
       container: "map",
       style: "tomtom://vector/1/basic-main",
-      center: position,
-      zoom: 12
+      center: GetCenterFromDegrees(arrCoord),
+      zoom: 10
     });
     var nav = new tt.NavigationControl({});
     map.addControl(nav, 'top-right'); //ciclo for per posizionare markers
 
-    for (var i = 0; i < data.length; i++) {
-      var markerCoord = [data[i]["long"], data[i].lat];
+    for (var _i3 = 0; _i3 < data.length; _i3++) {
+      var markerCoord = [data[_i3]["long"], data[_i3].lat];
       var marker = new tt.Marker().setLngLat(markerCoord).addTo(map);
       var popupOffsets = {
         top: [0, 0],
@@ -51113,9 +51120,9 @@ $(document).ready(function () {
       };
       var popup = new tt.Popup({
         offset: popupOffsets
-      }).setHTML("<b>" + data[i].title + "</b>" + "<br>" + data[i].address);
+      }).setHTML("<b>" + data[_i3].title + "</b>" + "<br>" + data[_i3].address);
       !popup.isOpen();
-      marker.setPopup(popup).togglePopup();
+      marker.setPopup(popup);
     }
   }
 
@@ -51135,7 +51142,6 @@ $(document).ready(function () {
   function deg2rad(deg) {
     return deg * (Math.PI / 180);
   } //banner successo o errore
-  //banner successo o errore
 
 
   setTimeout(function () {
@@ -51156,8 +51162,6 @@ $(document).ready(function () {
       if (willDelete) {
         form.submit();
       }
-
-      ;
     });
   }); //alert "are you sure" modifica
 
@@ -51173,14 +51177,13 @@ $(document).ready(function () {
       if (willEdit) {
         form.submit();
       }
-
-      ;
     });
   }); //toggle servizi search
 
   $("#services-btn").click(function () {
     $(".services-bar").slideToggle(1000);
-  });
+  }); // Aggiornamento automatico anteprima foto casa in fase di upload
+
   $("input[type=file]").on('change', function () {
     var file = $(this).get(0).files[0];
 
@@ -51197,7 +51200,39 @@ $(document).ready(function () {
 
       reader.readAsDataURL(file);
     }
-  });
+  }); // Calcolo baricentro risultati per centramento mappa
+
+  function GetCenterFromDegrees(data) {
+    if (!(data.length > 0)) {
+      return false;
+    }
+
+    var num_coords = data.length;
+    var X = 0.0;
+    var Y = 0.0;
+    var Z = 0.0;
+
+    for (i = 0; i < data.length; i++) {
+      var lat = data[i][0] * Math.PI / 180;
+      var lon = data[i][1] * Math.PI / 180;
+      var a = Math.cos(lat) * Math.cos(lon);
+      var b = Math.cos(lat) * Math.sin(lon);
+      var c = Math.sin(lat);
+      X += a;
+      Y += b;
+      Z += c;
+    }
+
+    X /= num_coords;
+    Y /= num_coords;
+    Z /= num_coords;
+    var lon = Math.atan2(Y, X);
+    var hyp = Math.sqrt(X * X + Y * Y);
+    var lat = Math.atan2(Z, hyp);
+    var newX = (lat * 180 / Math.PI).toFixed(6);
+    var newY = (lon * 180 / Math.PI).toFixed(6);
+    return new Array(newY, newX);
+  }
 });
 
 /***/ }),
