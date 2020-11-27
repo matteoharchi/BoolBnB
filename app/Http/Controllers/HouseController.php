@@ -6,13 +6,17 @@ use App\House;
 use App\Service;
 use App\View;
 use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
 
 class HouseController extends Controller {
 
     public function index() {
         // $houses = House::simplePaginate(3);
-        $houses = House::all();
+        $houses = \DB::table('houses')
+            ->join('transactions', 'houses.id', '=', 'transactions.house_id')
+            ->where('transactions.end_date', '>', Carbon::now('Europe/Rome'))
+            ->get();
 
         return view('home', compact('houses'));
 
