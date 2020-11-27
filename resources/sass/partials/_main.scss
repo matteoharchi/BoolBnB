@@ -119,6 +119,11 @@ main {
                     padding-bottom: 10px;
                 }
 
+                .title-show {
+                    color: #ff385c;
+                    font-weight: bold;
+                }
+
                 .house-details {
 
                     .house-det {
@@ -133,6 +138,8 @@ main {
                 .service-title {
 
                     padding-top: 20px;
+                    color: #ff385c;
+                    font-weight: bold;
 
                 }
 
@@ -149,6 +156,11 @@ main {
                         }
                     }
                 }
+
+                .price-details-show {
+                    color: #ff385c;
+                    font-weight: bold;
+                }
             }
 
             .maps,
@@ -162,8 +174,14 @@ main {
                     margin-bottom: 20px;
                 }
 
+                .message-title {
+                    color: #ff385c;
+                    font-weight: bold;
+                }
+
                 .sponsor-show-text {
                     padding-top: 40px;
+
                 }
 
                 #map {
@@ -196,16 +214,6 @@ main {
             }
         }
 
-        // .sub-details-bar {
-        //     input {
-        //         &:focus {
-
-        //         }
-        //     }
-        // }
-
-
-
         #search-btn {
             border-radius: 50%;
             padding: 4px 13px;
@@ -219,7 +227,6 @@ main {
             &:hover {
                 opacity: 0.8;
             }
-
 
             .card {
                 margin: 100px 0;
@@ -297,8 +304,15 @@ main {
         -ms-overflow-style: none;
         /* IE and Edge */
         scrollbar-width: none;
+
         /* Firefox */
         // overflow-x: hidden;
+        .search-no-results {
+            display: none;
+            font-size: 24px;
+            color: #ff385c;
+            font-weight: bold;
+        }
     }
 
     .house-ctr-search::-webkit-scrollbar {

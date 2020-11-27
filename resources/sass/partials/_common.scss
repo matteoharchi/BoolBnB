@@ -63,6 +63,7 @@ a {
 input {
     border: 1px solid #c2c2c2 !important;
     border-radius: 10px !important;
+
     &:focus {
         box-shadow: 0px 0px 5px 0px #ff385c !important;
     }
@@ -71,6 +72,7 @@ input {
 textarea {
     border: 1px solid #c2c2c2 !important;
     border-radius: 10px !important;
+
     &:focus {
         box-shadow: 0px 0px 5px 0px #ff385c !important;
     }
@@ -83,13 +85,3 @@ textarea {
 li {
     list-style: none !important;
 }
-
-
-// h4,
-// h5,
-// h3,
-// h2,
-// label,
-// p {
-//     color: black;
-// }

@@ -139,6 +139,7 @@ $(document).ready(function () {
     }
 
     function getHouses(searchLat, searchLong, rooms, beds, radius, services) {
+        $('.search-no-results').hide();
         $.ajax({
             url: "http://localhost:8000/api/houses",
             method: "GET",
@@ -178,6 +179,10 @@ $(document).ready(function () {
 
                 // markers dei risultati sulla mappa
                 var markers = result.concat(goldHouses);
+
+                if (markers.length == 0){
+                    $('.search-no-results').show();
+                }
 
                 // Ordine case per distanza crescente e stampa nei div premium e barboni
                 result.sort(compare);

@@ -50997,6 +50997,7 @@ $(document).ready(function () {
   }
 
   function getHouses(searchLat, searchLong, rooms, beds, radius, services) {
+    $('.search-no-results').hide();
     $.ajax({
       url: "http://localhost:8000/api/houses",
       method: "GET",
@@ -51031,7 +51032,12 @@ $(document).ready(function () {
           }
         }); // markers dei risultati sulla mappa
 
-        var markers = result.concat(goldHouses); // Ordine case per distanza crescente e stampa nei div premium e barboni
+        var markers = result.concat(goldHouses);
+
+        if (markers.length == 0) {
+          $('.search-no-results').show();
+        } // Ordine case per distanza crescente e stampa nei div premium e barboni
+
 
         result.sort(compare);
         printHousesGold(goldHouses);
@@ -51646,8 +51652,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP_PUBLIC\Progetto Finale\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP_PUBLIC\Progetto Finale\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -12,14 +12,14 @@
         <div class="card card-show">
           {{-- Immagine casa --}}
           <div class="row">
-            <div class="img-show-ctr card-img-top pl-1 pr-1 col-12 col-md-6 d-flex justify-content-center">
+            <div class="img-show-ctr card-img-top pl-3 pr-1 col-12 col-md-6 d-flex justify-content-center">
               <img id="img-show" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}" alt="{{$house->title}}">
             </div>
 
           {{-- Titolo e descrizione casa --}}
           <div class="card-body col-12 col-md-6 pt-0">
             <div class="house-main-text">
-              <h4 class="card-title">{{$house->title}}</h4>
+              <h4 class="card-title title-show">{{$house->title}}</h4>
               <p class="card-text">{{ $house->description }}</p>
             </div>
 
@@ -37,7 +37,7 @@
             </div>
 
             {{-- servizi --}}
-            <h5 class="text-center service-title">Servizi offerti</h5>
+            <h5 class="service-title pl-2">Servizi offerti</h5>
             <ul class="list-group service-show col-12">
               @forelse ($house->services as $service)
                 <li class="pl-0 mt-2 col-6">
@@ -59,6 +59,10 @@
                 <p class="mt-2">Nessun Servizio offerto</p>
               @endforelse
             </ul>
+            <div class="price-show pr-4 pt-4 d-flex justify-content-end">
+              <h5 class="price-details-show pr-2">{{ $house->bathrooms }}€ </h5>
+              <span> a notte</span>
+            </div>
           </div>
          </div>
         </div>
@@ -68,7 +72,7 @@
     <div class="row">
 
       {{-- mappa --}}
-      <div class="col-12 col-md-6 p-0 pr-1 maps d-flex justify-content-center">
+      <div class="col-12 col-md-6 pl-3 pr-1 maps d-flex justify-content-center">
         <div id="map"></div>
       </div>  
 
@@ -80,21 +84,21 @@
           <form action="{{route('messages.store')}}" method="POST">
             @csrf
             @method('POST')
-            <h5 class="">Invia una domanda al proprietario</h5>
+            <h5 class="message-title">Invia una domanda al proprietario</h5>
               <div class="form-group">
-                <input type="hidden" class="form-control" id="house_id"  value="{{$house->id}}" name="house_id">
+                <input type="hidden" class="form-control" id="house_id"  value="{{$house->id}}" name="house_id" required>
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="sender_mail" value="{{Auth::check() ? Auth::user()->email : ''}}" name="sender_mail">
+                <input type="email" class="form-control" id="sender_mail" value="{{Auth::check() ? Auth::user()->email : ''}}" name="sender_mail" required>
               </div>
                 <div class="form-group">
                   <label for="object">Oggetto</label>
-                  <input type="text" class="form-control" id="object" name="object">
+                  <input type="text" class="form-control" id="object" name="object" required>
                 </div>
                 <div class="form-group">
                   <label for="body">Domanda</label>
-                  <textarea class="form-control" id="body" rows="6" name="body"></textarea>
+                  <textarea class="form-control" id="body" rows="6" name="body" required></textarea>
                 </div>
                 <button type="submit" class="btn float-right mt-3 btn-white">Invia la tua domanda</button>
           </form>

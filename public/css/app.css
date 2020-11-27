@@ -474,6 +474,11 @@ main .show-house .row .card-show .house-main-text {
   padding-bottom: 10px;
 }
 
+main .show-house .row .card-show .title-show {
+  color: #ff385c;
+  font-weight: bold;
+}
+
 main .show-house .row .card-show .house-details .house-det {
   padding: 0 10px;
 }
@@ -484,6 +489,8 @@ main .show-house .row .card-show .house-details .house-det i {
 
 main .show-house .row .card-show .service-title {
   padding-top: 20px;
+  color: #ff385c;
+  font-weight: bold;
 }
 
 main .show-house .row .card-show .service-show {
@@ -500,6 +507,11 @@ main .show-house .row .card-show .service-show li i {
   font-size: 20px;
 }
 
+main .show-house .row .card-show .price-details-show {
+  color: #ff385c;
+  font-weight: bold;
+}
+
 main .show-house .row .maps,
 main .show-house .row .messages {
   margin: 20px 0;
@@ -510,6 +522,12 @@ main .show-house .row .messages #sponsor-img {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 20px;
+}
+
+main .show-house .row .maps .message-title,
+main .show-house .row .messages .message-title {
+  color: #ff385c;
+  font-weight: bold;
 }
 
 main .show-house .row .maps .sponsor-show-text,
@@ -631,6 +649,13 @@ main .house-ctr-search {
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
+}
+
+main .house-ctr-search .search-no-results {
+  display: none;
+  font-size: 24px;
+  color: #ff385c;
+  font-weight: bold;
 }
 
 main .house-ctr-search::-webkit-scrollbar {

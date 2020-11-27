@@ -36,8 +36,10 @@
       </div>
 
         <div class="row" style="padding-bottom: 20px;">
+          
         
           <div class="house-ctr-search col-12 col-md-6">
+            <div class="search-no-results">Non ci sono risultati per questa ricerca</div>
             {{-- contenitore ricerche annunci sponsorizzati --}}
             <div class="search-premium-container"></div>
             {{-- contenitore annunci per poveri --}}
@@ -60,7 +62,7 @@
             <img id="search-img" class="card-img rounded pt-2" src="@{{img}}" alt="@{{title}}">
           </div>
           <div class="col-9 col-md-7 pt-2 house-details">
-          <a href="houses/show/@{{slug}}"><h5 class="text-dark mb-0">@{{title}}</h5></a>
+          <a href="houses/show/@{{slug}}" id="card-house-title"><h5 class="text-dark mb-0">@{{title}}</h5></a>
             <div class="house-details-rooms">
               <ul class="mb-0">
                 <li><small>stanze: @{{rooms}} - </small></li>
