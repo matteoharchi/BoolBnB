@@ -64,6 +64,10 @@ input {
   border-radius: 10px !important;
 }
 
+input:focus {
+  box-shadow: 0px 0px 5px 0px #ff385c !important;
+}
+
 textarea {
   border: 1px solid #c2c2c2 !important;
   border-radius: 10px !important;
@@ -280,6 +284,7 @@ header .container .search-bar-home input::placeholder {
 
 .header .container .row .navbar-nav .dropdown-menu {
   background-color: transparent;
+  padding: 0;
   border: 1px solid #ff385c;
   border-radius: 10px;
 }
@@ -291,6 +296,14 @@ header .container .search-bar-home input::placeholder {
 .header .container .row .navbar-nav .dropdown-menu .dropdown-item:hover {
   background-color: white;
   box-shadow: 0px 0px 10px 0px #ff385c !important;
+}
+
+.header .container .row .navbar-nav .dropdown-menu .dropdown-item:first-child:hover {
+  border-radius: 10px 10px 0 0;
+}
+
+.header .container .row .navbar-nav .dropdown-menu .dropdown-item:nth-last-child(2):hover {
+  border-radius: 0 0 10px 10px;
 }
 
 main {
@@ -724,6 +737,11 @@ footer .container li {
 footer .container ul {
   line-height: 40px;
   margin-top: 20px;
+}
+
+footer .container ul a:hover {
+  text-decoration: underline !important;
+  color: #ff385c !important;
 }
 
 footer .container .social {
