@@ -76,13 +76,13 @@
         {{-- Inserimento immagini --}}
         <div class="row">
             <div class="col-12">
-                <img src="{{ asset('storage/' . $house->img)}}" alt="{{$house->slug}}" class="previewImg" width="300px" style="object-fit: cover">
+                <img src="{{ asset('storage/' . $house->img)}}" alt="{{$house->slug}}" class="previewImg" id="editimg">
             </div>
         </div>
 
         <div class="row">
-            <div class="form-group col-12 bg-none pt-3">
-                <label for="img">Cambia l'immagine dell'annuncio</label>
+            <div class="form-group col-12 bg-none pt-3 add-img">
+                <label for="img">Cambia l'immagine dell'annuncio:</label>
                 <input type="file" accept="image/*" class="" id="img-edit" name="img">
             </div>
         </div>
@@ -93,7 +93,7 @@
             <input type="hidden" name="visible" value="0">
             <input type="checkbox" name="visible" id="visible" value="1" {{($house->visible==1 ? 'checked' : '')}}>
         </div>
-        <button id="edit-house" type="submit" class="btn btn-white">Modifica annuncio</button>       
+        <button type="submit" class="btn btn-white mb-3">Modifica annuncio</button>       
 
     </form>
 
@@ -103,7 +103,7 @@
 
         @csrf
         @method('DELETE')
-            <button type="submit" class="btn delete-btn btn-red mb-3">Cancella annuncio</button>
+            <button id="delete-house" type="submit" class="btn delete-btn btn-red">Cancella annuncio</button>
     
     </form> 
     

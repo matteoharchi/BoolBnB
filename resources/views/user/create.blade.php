@@ -90,10 +90,10 @@
 
             <div class="row">
                 {{-- Immagine --}}
-                <div class="form-group col-12 bg-none">
-                    <label for="img" style="display: block; text-align: left">Aggiungi foto della casa</label>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="previewImg" alt="Placeholder" style="object-fit: cover">
-                    <input type="file" accept="image/*" class="form-control text-light" id="img-create" name="img">
+                <div class="form-group col-12 bg-none add-img">
+                    <label for="img">Aggiungi foto della casa:</label>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="previewImg mb-3" alt="Placeholder">
+                    <input type="file" accept="image/*" class="" id="img-create" name="img">
                 </div>
 
             </div>

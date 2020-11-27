@@ -357,23 +357,49 @@ main {
         }
     }
 
-    //create house 
+    //create-edit house 
 
-    #create-house {
-        margin-bottom: 20px;
-        background-color: white;
-        color: white;
-    }
+    .create {
 
+        .add-img {
+            label {
+                display: block;
 
-    #edit-house {
-        margin-bottom: 20px;
+            }
+
+            img {
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        #editimg {
+            width: 300px;
+            object-fit: cover;
+        }
+
+        label {
+            color: black;
+        }    
+
+        #create-house, #delete-house {
+            margin-bottom: 150px;
+        }
+        
+        
+        #img-create, #img-edit {
+            border: none !important;
+        }
+
     }
 
     // create sponsor
 
     .sponsor-select {
         padding-top: 20px;
+        h2, label {
+            color: black;
+        }
     }
 
     .form-message {
@@ -381,8 +407,14 @@ main {
     }
 
     #payment-btn {
-        margin: 20px 0;
+        margin-top: 40px;
+        margin-bottom: 100px;
     }
+
+    .text-center {
+        color: black;
+    }
+
 }
 
 
