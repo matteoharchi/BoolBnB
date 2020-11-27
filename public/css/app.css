@@ -73,6 +73,10 @@ textarea {
   border-radius: 10px !important;
 }
 
+textarea:focus {
+  box-shadow: 0px 0px 5px 0px #ff385c !important;
+}
+
 .btn-link {
   color: black !important;
 }
