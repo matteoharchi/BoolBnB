@@ -60,7 +60,7 @@
               @endforelse
             </ul>
             <div class="price-show pr-4 pt-4 d-flex justify-content-end">
-              <h5 class="price-details-show pr-2">{{ $house->bathrooms }}€ </h5>
+              <h5 class="price-details-show pr-2">{{ $house->price }}€ </h5>
               <span> a notte</span>
             </div>
           </div>

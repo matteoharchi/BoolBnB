@@ -93,7 +93,7 @@
             <input type="hidden" name="visible" value="0">
             <input type="checkbox" name="visible" id="visible" value="1" {{($house->visible==1 ? 'checked' : '')}}>
         </div>
-        <button type="submit" class="btn btn-white mb-3">Modifica annuncio</button>       
+        <button type="submit" id="edit-house" class="btn btn-white mb-3">Modifica annuncio</button>       
 
     </form>
 

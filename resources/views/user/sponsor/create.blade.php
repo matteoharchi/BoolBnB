@@ -2,13 +2,13 @@
 @section('content')
 
 @if (session('success_message'))
-    <div class="alert alert-success rounded-0 conferma" style="position:absolute; width:100vw">
+    <div class="alert alert-success rounded-0 conferma" style="position:absolute; width:100vw;">
         {{ session('success_message') }}
     </div>
 @endif
 
 @if ($errors->any())
-<div class="alert alert-danger error" style="position: absolute; width:100vw">
+<div class="alert alert-danger error" style="position: absolute; width:100vw;">
     @foreach ($errors->all() as $error)
         <p>{{$error}}</p>
     @endforeach

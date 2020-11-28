@@ -353,7 +353,6 @@ $(document).ready(function () {
 
 
     //toggle servizi search
-
     $("#services-btn").click(function () {
         $(".services-bar").slideToggle(1000);
     });

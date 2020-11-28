@@ -15,17 +15,29 @@
 
         <ul class="navbar-nav col-3">
             <div class="row align-items-center justify-content-end">
-                @guest
-              <li class="nav-item mr-2">
-                  <a class="nav-link btn btn-header" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+            @guest
+            <div class="dropdown" id="drop-ham">
+                <button class="btn btn-secondary dropdown-toggle" id="icon-ham" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bars text-light"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="min-width: 0px;">
+                  <a class="dropdown-item text-right" style="border-radius: 10px 10px 0 0;" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                  @if (Route::has('register'))
+                  <a class="dropdown-item text-right" style="border-radius: 0 0 10px 10px" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                  @endif
+                </div>
+            </div>
+
+              <li class="nav-item mr-2 btn-ham">
+                <a class="nav-link btn btn-header" href="{{ route('login') }}">{{ __('Accedi') }}</a>
               </li>
               @if (Route::has('register'))
-                  <li class="nav-item">
-                      <a class="nav-link btn btn-header" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                <li class="nav-item btn-ham">
+                    <a class="nav-link btn btn-header" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                   </li>
               @endif
-          @else
-              <li class="nav-item dropdown">
+            @else
+                <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-header" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       {{ Auth::user()->name }}
                   </a>
@@ -44,8 +56,8 @@
                           @csrf
                       </form>
                   </div>
-              </li>
-          @endguest
+                </li>
+            @endguest
             </div>
         </ul>
 

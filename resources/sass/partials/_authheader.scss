@@ -54,3 +54,24 @@
      }
 
  }
+
+ @media screen and (min-width: 576px) {
+     #drop-ham-auth {
+         display: none;
+
+         .dropdown-menu {
+             transform: translate3d(-57px, 37px, 0px);
+         }
+
+         #icon-ham-auth {
+             color: #ff385c;
+         }
+     }
+ }
+
+ @media screen and (max-width: 575px) {
+     .btn-ham-auth {
+         display: none;
+         color: #ff385c;
+     }
+ }

@@ -59,41 +59,48 @@ class SponsorController extends Controller {
 
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
-        $result = $gateway->transaction()->sale([
-            'amount' => $amount,
-            'paymentMethodNonce' => $nonce,
-            'customer' => [
-                'firstName' => Auth::user()->name,
-                'lastName' => Auth::user()->surname,
-                'email' => Auth::user()->email,
-            ],
-            'options' => [
-                'submitForSettlement' => true,
-            ],
-        ]);
+        // controllo se la casa ha già uno sponsor
+        $houseTransaction = Transaction::where('house_id', $request->house_id)->whereDate('end_date', '>', Carbon::now())->get();
+        // parte se non c'è
+        if (count($houseTransaction) == 0) {
+            // transazione con dati di pagamento
+            $result = $gateway->transaction()->sale([
+                'amount' => $amount,
+                'paymentMethodNonce' => $nonce,
+                'customer' => [
+                    'firstName' => Auth::user()->name,
+                    'lastName' => Auth::user()->surname,
+                    'email' => Auth::user()->email,
+                ],
+                'options' => [
+                    'submitForSettlement' => true,
+                ],
+            ]);
 
-        if ($result->success) {
-            $transaction = $result->transaction;
-            // header("Location: transaction.php?id=" . $transaction->id);
+            // aggiungo sponsorizzazione al DB
+            if ($result->success) {
+                $transaction = $result->transaction;
+                $data['start_date'] = Carbon::now('Europe/Rome');
+                $data['end_date'] = Carbon::now('Europe/Rome')->addHours($data['duration']);
+                $newTransaction = new Transaction;
+                $newTransaction->fill($data);
+                $saved = $newTransaction->save();
+                // messaggio di successo in caso di transazione avvenuta
+                if ($saved) {
+                    return back()->with('success_message', 'Transazione andata a buon fine. ID pagamento: ' . $transaction->id);
+                }
+            } else {
+                $errorString = "";
 
-            $data['start_date'] = Carbon::now('Europe/Rome');
-            $data['end_date'] = Carbon::now('Europe/Rome')->addHours($data['duration']);
-            $newTransaction = new Transaction;
-            $newTransaction->fill($data);
-            $saved = $newTransaction->save();
-            if ($saved) {
-                return back()->with('success_message', 'Transazione andata a buon fine. ID pagamento: ' . $transaction->id);
+                foreach ($result->errors->deepAll() as $error) {
+                    $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+                }
+
+                return back()->withErrors('Si è verificato un errore: ' . $result->message);
             }
+            // errore in caso di sponsorizzazione già attiva
         } else {
-            $errorString = "";
-
-            foreach ($result->errors->deepAll() as $error) {
-                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-            }
-
-            // $_SESSION["errors"] = $errorString;
-            // header("Location: index.php");
-            return back()->withErrors('Si è verificato un errore: ' . $result->message);
+            return back()->withErrors('Si è verificato un errore: ' . 'Hai già una sponsorizzazione attiva su questo annuncio');
         }
     }
 

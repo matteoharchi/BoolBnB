@@ -1,9 +1,11 @@
 @extends('layouts.authlayout')
 @section('content')
-<div class="container">
+<div class="container pt-4">
     <h2>{{$message->object}}</h2>
     <p>{{$message->body}}</p>
-    <a href="{{route('houses.index')}}" class="btn btn-white float-right">Torna alla Dashboard</a>
+    <div class="d-flex pb-4 justify-content-end">
+        <a href="{{route('houses.index')}}" class="btn btn-white">Torna alla Dashboard</a>
+    </div>
 
 </div>
 @endsection
