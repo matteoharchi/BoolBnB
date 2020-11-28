@@ -42,6 +42,6 @@ Route::resource('houses/messages', 'MessageController');
 
 //rotte case guest
 Route::get('/', 'HouseController@index');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HouseController@index')->name('home');
 Route::get('houses/show/{slug}', 'HouseController@show')->name('houses.show');
 Route::post('counter', 'HouseController@postView')->name('view.store');

@@ -61,7 +61,18 @@
       <div class="row host">
 
         <div class="col-12">
-          <img src="{{ asset('/images/host.jpg') }}" alt="" class="ombra">
+          
+          @auth
+          <a href="{{route('houses.create')}}">
+            <img src="{{ asset('/images/host.jpg') }}" alt="" class="ombra">
+          </a>
+          @endauth
+          @guest
+          <a href="{{ route('register') }}">
+            <img src="{{ asset('/images/host.jpg') }}" alt="" class="ombra">
+          </a>
+          @endguest
+          
         </div>
 
       </div>

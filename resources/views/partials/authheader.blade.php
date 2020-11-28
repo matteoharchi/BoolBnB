@@ -5,7 +5,7 @@
 
         {{-- logo --}}
 
-        <div class="logo col-9">
+        <div class="logo col-7">
             <div class="row align-items-center">
                 <a href="{{route('home')}}"><h1><i class="fab fa-bootstrap"></i> boolbnb</h1></a>
             </div>
@@ -15,7 +15,7 @@
 
         
 
-        <ul class="navbar-nav col-3">
+        <ul class="navbar-nav col-5">
             <div class="row align-items-center justify-content-end">
             @guest
             <div class="dropdown" id="drop-ham-auth">
