@@ -47,6 +47,10 @@
         </div>
 
       </div>
+      <div class="buttons col-12 d-flex justify-content-between">
+        <button id="scroll-left"><-</button>
+        <button id="scroll-right">-></button>       
+      </div>
 
       {{-- row-title --}}
 

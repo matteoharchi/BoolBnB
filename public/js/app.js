@@ -51333,6 +51333,21 @@ $(document).ready(function () {
     var newY = (lon * 180 / Math.PI).toFixed(6);
     return new Array(newY, newX);
   }
+
+  $('#scroll-right').on('click', function () {
+    var position = $('.card-group').scrollLeft();
+    return $('.card-group').scrollLeft(position += 200);
+  });
+  $('#scroll-left').on('click', function () {
+    var position = $('.card-group').scrollLeft();
+    return $('.card-group').scrollLeft(position -= 200);
+  });
+
+  function scrollButtonSx(button, place) {
+    var buttonRight = $(button);
+    var position = $(place).scrollLeft();
+    return $(place).scrollLeft(position -= 200);
+  }
 });
 
 /***/ }),
