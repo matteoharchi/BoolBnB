@@ -439,11 +439,6 @@ main {
 
 }
 
-
-
-
-
-
 @media screen and (max-width: 1198px) and (min-width: 992px) {
 
     .apartment {
@@ -543,6 +538,10 @@ main {
             .service-bar-dtl label {
                 width: 120px;
             }
+        }
+
+        .sponsor-select {
+            padding-top: 0px;
         }
     }
 }

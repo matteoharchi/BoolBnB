@@ -353,7 +353,6 @@ $(document).ready(function () {
 
 
     //toggle servizi search
-
     $("#services-btn").click(function () {
         $(".services-bar").slideToggle(1000);
     });
@@ -413,6 +412,8 @@ $(document).ready(function () {
 
         return new Array(newY, newX);
     }
+
+ 
 
 });
 

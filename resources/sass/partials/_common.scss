@@ -48,15 +48,16 @@
     }
 }
 
-.btn-header {
-    background-color: transparent !important;
-    color: white !important;
+.btn-header,
+#icon-ham {
+    background-color: transparent;
+    color: white;
     border: 1px solid white !important;
     padding: 0.375rem 0.75rem !important;
     border-radius: 10px !important;
 
     &:hover {
-        box-shadow: 0px 0px 10px 0px white !important;
+        box-shadow: 0px 0px 10px 0px white;
     }
 }
 
