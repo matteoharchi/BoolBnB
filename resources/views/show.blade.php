@@ -12,7 +12,7 @@
         <div class="card card-show">
           {{-- Immagine casa --}}
           <div class="row">
-            <div class="img-show-ctr card-img-top pl-3 pr-1 col-12 col-md-6 d-flex justify-content-center">
+            <div class="img-show-ctr card-img-top col-12 col-md-6 d-flex justify-content-center">
               <img id="img-show" src="{{Str::startsWith($house->img, 'http') ? $house->img : Storage::url($house->img)}}" alt="{{$house->title}}" alt="{{$house->title}}">
             </div>
 

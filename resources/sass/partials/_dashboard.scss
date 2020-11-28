@@ -1,5 +1,5 @@
 .dashboard{
-    padding: 80px 0;
+    padding: 60px 0;
 
     .dashboard-section{
         height: 500px;
@@ -10,5 +10,28 @@
         background-color: #ff385c;
         border-color: #ff385c;
     }
+    
+    @media (max-width: 991px) {
+        padding: 50px 0;
+        .dash-index{
+            margin-bottom: 30px;
+            a {
+                border: 1px solid #dfdfdf;
+                border-radius: 5px;
+                color: #ff385c;
+                text-align: center;
+            }
 
+            a.active {
+                color: white;
+            }
+        }
+    }
+
+    @media (max-width:768px) {
+        padding: 50px 0;
+        .message-body {
+            display: none;
+        }
+    }
 }

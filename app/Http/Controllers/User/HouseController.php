@@ -208,4 +208,11 @@ class HouseController extends Controller {
         return view('user.stats.stats', compact('monthlyViews', 'monthlyMessages', 'house'));
     }
 
+    //funzione visualizzazione messaggi
+    public function showMessage($object){
+        $message = Message::where('object', $object)->first();
+        return view('user.messages.show', compact('message'));
+
+    }
+
 }

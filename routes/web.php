@@ -34,6 +34,7 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
     //rotte statistiche
     Route::post('counter', 'HouseController@postView')->name('view.store');
     Route::get('settings/houses/{id}/stats', 'HouseController@viewsStats')->name('stats.views');
+    Route::get('settings/houses/messages/{object}', 'HouseController@showMessage');
 });
 
 //rotte messaggi
