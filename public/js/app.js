@@ -38664,7 +38664,7 @@ var render = function() {
             key: your_message.id,
             staticClass:
               "list-group-item list-group-item-action flex-column align-items-start pl-0 pr-0 pr-sm-0",
-            attrs: { href: "#" }
+            attrs: { href: "houses/messages/" + your_message.object }
           },
           [
             _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [

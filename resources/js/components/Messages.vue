@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start pl-0 pr-0 pr-sm-0" v-for="your_message in your_messages" :key="your_message.id">
+            <a :href="'houses/messages/'+ your_message.object" class="list-group-item list-group-item-action flex-column align-items-start pl-0 pr-0 pr-sm-0" v-for="your_message in your_messages" :key="your_message.id">
                 <div class="d-flex w-100 justify-content-between">
                     <!-- <span>{{your_message.sender_mail}}</span>
                     <span><strong>{{your_message.object}}</strong></span>
