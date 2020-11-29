@@ -23,17 +23,17 @@
             <div class="row">
                 <div class="form-group pt-2 col-9">
                     <label for="title">Titolo</label>
-                    <input  type="text" class="form-control" id="title" name="title">
+                    <input  type="text" class="form-control" id="title" name="title" value="{{old('title')}}">
                 </div>
             </div>
 
             <div class="row">
                 <div class="form-group col-9">
                     <label for="address">Indirizzo</label>
-                    <input type="text" class="form-control" id="address" name="address">
+                    <input type="text" class="form-control" id="address" name="address" value="{{old('address')}}">
         
-                    <input type="hidden" id="lat" name="lat" value="">
-                    <input type="hidden" id="long" name="long" value="">
+                    <input type="hidden" id="lat" name="lat" value="{{old('lat')}}">
+                    <input type="hidden" id="long" name="long" value="{{old('long')}}">
                 </div>
             </div>
 
@@ -42,27 +42,27 @@
             <div class="row">
                 <div class="form-group col-md-2 col-sm-2 col-4 mr-1">
                     <label for="rooms">Stanze</label>
-                    <input type="number" min="1" class="form-control" id="rooms" name="rooms" value="rooms">
+                    <input type="number" min="1" class="form-control" id="rooms" name="rooms" value="{{old('rooms')}}">
                 </div>
     
                 <div class="form-group col-md-2 col-sm-3 col-4 mr-1">
                     <label for="beds">Posti Letto</label>
-                    <input type="number" min="1" class="form-control" id="beds" name="beds" value="beds">
+                    <input type="number" min="1" class="form-control" id="beds" name="beds" value="{{old('beds')}}">
                 </div>
     
                 <div class="form-group col-md-2 col-sm-2 col-4 mr-1">
                     <label for="bathrooms">Bagni</label>
-                    <input type="number" min="1" class="form-control" id="bathrooms" name="bathrooms" value="bathrooms">
+                    <input type="number" min="1" class="form-control" id="bathrooms" name="bathrooms" value="{{old('bathrooms')}}">
                 </div>
             
                 <div class="form-group col-md-2 col-sm-2 col-4 mr-1">
                     <label for="size">Dimensioni</label>
-                    <input type="number" min="1"class="form-control" id="size" name="size" placeholder="m²">
+                    <input type="number" min="1"class="form-control" id="size" name="size" placeholder="m²" value="{{old('size')}}">
                 </div>
     
                 <div class="form-group col-md-2 col-sm-3 col-4 mr-1">
                     <label for="price">Prezzo</label>
-                    <input type="number" min="1" class="form-control" id="price" name="price" placeholder="Euro">
+                    <input type="number" min="1" class="form-control" id="price" name="price" placeholder="Euro" value="{{old('price')}}">
                 </div>
             </div>   
 
@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="form-group col-9">
                     <label for="description">Descrizione</label>
-                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    <textarea class="form-control" id="description" name="description" rows="3">{{old('description')}}</textarea>
                 </div>
             </div>
 

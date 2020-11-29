@@ -238,7 +238,7 @@ $(document).ready(function () {
         var template = Handlebars.compile(source);
         for (let i = 0; i < data.length; i++) {
             var context = {
-                title: data[i].title,
+                title: data[i].title.substr(0,20),
                 description: data[i].description,
                 slug: data[i].slug,
                 services: data[i].services,
@@ -412,6 +412,8 @@ $(document).ready(function () {
 
         return new Array(newY, newX);
     }
+
+    //scroll buttons home
     $('#scroll-right').on('click',function(){
         return $('.card-group').stop().animate({scrollLeft:'+=300'},900);
     })

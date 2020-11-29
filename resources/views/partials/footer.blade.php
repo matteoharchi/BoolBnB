@@ -4,11 +4,11 @@
 
          <ul>
             <li><h5><i class="fab fa-linkedin"></i> Linkedin</h5></li>
-            <li><a href="linkedin.com/in/matteo-harchi">Matteo Harchi</a></li>
-            <li><a href="linkedin.com/in/mathias-grandin-2b553056">Mathias Grandin</a></li>
-            <li><a href="linkedin.com/in/alberto-zordan-az85">Alberto Zordan</a></li>
-            <li><a href="linkedin.com/in/francesco-l-b77398124">Francesco Lunesu</a></li>
-            <li><a href="linkedin.com/in/michele-prova-895bb51ba">Michele Prova</a></li>
+            <li><a href="https://linkedin.com/in/matteo-harchi">Matteo Harchi</a></li>
+            <li><a href="https://linkedin.com/in/mathias-grandin-2b553056">Mathias Grandin</a></li>
+            <li><a href="https://linkedin.com/in/alberto-zordan-az85">Alberto Zordan</a></li>
+            <li><a href="https://linkedin.com/in/francesco-l-b77398124">Francesco Lunesu</a></li>
+            <li><a href="https://linkedin.com/in/michele-prova-895bb51ba">Michele Prova</a></li>
          </ul>
 
          <ul>

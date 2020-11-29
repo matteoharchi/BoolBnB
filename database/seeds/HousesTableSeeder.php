@@ -84,7 +84,7 @@ class HousesTableSeeder extends Seeder {
             ],
 
             [
-                'title' => "LA CASA DEL CUORE/ Friendly Family Home + Parking",
+                'title' => "LA CASA DEL CUORE/ Friendly Family Home",
                 'description' => "La Casa del Cuore è un appartamento privato composto da due camere doppie e una cucina-soggiorno con divano letto. Tutti gli spazi sono ad uso esclusivo degli ospiti. Ascensore e posto auto incluso! Adatta a famiglie, viaggi di lavoro o semplice avventura!Vicino al museo Muse, tutti i servizi sotto casa!",
                 'rooms' => 2,
                 'beds' => 2,
@@ -94,7 +94,7 @@ class HousesTableSeeder extends Seeder {
                 'address' => "Via Giuseppe Tosetti, Trento, TN",
                 'long' => 11.102854,
                 'lat' => 46.097570,
-                'img' => "https://a0.muscache.com/im/pictures/9f6f8b4e-ca47-4e14-8c06-142db5238e97.jpg?aki_policy=xx_large",
+                'img' => "https://a0.muscache.com/im/pictures/9f6f8b4e-ca47-4e14-8c06-142db5238e97.jpg?im_w=1200",
                 'user_id' => 2,
             ],
 
@@ -188,7 +188,7 @@ class HousesTableSeeder extends Seeder {
                 'address' => "Via della Rotonda, 21, Roma RM",
                 'long' => 12.476421,
                 'lat' => 41.898506,
-                'img' => "https://a0.muscache.com/im/pictures/e4d54974-f0be-4cd2-9e77-bb1f248bd926.jpg?im_w=1200https://a0.muscache.com/im/pictures/e4d54974-f0be-4cd2-9e77-bb1f248bd926.jpg?im_w=1200",
+                'img' => "https://a0.muscache.com/im/pictures/e4d54974-f0be-4cd2-9e77-bb1f248bd926.jpg?im_w=1200",
                 'user_id' => 3,
             ],
 

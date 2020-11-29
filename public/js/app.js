@@ -51174,7 +51174,7 @@ $(document).ready(function () {
 
     for (var _i3 = 0; _i3 < data.length; _i3++) {
       var context = {
-        title: data[_i3].title,
+        title: data[_i3].title.substr(0, 20),
         description: data[_i3].description,
         slug: data[_i3].slug,
         services: data[_i3].services,
@@ -51332,7 +51332,8 @@ $(document).ready(function () {
     var newX = (lat * 180 / Math.PI).toFixed(6);
     var newY = (lon * 180 / Math.PI).toFixed(6);
     return new Array(newY, newX);
-  }
+  } //scroll buttons home
+
 
   $('#scroll-right').on('click', function () {
     return $('.card-group').stop().animate({
