@@ -51333,6 +51333,17 @@ $(document).ready(function () {
     var newY = (lon * 180 / Math.PI).toFixed(6);
     return new Array(newY, newX);
   }
+
+  $('#scroll-right').on('click', function () {
+    return $('.card-group').stop().animate({
+      scrollLeft: '+=300'
+    }, 900);
+  });
+  $('#scroll-left').on('click', function () {
+    return $('.card-group').stop().animate({
+      scrollLeft: '-=300'
+    }, 900);
+  });
 });
 
 /***/ }),
@@ -51781,8 +51792,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\mamp_public\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\mamp_public\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Matteo Harchi\Desktop\Boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

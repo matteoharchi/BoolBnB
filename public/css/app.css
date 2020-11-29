@@ -434,7 +434,7 @@ main .container .title h2 {
 }
 
 main .container .view .scrollMenu {
-  overflow-y: hidden;
+  overflow: hidden;
   flex-wrap: nowrap;
 }
 
@@ -473,6 +473,30 @@ main .container .view .scrollMenu .card .card-footer {
   background-color: white;
   border-top: none;
   border-radius: 0px 0px 10px 10px;
+}
+
+main .container button.scroll {
+  padding: 10px 17px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #ff385c;
+  border-radius: 50%;
+  border: 1px solid #ff385f;
+  top: 50%;
+  transform: translateY(-50%);
+  outline: none;
+}
+
+main .container button.scroll:hover {
+  background-color: #ff385c;
+  color: white;
+}
+
+main .container #scroll-right {
+  right: -70px;
+}
+
+main .container #scroll-left {
+  left: -70px;
 }
 
 main .container .host {
@@ -809,6 +833,16 @@ main .text-center {
   color: black;
 }
 
+@media screen and (max-width: 1320px) and (min-width: 992px) {
+  main .container button#scroll-right {
+    right: -1.3rem;
+  }
+
+  main .container button#scroll-left {
+    left: -1.3rem;
+  }
+}
+
 @media screen and (max-width: 1198px) and (min-width: 992px) {
   .apartment {
     width: 40% !important;
@@ -835,6 +869,18 @@ main .text-center {
 
   .house-card-src #search-img {
     height: 125px;
+  }
+
+  main .container #scroll-right {
+    background-color: rgba(255, 255, 255, 0);
+    right: -10px;
+    border: none;
+  }
+
+  main .container #scroll-left {
+    background-color: rgba(255, 255, 255, 0);
+    left: -10px;
+    border: none;
   }
 }
 
@@ -879,6 +925,11 @@ main .text-center {
   main .house-card-src .house-details .house-price-src {
     position: absolute;
     bottom: 0px;
+  }
+
+  main .container #scroll-right,
+  main #scroll-left {
+    display: none;
   }
 
   main #services-btn {

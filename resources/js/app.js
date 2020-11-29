@@ -412,9 +412,13 @@ $(document).ready(function () {
 
         return new Array(newY, newX);
     }
-
- 
-
+    $('#scroll-right').on('click',function(){
+        return $('.card-group').stop().animate({scrollLeft:'+=300'},900);
+    })
+    $('#scroll-left').on('click',function(){
+        return $('.card-group').stop().animate({scrollLeft:'-=300'},900);
+    })
+    
 });
 
 
