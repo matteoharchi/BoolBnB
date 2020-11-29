@@ -413,19 +413,12 @@ $(document).ready(function () {
         return new Array(newY, newX);
     }
     $('#scroll-right').on('click',function(){
-        var position= $('.card-group').scrollLeft();
-        return $('.card-group').scrollLeft(position+=200);
+        return $('.card-group').stop().animate({scrollLeft:'+=300'},900);
     })
     $('#scroll-left').on('click',function(){
-        var position= $('.card-group').scrollLeft();
-        return $('.card-group').scrollLeft(position-=200);
+        return $('.card-group').stop().animate({scrollLeft:'-=300'},900);
     })
     
-    function scrollButtonSx(button, place){
-        var buttonRight= $(button);
-        var position= $(place).scrollLeft();
-        return $(place).scrollLeft(position-=200);
-    }
 });
 
 

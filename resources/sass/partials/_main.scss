@@ -21,9 +21,8 @@ main {
         .view {
             .scrollMenu {
 
-                overflow-y: hidden;
+                overflow: hidden;
                 flex-wrap: nowrap;
-
                 .card {
                     border-radius: 10px;
                     flex: 0 0 auto;
@@ -63,6 +62,27 @@ main {
                     }
                 }
             }
+        }
+        button.scroll{
+            padding: 10px 17px;
+            background-color: rgba($color: #fff, $alpha: 0);
+            color: #ff385c;
+            border-radius: 50%;
+            border: 1px solid #ff385f;
+            top: 50%;
+            transform: translateY(-50%);
+            outline: none;
+        }
+        button.scroll:hover{
+            background-color: #ff385c;
+            color: white;
+            
+        }
+        #scroll-right{
+            right: -70px;
+        }
+        #scroll-left{
+            left:-70px;
         }
 
         .host {
@@ -438,12 +458,22 @@ main {
     }
 
 }
+@media screen and (max-width:1320px) and (min-width:992px){
+    main .container button#scroll-right{
+        right: -1.30rem;
+    }
+    main .container button#scroll-left{
+        left: -1.30rem;
+    }
+}
 
 @media screen and (max-width: 1198px) and (min-width: 992px) {
 
     .apartment {
         width: 40% !important;
+        
     }
+    
 
     .services-bar {
         display: block;
@@ -470,7 +500,19 @@ main {
             height: 125px;
         }
     }
-
+    main .container{
+        #scroll-right{
+            background-color: rgba($color: #fff, $alpha: 0);
+            right: -10px;
+            border: none;
+        }
+        #scroll-left{
+            background-color: rgba($color: #fff, $alpha: 0);
+            left: -10px;
+            border: none;
+        }
+        
+    }
 
 }
 
@@ -520,6 +562,10 @@ main {
                     bottom: 0px;
                 }
             }
+            
+        }
+        .container #scroll-right,#scroll-left {
+            display: none;
         }
 
         #services-btn {
