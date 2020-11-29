@@ -64,12 +64,12 @@
           
           @auth
           <a href="{{route('houses.create')}}">
-            <img src="{{ asset('/images/host.jpg') }}" alt="" class="ombra">
+            <img src="{{ asset('/images/host.jpg') }}" alt="host-img" class="ombra">
           </a>
           @endauth
           @guest
           <a href="{{ route('register') }}">
-            <img src="{{ asset('/images/host.jpg') }}" alt="" class="ombra">
+            <img src="{{ asset('/images/host.jpg') }}" alt="host-img" class="ombra">
           </a>
           @endguest
           

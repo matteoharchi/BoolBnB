@@ -36,8 +36,6 @@
       </div>
 
         <div class="row" style="padding-bottom: 20px;">
-          
-        
           <div class="house-ctr-search col-12 col-md-6">
             <div class="search-no-results">Non ci sono risultati per questa ricerca</div>
             {{-- contenitore ricerche annunci sponsorizzati --}}

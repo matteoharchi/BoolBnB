@@ -134,7 +134,7 @@ class HousesTableSeeder extends Seeder {
             [
                 'title' => "Il Giardino dei Gi, great flat with large terrace",
                 'description' => "The apartment is part of a house with large garden, in a quiet area though close to the city center (10 minutes by car to Prato della Valle, Basilica del Santo, Hospitals), accessible by public transport (600m from bus #3 stop).
-                It's also a good location to easily go to Venice.",
+                It is also a good location to easily go to Venice.",
                 'rooms' => 2,
                 'beds' => 3,
                 'bathrooms' => 1,
@@ -177,6 +177,82 @@ class HousesTableSeeder extends Seeder {
                 'user_id' => 3,
             ],
 
+            [
+                'title' => "Suite Pantheon Apartment with Jacuzzi",
+                'description' => "Delizioso monolocale, recentemente ristrutturato, nel cuore del centro storico, in splendido palazzo d'epoca dotato di servizio di portineria, al 3° piano con ascensore. Dispone di una zona notte con un comodo letto matrimoniale, cucinotto interamente attrezzato, bagno e vasca idromassaggio per due, per un'esperienza unica e rilassante. Internet Wi-Fi, aria condizionata e riscaldamento a disposizione senza alcun supplemento.",
+                'rooms' => 1,
+                'beds' => 2,
+                'bathrooms' => 1,
+                'price' => 40,
+                'size' => 45,
+                'address' => "Via della Rotonda, 21, Roma RM",
+                'long' => 12.476421,
+                'lat' => 41.898506,
+                'img' => "https://a0.muscache.com/im/pictures/e4d54974-f0be-4cd2-9e77-bb1f248bd926.jpg?im_w=1200https://a0.muscache.com/im/pictures/e4d54974-f0be-4cd2-9e77-bb1f248bd926.jpg?im_w=1200",
+                'user_id' => 3,
+            ],
+
+            [
+                'title' => "Romantic suite in Campo de Fiori",
+                'description' => "A beautiful romantic loft located in Campo de fiori, the heart of the historical center of the Eternal City, in few steps from Piazza Navona and Pantheon. The flat is on the third floor in a classic Roman building. Our crew will be pleased to welcome guests and provide them a memorable experience in the eternal city.",
+                'rooms' => 1,
+                'beds' => 2,
+                'bathrooms' => 1,
+                'price' => 50,
+                'size' => 35,
+                'address' => "Via del Biscione, 99, Roma RM",
+                'long' => 12.472870,
+                'lat' => 41.895541,
+                'img' => "https://a0.muscache.com/im/pictures/e4d54974-f0be-4cd2-9e77-bb1f248bd926.jpg?im_w=1200",
+                'user_id' => 2,
+            ],
+
+            [
+                'title' => "Nuoro Bed and breakfast Majore da 2 a 4 posti letto",
+                'description' => "Il B&B si presenta come un‘unico ambiente specifico per una sola persona, per una coppia, amici, oppure per una famiglia, in quanto è posto su più livelli ed offre degli ampi spazi aperti comunicanti tra loro. Il prezzo si intende a per persona a notte.",
+                'rooms' => 1,
+                'beds' => 2,
+                'bathrooms' => 1,
+                'price' => 30,
+                'size' => 45,
+                'address' => "Via Sicilia, 28, Nuoro NU",
+                'long' => 9.324891,
+                'lat' => 40.319536,
+                'img' => "https://a0.muscache.com/im/pictures/e704cee6-bbcf-47dc-8523-98a5a72f63cd.jpg?im_w=1200",
+                'user_id' => 1,
+            ],
+
+            [
+                'title' => "Al Fortino",
+                'description' => "Fortino risalente ultima guerra, riconvertito in un rustico appartamento, situato a 150 metri dal mare tra la spiaggia della Guitgia e cala croce. Questo appartamento semplice e accogliente è dotato di cucina con bancone, sala da pranzo, camera matrimoniale, bagno e un bellissimo giardino con barbecue e doccia. Perfetto per chi ama la tranquillità.
+                Vi aspettiamo questa estate per rendervi più piacevole la vostra permanenza in una delle isole più belle al mondo.",
+                'rooms' => 1,
+                'beds' => 2,
+                'bathrooms' => 1,
+                'price' => 40,
+                'size' => 55,
+                'address' => "Via Bonfiglio G., Lampedusa AG",
+                'long' => 12.579535,
+                'lat' => 35.522331,
+                'img' => "https://a0.muscache.com/im/pictures/02af12c2-ac78-4728-b0e1-c0e742c1d8f8.jpg?im_w=1200",
+                'user_id' => 1,
+            ],
+
+            [
+                'title' => "Relax con piscina a due passi da Chia / SANIFICATA",
+                'description' => "La posizione di Villa Arkimissa offre agli ospiti una fantastica vista sulle colline che circondano la zona e garantisce tranquillità e privacy.
+                La villa, finemente arredata, è su due livelli ed è circondata da un meraviglioso giardino dotato di piscina privata (2.50 m x 10 m, 1.30 m di profondità).",
+                'rooms' => 3,
+                'beds' => 6,
+                'bathrooms' => 2,
+                'price' => 210,
+                'size' => 350,
+                'address' => "Viale Bithia, 12, Domus de Maria, SU",
+                'long' => 8.866157,
+                'lat' => 38.943268,
+                'img' => "https://a0.muscache.com/im/pictures/a8b2bd76-08bb-479c-bf78-4f70b63adceb.jpg?im_w=1200",
+                'user_id' => 2,
+            ],
         ];
 
         // Prendo servizi e count
@@ -184,7 +260,7 @@ class HousesTableSeeder extends Seeder {
         $servicesCount = count(Service::all()->toArray());
 
         // Creo le case inserite nel db seedHouses
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $newHouse = new House;
             $newHouse->title = $seedHouses[$i]['title'];
             $newHouse->description = $seedHouses[$i]['description'];
@@ -207,55 +283,5 @@ class HousesTableSeeder extends Seeder {
             // Attacco i servizi casuali
             $newHouse->services()->attach($services->random(rand(1, $servicesCount))->pluck('id')->toArray());
         }
-
-        // foreach ($seedHouses as $seedHouse) {
-        //     DB::table('houses')->insert([
-        //         'title' => $seedHouse['title'],
-        //         'description' => $seedHouse['description'],
-        //         'rooms' => $seedHouse['rooms'],
-        //         'beds' => $seedHouse['beds'],
-        //         'bathrooms' => $seedHouse['bathrooms'],
-        //         'price' => $seedHouse['price'],
-        //         'size' => $seedHouse['size'],
-        //         'address' => $seedHouse['address'],
-        //         'long' => $seedHouse['long'],
-        //         'lat' => $seedHouse['lat'],
-        //         'img' => $seedHouse['img'],
-        //         'user_id' => $seedHouse['user_id'],
-        //         'visible' => 1,
-        //         'slug' => Str::slug($seedHouse['title']),
-        //         'created_at' => Carbon::now(),
-        //         'updated_at' => Carbon::now(),
-        //     ]);
-        // }
-
-        // Faker per appartamenti
-
-        // public function run(Faker $faker)
-        // {
-        //     $users = User::all();
-
-        //     for ($i=0; $i < 3; $i++) {
-        //         $newHouse = new House;
-        //         $newHouse->title = $faker->sentence(3);
-        //         $newHouse->description = $faker->text(500);
-        //         $newHouse->slug = Str::slug($newHouse->title);
-        //         $newHouse->rooms = $faker->randomDigitNotNull;
-        //         $newHouse->beds = $faker->randomDigitNotNull;
-        //         $newHouse->bathrooms = $faker->numberBetween(1, 3);
-        //         $newHouse->price = $faker->numberBetween(30, 300);
-        //         $newHouse->size = $faker->numberBetween(20, 150);
-        //         $newHouse->address = $faker->city.' '.$faker->streetAddress;
-        //         $newHouse->long = $faker->longitude(-180, 180);
-        //         $newHouse->lat = $faker->latitude(-90, 90);
-        //         $newHouse->img = $faker->imageUrl(640, 480);
-        //         $newHouse->visible = 1;
-        //         $newHouse->created_at = Carbon::now('Europe/Rome');
-        //         $newHouse->updated_at = Carbon::now('Europe/Rome');
-        //         $newHouse->user_id = $users->random()->id;
-        //         $newHouse->save();
-        //       }
-        // }
     }
-
 }
