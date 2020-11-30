@@ -87,7 +87,7 @@ class SponsorController extends Controller {
                 $saved = $newTransaction->save();
                 // messaggio di successo in caso di transazione avvenuta
                 if ($saved) {
-                    return back()->with('success_message', 'Transazione andata a buon fine. ID pagamento: ' . $transaction->id);
+                    return redirect(route('houses.index'))->with('status', 'Transazione andata a buon fine. ID pagamento: ' . $transaction->id);
                 }
             } else {
                 $errorString = "";
@@ -100,7 +100,7 @@ class SponsorController extends Controller {
             }
             // errore in caso di sponsorizzazione già attiva
         } else {
-            return back()->withErrors('Si è verificato un errore: ' . 'Hai già una sponsorizzazione attiva su questo annuncio');
+            return redirect(route('houses.index'))->withErrors('Si è verificato un errore: ' . 'Hai già una sponsorizzazione attiva su questo annuncio');
         }
     }
 

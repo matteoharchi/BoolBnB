@@ -8,7 +8,7 @@
 @endif
 
 @if ($errors->any())
-<div class="alert alert-danger error" style="position: absolute; width:100vw;">
+<div class="alert alert-danger error" style="position: absolute; width:100vw; height: 40px;">
     @foreach ($errors->all() as $error)
         <p>{{$error}}</p>
     @endforeach

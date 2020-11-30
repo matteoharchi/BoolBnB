@@ -7,6 +7,13 @@
         {{ session('status') }}
       </div>
 @endif
+@if ($errors->any())
+<div class="alert alert-danger error" style="position: absolute; width:100vw;">
+    @foreach ($errors->all() as $error)
+        <p>{{$error}}</p>
+    @endforeach
+</div>
+@endif
 
 <div class="container">
     

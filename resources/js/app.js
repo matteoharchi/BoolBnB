@@ -21,7 +21,6 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('houses', require('./components/Houses.vue').default);
-Vue.component('edit-user', require('./components/EditUser.vue').default);
 Vue.component('messages', require('./components/Messages.vue').default);
 Vue.component('transactions', require('./components/Transactions.vue').default);
 
@@ -38,13 +37,9 @@ const app = new Vue({
 
 
 $(document).ready(function () {
-    // Prima ricerca (venendo dalla homepage)
-    if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
-        $('#radius').val(20);
-        init();
-    }
+   
 
-    // Funzioni pagamenti
+    // FUNZIONI PAGAMENTI
 
     //funzione selezione sponsor 
 
@@ -66,7 +61,13 @@ $(document).ready(function () {
         $('#duration').val(duration);
     });
 
-    // Funzioni mappe 
+    // FUNZIONI MAPPE E RICERCA
+
+     // Prima ricerca (venendo dalla homepage)
+    if (location.href.indexOf('search') > -1 && ($('#search').val() !== undefined || $('#search').val() !== '')) {
+        $('#radius').val(20);
+        init();
+    }
 
     // Store lat, long e indirizzo esatto
     // Al focus out del campo dell'indirizzo ne salvo il valore e invoco la funzione che lancia la chiamata ajax
@@ -311,6 +312,73 @@ $(document).ready(function () {
         return deg * (Math.PI / 180);
     }
 
+    // Calcolo baricentro risultati per centramento mappa
+    function GetCenterFromDegrees(data) {
+        if (!(data.length > 0)) {
+            return false;
+        }
+
+        var num_coords = data.length;
+
+        var X = 0.0;
+        var Y = 0.0;
+        var Z = 0.0;
+
+        for (i = 0; i < data.length; i++) {
+            var lat = data[i][0] * Math.PI / 180;
+            var lon = data[i][1] * Math.PI / 180;
+
+            var a = Math.cos(lat) * Math.cos(lon);
+            var b = Math.cos(lat) * Math.sin(lon);
+            var c = Math.sin(lat);
+
+            X += a;
+            Y += b;
+            Z += c;
+        }
+
+        X /= num_coords;
+        Y /= num_coords;
+        Z /= num_coords;
+
+        var lon = Math.atan2(Y, X);
+        var hyp = Math.sqrt(X * X + Y * Y);
+        var lat = Math.atan2(Z, hyp);
+
+        var newX = (lat * 180 / Math.PI).toFixed(6);
+        var newY = (lon * 180 / Math.PI).toFixed(6);
+
+        return new Array(newY, newX);
+    }
+
+    //toggle servizi search
+    $("#services-btn").click(function () {
+        $(".services-bar").slideToggle(1000);
+    });
+
+    
+
+
+    //CREATE ED EDIT
+
+    // Aggiornamento automatico anteprima foto casa in fase di upload
+
+    $("input[type=file]").on('change', function () {
+        var file = $(this).get(0).files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                $(".previewImg").attr("src", reader.result);
+                $(".previewImg").attr({ "width": "300px", "height": "187.5px" });
+            }
+
+            reader.readAsDataURL(file);
+        }
+    });
+
+    //FUNZIONI BANNER E ALERT
     //banner successo o errore
     setTimeout(() => {
         $('.conferma, .error').fadeOut();
@@ -351,68 +419,17 @@ $(document).ready(function () {
         });
     });
 
+    //alert messaggio inviato con successo
 
-    //toggle servizi search
-    $("#services-btn").click(function () {
-        $(".services-bar").slideToggle(1000);
+    $('#send-btn').on('click', function(){
+            swal({
+                button:false,
+                text: "Messaggio inviato!"
+            });          
+        
     });
-
-    // Aggiornamento automatico anteprima foto casa in fase di upload
-
-    $("input[type=file]").on('change', function () {
-        var file = $(this).get(0).files[0];
-
-        if (file) {
-            var reader = new FileReader();
-
-            reader.onload = function () {
-                $(".previewImg").attr("src", reader.result);
-                $(".previewImg").attr({ "width": "300px", "height": "187.5px" });
-            }
-
-            reader.readAsDataURL(file);
-        }
-    });
-
-    // Calcolo baricentro risultati per centramento mappa
-    function GetCenterFromDegrees(data) {
-        if (!(data.length > 0)) {
-            return false;
-        }
-
-        var num_coords = data.length;
-
-        var X = 0.0;
-        var Y = 0.0;
-        var Z = 0.0;
-
-        for (i = 0; i < data.length; i++) {
-            var lat = data[i][0] * Math.PI / 180;
-            var lon = data[i][1] * Math.PI / 180;
-
-            var a = Math.cos(lat) * Math.cos(lon);
-            var b = Math.cos(lat) * Math.sin(lon);
-            var c = Math.sin(lat);
-
-            X += a;
-            Y += b;
-            Z += c;
-        }
-
-        X /= num_coords;
-        Y /= num_coords;
-        Z /= num_coords;
-
-        var lon = Math.atan2(Y, X);
-        var hyp = Math.sqrt(X * X + Y * Y);
-        var lat = Math.atan2(Z, hyp);
-
-        var newX = (lat * 180 / Math.PI).toFixed(6);
-        var newY = (lon * 180 / Math.PI).toFixed(6);
-
-        return new Array(newY, newX);
-    }
-
+    
+    //HOME
     //scroll buttons home
     $('#scroll-right').on('click',function(){
         return $('.card-group').stop().animate({scrollLeft:'+=300'},900);

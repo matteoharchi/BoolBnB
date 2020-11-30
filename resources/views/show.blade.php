@@ -100,7 +100,7 @@
                   <label for="body">Domanda</label>
                   <textarea class="form-control" id="body" rows="6" name="body" required></textarea>
                 </div>
-                <button type="submit" class="btn float-right mt-3 btn-white">Invia la tua domanda</button>
+                <button id="send-btn" type="submit" class="btn float-right mt-3 btn-white">Invia la tua domanda</button>
           </form>
         @endif
 
